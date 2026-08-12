@@ -37,13 +37,13 @@ const categories: Category[] = ["All", "Automobile", "Architecture", "Product", 
 
 const dashboardData = [
   { index: "01", category: "Architecture" as const, title: "Built forms in changing light.", service: "Buildings · Interiors · Hospitality", copy: "Spatial studies, material details, and quiet geometry for places with a point of view.", stats: ["07 locations", "03 days", "24 final frames"], primary: photos[0], secondary: photos[2] },
-  { index: "02", category: "Automobile" as const, title: "Motion, held for a second.", service: "Car designs · Vehicle campaigns", copy: "Campaign-ready automotive frames with pace, atmosphere, and a precise sense of place.", stats: ["05 locations", "02 cars", "18 final frames"], primary: photos[12], secondary: photos[13] },
+  { index: "02", category: "Automobile" as const, title: "Motion, held for a second.", service: "Vehicle campaigns · Detail studies", copy: "A dedicated visual board built from the supplied SidshotsMedia archive, ready for the next automotive series.", stats: ["05 locations", "12 supplied frames", "18 final frames"], primary: photos[4], secondary: photos[8] },
   { index: "03", category: "Product" as const, title: "Objects with a pulse.", service: "Objects · Interiors · Details", copy: "Tactile product stories that make the useful feel considered, desirable, and alive.", stats: ["04 sets", "11 surfaces", "32 final frames"], primary: photos[1], secondary: photos[6] },
 ];
 
 const dashboardPhotoMap: Record<(typeof dashboardData)[number]["category"], Photo[]> = {
   Architecture: [photos[0], photos[2], photos[3], photos[5], photos[7], photos[9], photos[0], photos[2], photos[3], photos[5], photos[7], photos[9]],
-  Automobile: [photos[12], photos[13], photos[14], photos[15], photos[12], photos[13], photos[14], photos[15], photos[12], photos[13], photos[14], photos[15]],
+  Automobile: [photos[4], photos[8], photos[0], photos[3], photos[5], photos[7], photos[1], photos[2], photos[6], photos[9], photos[10], photos[11]],
   Product: [photos[1], photos[6], photos[8], photos[10], photos[4], photos[11], photos[1], photos[6], photos[8], photos[10], photos[4], photos[11]],
 };
 

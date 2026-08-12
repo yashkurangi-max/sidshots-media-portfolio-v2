@@ -40,3 +40,6 @@
 - [x] Audit the supplied images and assign only suitable Architecture, Automobile, and Product work to each category.
 - [x] Update gallery filters, dashboard boards, labels, and category counts to match the corrected assignments.
 - [x] Verify category accuracy and responsive dashboard behavior, then save a corrected checkpoint.
+- [x] Map the supplied ZIP images directly into the Architecture, Automobile, and Product dashboard boards.
+- [x] Preserve 12 photo slots plus the add tile while using only the supplied archive assets in those boards.
+- [x] Verify dashboard photo rendering and single-photo viewing, then save a checkpoint.
