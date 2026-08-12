@@ -48,18 +48,33 @@ const vehiclePhotos: Photo[] = [
   { id: "V12", title: "Desert rider", category: "Automobile", image: "/manus-storage/vehicle-12-motorcycle-desert_7aeb1be7.jpg", alt: "Motorcycle rider photographed in a bright sandy landscape", tile: "tile-square" },
 ];
 
+const productPhotos: Photo[] = [
+  { id: "P01", title: "Perfume object", category: "Product", image: "/manus-storage/product-01-perfume_0506998b.jpg", alt: "Minimal perfume bottle photographed on a clean white set", tile: "tile-wide" },
+  { id: "P02", title: "Graphic package", category: "Product", image: "/manus-storage/product-02-packaging_cedafd4e.jpg", alt: "Black and white cosmetic package arranged as a graphic still life", tile: "tile-tall" },
+  { id: "P03", title: "Green jar", category: "Product", image: "/manus-storage/product-03-jar_3e9421bc.jpg", alt: "Small product jar styled against tropical green leaves", tile: "tile-square" },
+  { id: "P04", title: "Shoe flatlay", category: "Product", image: "/manus-storage/product-04-shoe-flatlay_21fb08d5.jpg", alt: "White shoe and small objects arranged in a botanical flatlay", tile: "tile-wide" },
+  { id: "P05", title: "Pink watch", category: "Product", image: "/manus-storage/product-05-watch-pink_d718b32e.jpg", alt: "Pink watch photographed in a diagonal shaft of light", tile: "tile-tall" },
+  { id: "P06", title: "Textile watch", category: "Product", image: "/manus-storage/product-06-watch-textile_c50ff9dd.jpg", alt: "Watch arranged on colorful folded textiles", tile: "tile-square" },
+  { id: "P07", title: "White leather", category: "Product", image: "/manus-storage/product-07-white-handbag_251427ba.jpg", alt: "White handbag styled against soft neutral fabric", tile: "tile-wide" },
+  { id: "P08", title: "Orange silhouette", category: "Product", image: "/manus-storage/product-08-orange-handbag_3f54a641.jpg", alt: "Orange handbag photographed against bold color blocks", tile: "tile-tall" },
+  { id: "P09", title: "Green sneaker", category: "Product", image: "/manus-storage/product-09-sneaker-green_1b5b7141.jpg", alt: "White sneaker floating against a deep green background", tile: "tile-square" },
+  { id: "P10", title: "Watch and chess", category: "Product", image: "/manus-storage/product-10-watch-still-life_b2af5168.jpg", alt: "Smartwatch arranged with chess pieces and a small wooden block", tile: "tile-wide" },
+  { id: "P11", title: "Perfume detail", category: "Product", image: "/manus-storage/product-01-perfume_0506998b.jpg", alt: "Close product detail of the perfume bottle on a clean white set", tile: "tile-tall" },
+  { id: "P12", title: "Watch detail", category: "Product", image: "/manus-storage/product-10-watch-still-life_b2af5168.jpg", alt: "Close product detail of a smartwatch styled with chess pieces", tile: "tile-square" },
+];
+
 const categories: Category[] = ["All", "Automobile", "Architecture", "Product", "Editorial", "Portrait"];
 
 const dashboardData = [
   { index: "01", category: "Architecture" as const, title: "Built forms in changing light.", service: "Buildings · Interiors · Hospitality", copy: "Spatial studies, material details, and quiet geometry for places with a point of view.", stats: ["07 locations", "03 days", "24 final frames"], primary: photos[0], secondary: photos[2] },
   { index: "02", category: "Automobile" as const, title: "Motion, held for a second.", service: "Vehicles · Motorcycles · Road stories", copy: "A field-ready automotive board built from the vehicle work in the supplied SidshotsMedia archive.", stats: ["12 vehicle frames", "06 road studies", "18 final frames"], primary: vehiclePhotos[0], secondary: vehiclePhotos[6] },
-  { index: "03", category: "Product" as const, title: "Objects with a pulse.", service: "Objects · Interiors · Details", copy: "Tactile product stories that make the useful feel considered, desirable, and alive.", stats: ["04 sets", "11 surfaces", "32 final frames"], primary: photos[1], secondary: photos[6] },
+  { index: "03", category: "Product" as const, title: "Objects with a pulse.", service: "Objects · Beauty · Fashion", copy: "Tactile product stories built from the supplied archive, making useful things feel considered, desirable, and alive.", stats: ["12 supplied frames", "08 set-ups", "32 final frames"], primary: productPhotos[0], secondary: productPhotos[7] },
 ];
 
 const dashboardPhotoMap: Record<(typeof dashboardData)[number]["category"], Photo[]> = {
   Architecture: [photos[0], photos[2], photos[3], photos[5], photos[7], photos[9], photos[0], photos[2], photos[3], photos[5], photos[7], photos[9]],
   Automobile: vehiclePhotos,
-  Product: [photos[1], photos[6], photos[8], photos[10], photos[4], photos[11], photos[1], photos[6], photos[8], photos[10], photos[4], photos[11]],
+  Product: productPhotos,
 };
 
 export default function Home() {

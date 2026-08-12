@@ -46,3 +46,6 @@
 - [x] Inspect the supplied archive for vehicle photographs suitable for the Automobile dashboard.
 - [x] Replace the Automobile dashboard board assets with supplied vehicle photographs while preserving 12 slots and the add tile.
 - [x] Verify the updated Automobile board and focused photo viewer, then save a checkpoint.
+- [x] Inspect the supplied archive for product photographs suitable for the Product dashboard.
+- [x] Replace the Product dashboard board assets with supplied product photographs while preserving 12 slots and the add tile.
+- [x] Verify the updated Product board and focused photo viewer, then save a checkpoint.
