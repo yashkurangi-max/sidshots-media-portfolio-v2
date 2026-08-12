@@ -37,3 +37,6 @@
 - [x] Inspect newsidshots_portfolio.zip and map its images to Architecture, Automobile, Product, and supporting categories.
 - [x] Import the supplied assets and replace current sample photo references.
 - [x] Verify the supplied images across strips, dashboards, and the single-photo viewer, then save a checkpoint.
+- [x] Audit the supplied images and assign only suitable Architecture, Automobile, and Product work to each category.
+- [x] Update gallery filters, dashboard boards, labels, and category counts to match the corrected assignments.
+- [x] Verify category accuracy and responsive dashboard behavior, then save a corrected checkpoint.

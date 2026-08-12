@@ -27,20 +27,24 @@ const photos: Photo[] = [
   { id: "10", title: "Evening facade", category: "Architecture", image: "/manus-storage/10-evening-facade_1a5397e9.jpg", alt: "Restaurant facade and terrace arranged for evening service", tile: "tile-tall" },
   { id: "11", title: "Reception geometry", category: "Product", image: "/manus-storage/11-reception-geometry_e87d1fbd.jpg", alt: "Minimal reception desk with warm wood, stone, and a circular mirror", tile: "tile-square" },
   { id: "12", title: "Material detail", category: "Editorial", image: "/manus-storage/01-dining-room_d033637f.jpg", alt: "Editorial detail of a bright hospitality interior and layered materials", tile: "tile-tall" },
+  { id: "13", title: "Night drive", category: "Automobile", image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1400&q=88", alt: "Black sports car photographed on a road at night", tile: "tile-wide" },
+  { id: "14", title: "Body line", category: "Automobile", image: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1400&q=88", alt: "Low front view of a polished sports car", tile: "tile-tall" },
+  { id: "15", title: "Red signal", category: "Automobile", image: "https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=1400&q=88", alt: "Red performance car captured in directional light", tile: "tile-square" },
+  { id: "16", title: "Open road", category: "Automobile", image: "https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1400&q=88", alt: "Vehicle moving along an open road in warm light", tile: "tile-wide" },
 ];
 
 const categories: Category[] = ["All", "Automobile", "Architecture", "Product", "Editorial", "Portrait"];
 
 const dashboardData = [
-  { index: "01", category: "Architecture" as const, title: "Built forms in changing light.", service: "Buildings · Interiors · 3D renders", copy: "Spatial studies, material details, and quiet geometry for places with a point of view.", stats: ["07 locations", "03 days", "24 final frames"], primary: photos[1], secondary: photos[10] },
-  { index: "02", category: "Automobile" as const, title: "Motion, held for a second.", service: "Car designs · Vehicle concepts", copy: "Campaign-ready automotive frames with pace, atmosphere, and a precise sense of place.", stats: ["05 locations", "02 cars", "18 final frames"], primary: photos[0], secondary: photos[7] },
-  { index: "03", category: "Product" as const, title: "Objects with a pulse.", service: "Prototypes · Branding · UI", copy: "Tactile product stories that make the useful feel considered, desirable, and alive.", stats: ["04 sets", "11 surfaces", "32 final frames"], primary: photos[2], secondary: photos[11] },
+  { index: "01", category: "Architecture" as const, title: "Built forms in changing light.", service: "Buildings · Interiors · Hospitality", copy: "Spatial studies, material details, and quiet geometry for places with a point of view.", stats: ["07 locations", "03 days", "24 final frames"], primary: photos[0], secondary: photos[2] },
+  { index: "02", category: "Automobile" as const, title: "Motion, held for a second.", service: "Car designs · Vehicle campaigns", copy: "Campaign-ready automotive frames with pace, atmosphere, and a precise sense of place.", stats: ["05 locations", "02 cars", "18 final frames"], primary: photos[12], secondary: photos[13] },
+  { index: "03", category: "Product" as const, title: "Objects with a pulse.", service: "Objects · Interiors · Details", copy: "Tactile product stories that make the useful feel considered, desirable, and alive.", stats: ["04 sets", "11 surfaces", "32 final frames"], primary: photos[1], secondary: photos[6] },
 ];
 
 const dashboardPhotoMap: Record<(typeof dashboardData)[number]["category"], Photo[]> = {
-  Architecture: [photos[1], photos[5], photos[10], photos[11], photos[6], photos[4], photos[8], photos[9], photos[2], photos[3], photos[7], photos[0]],
-  Automobile: [photos[0], photos[7], photos[9], photos[4], photos[8], photos[1], photos[10], photos[5], photos[3], photos[6], photos[2], photos[11]],
-  Product: [photos[2], photos[11], photos[3], photos[6], photos[1], photos[10], photos[4], photos[8], photos[0], photos[7], photos[5], photos[9]],
+  Architecture: [photos[0], photos[2], photos[3], photos[5], photos[7], photos[9], photos[0], photos[2], photos[3], photos[5], photos[7], photos[9]],
+  Automobile: [photos[12], photos[13], photos[14], photos[15], photos[12], photos[13], photos[14], photos[15], photos[12], photos[13], photos[14], photos[15]],
+  Product: [photos[1], photos[6], photos[8], photos[10], photos[4], photos[11], photos[1], photos[6], photos[8], photos[10], photos[4], photos[11]],
 };
 
 export default function Home() {
