@@ -78,8 +78,8 @@ export default function Home() {
       <header className="site-header">
         <button className="brand-lockup" onClick={() => scrollTo("top")} aria-label="Back to top">
           <span className="brand-mark"><span className="aperture-mark" aria-hidden="true"><i /><i /><i /><i /><i /><i /></span></span>
-          <span className="brand-name">Jasper Hale</span>
-          <span className="brand-role">Commercial photographer</span>
+          <span className="brand-name">Sidshotsmedia</span>
+          <span className="brand-role">by Jasper Hale</span>
         </button>
         <nav className={menuOpen ? "site-nav is-open" : "site-nav"} aria-label="Primary navigation">
           <button onClick={() => scrollTo("work")}>Selected work <span>04</span></button>
@@ -94,7 +94,8 @@ export default function Home() {
       <main id="top">
         <section className="hero-section section-pad">
           <div className="hero-copy reveal-up">
-            <div className="eyebrow"><span className="eyebrow-dot" /> Jasper Hale / Visual storyteller</div>
+            <div className="eyebrow"><span className="eyebrow-dot" /> Sidshotsmedia / Visual storyteller</div>
+            <div className="hero-wordmark">Sidshotsmedia<span>™</span></div>
             <h1>Make the useful<br /><em>unforgettable.</em></h1>
             <p className="hero-description">Commercial photography for brands with something worth looking at twice — from the road to the room, from the object to the person.</p>
             <div className="hero-actions">
@@ -190,7 +191,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="site-footer section-pad"><div className="footer-brand"><span className="brand-mark"><span className="aperture-mark" aria-hidden="true"><i /><i /><i /><i /><i /><i /></span></span><span className="brand-name">Jasper Hale</span></div><div className="footer-contact"><span>Available for selected projects / 2024</span><a href="mailto:studio@jasperhale.co">studio@jasperhale.co <ArrowUpRight size={14} /></a></div><div className="footer-social"><a href="#top">Instagram</a><a href="#top">Are.na</a><a href="#top">Back to top ↑</a></div></footer>
+      <footer className="site-footer section-pad"><div className="footer-brand"><span className="brand-mark"><span className="aperture-mark" aria-hidden="true"><i /><i /><i /><i /><i /><i /></span></span><span className="brand-name">Sidshotsmedia</span></div><div className="footer-contact"><span>Available for selected projects / 2024</span><a href="mailto:studio@jasperhale.co">studio@jasperhale.co <ArrowUpRight size={14} /></a></div><div className="footer-social"><a href="#top">Instagram</a><a href="#top">Are.na</a><a href="#top">Back to top ↑</a></div></footer>
     </div>
   );
 }
