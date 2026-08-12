@@ -16,3 +16,6 @@
 - [x] Verify the new portfolio on desktop and mobile, then save a fresh checkpoint.
 - [x] Ensure the new portfolio content, imagery, labels, and interactions are explicitly photography-focused.
 - [x] Rebuild the fresh reference-inspired photography composition and verify it across responsive layouts.
+- [x] Replace the current white editorial page with a black trophy-style collage canvas matching the supplied screenshot.
+- [x] Build a dense white-framed photography wall with colorful images, centered wordmark, and compact CTA navigation.
+- [x] Verify the collage on desktop/mobile and save a fresh checkpoint.
