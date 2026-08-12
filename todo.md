@@ -22,3 +22,6 @@
 - [x] Replace the static photo wall with two horizontal automatic photography strips.
 - [x] Add opposite-direction motion, hover pause, and reduced-motion support.
 - [x] Verify desktop/mobile behavior and save the moving-strip checkpoint.
+- [x] Add dedicated Architecture, Automobile, and Product photography dashboards after the moving strips.
+- [x] Add dashboard metrics, featured frames, and category actions that connect to the gallery.
+- [x] Verify the dashboards on desktop/mobile and save the updated checkpoint.

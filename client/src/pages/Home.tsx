@@ -31,6 +31,12 @@ const photos: Photo[] = [
 
 const categories: Category[] = ["All", "Automobile", "Architecture", "Product", "Editorial", "Portrait"];
 
+const dashboardData = [
+  { index: "01", category: "Architecture" as const, title: "Built forms in changing light.", copy: "Spatial studies, material details, and quiet geometry for places with a point of view.", stats: ["07 locations", "03 days", "24 final frames"], primary: photos[1], secondary: photos[10] },
+  { index: "02", category: "Automobile" as const, title: "Motion, held for a second.", copy: "Campaign-ready automotive frames with pace, atmosphere, and a precise sense of place.", stats: ["05 locations", "02 cars", "18 final frames"], primary: photos[0], secondary: photos[7] },
+  { index: "03", category: "Product" as const, title: "Objects with a pulse.", copy: "Tactile product stories that make the useful feel considered, desirable, and alive.", stats: ["04 sets", "11 surfaces", "32 final frames"], primary: photos[2], secondary: photos[11] },
+];
+
 export default function Home() {
   const [activeCategory, setActiveCategory] = useState<Category>("All");
   const [menuOpen, setMenuOpen] = useState(false);
@@ -55,7 +61,7 @@ export default function Home() {
       <header className="collage-header">
         <nav className="collage-nav collage-nav-left" aria-label="Main navigation">
           <button onClick={() => scrollTo("top")}>Home</button>
-          <button onClick={() => scrollTo("archive")}>Entries</button>
+          <button onClick={() => scrollTo("dashboards")}>Dashboards</button>
           <button onClick={() => scrollTo("booking")}>Bookings</button>
         </nav>
 
@@ -69,7 +75,7 @@ export default function Home() {
           <button className="collage-cta" onClick={() => scrollTo("booking")}>See the work <ArrowUpRight size={15} /></button>
         </div>
         <button className="collage-menu" onClick={() => setMenuOpen((open) => !open)} aria-label={menuOpen ? "Close menu" : "Open menu"}>{menuOpen ? <X size={19} /> : <Menu size={19} />}</button>
-        {menuOpen && <nav className="collage-mobile-nav" aria-label="Mobile navigation"><button onClick={() => scrollTo("top")}>Home</button><button onClick={() => scrollTo("archive")}>Entries</button><button onClick={() => scrollTo("booking")}>Bookings</button></nav>}
+        {menuOpen && <nav className="collage-mobile-nav" aria-label="Mobile navigation"><button onClick={() => scrollTo("top")}>Home</button><button onClick={() => scrollTo("dashboards")}>Dashboards</button><button onClick={() => scrollTo("booking")}>Bookings</button></nav>}
       </header>
 
       <main id="top">
@@ -81,6 +87,18 @@ export default function Home() {
         <section className="moving-gallery" id="archive" aria-label="SidshotsMedia moving photography archive">
           <div className="moving-strip moving-strip-forward"><div className="moving-strip-track">{[...stripOne, ...stripOne].map((photo, index) => <button className="moving-photo" key={`${photo.id}-forward-${index}`} onClick={() => setSelectedPhoto(photo)} aria-label={`View ${photo.title}, ${photo.category}`}><span className="moving-photo-image"><img src={photo.image} alt={photo.alt} loading="lazy" /></span><span className="moving-photo-caption"><b>{photo.id}</b><span>{photo.category}</span><ChevronRight size={13} /></span></button>)}</div></div>
           <div className="moving-strip moving-strip-reverse"><div className="moving-strip-track">{[...stripTwo, ...stripTwo].map((photo, index) => <button className="moving-photo" key={`${photo.id}-reverse-${index}`} onClick={() => setSelectedPhoto(photo)} aria-label={`View ${photo.title}, ${photo.category}`}><span className="moving-photo-image"><img src={photo.image} alt={photo.alt} loading="lazy" /></span><span className="moving-photo-caption"><b>{photo.id}</b><span>{photo.category}</span><ChevronRight size={13} /></span></button>)}</div></div>
+        </section>
+
+        <section className="dashboard-suite" id="dashboards" aria-label="Photography dashboards">
+          <div className="dashboard-suite-head"><div><span className="collage-kicker">Working dashboards / 2026</span><h2>Three worlds.<br /><em>One visual language.</em></h2></div><p>A closer look at the three kinds of visual work SidshotsMedia makes most often — each with its own tempo, texture, and visual brief.</p></div>
+          <div className="dashboard-grid">{dashboardData.map((dashboard) => <article className="photo-dashboard" key={dashboard.category}>
+            <div className="dashboard-meta"><span>{dashboard.index} / {dashboard.category}</span><span>Selected dashboard</span></div>
+            <div className="dashboard-main">
+              <div className="dashboard-copy"><span className="dashboard-badge">Photography dashboard</span><h3>{dashboard.title}</h3><p>{dashboard.copy}</p><div className="dashboard-stats">{dashboard.stats.map((stat) => <span key={stat}>{stat}</span>)}</div><button className="dashboard-action" onClick={() => { setActiveCategory(dashboard.category); scrollTo("archive"); }}>Open {dashboard.category} frames <ArrowUpRight size={15} /></button></div>
+              <button className="dashboard-preview dashboard-preview-primary" onClick={() => setSelectedPhoto(dashboard.primary)} aria-label={`View ${dashboard.primary.title}`}><img src={dashboard.primary.image} alt={dashboard.primary.alt} loading="lazy" /><span><b>{dashboard.primary.id}</b>{dashboard.primary.title}<ChevronRight size={13} /></span></button>
+              <button className="dashboard-preview dashboard-preview-secondary" onClick={() => setSelectedPhoto(dashboard.secondary)} aria-label={`View ${dashboard.secondary.title}`}><img src={dashboard.secondary.image} alt={dashboard.secondary.alt} loading="lazy" /><span><b>{dashboard.secondary.id}</b>{dashboard.secondary.title}<ChevronRight size={13} /></span></button>
+            </div>
+          </article>)}</div>
         </section>
 
         <section className="collage-filter-bar" aria-label="Filter photography archive">
