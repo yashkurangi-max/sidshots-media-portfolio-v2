@@ -15,18 +15,18 @@ type Photo = {
 };
 
 const photos: Photo[] = [
-  { id: "01", title: "Night drive", category: "Automobile", image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1400&q=88", alt: "Black sports car photographed on a road", tile: "tile-wide" },
-  { id: "02", title: "Concrete horizon", category: "Architecture", image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1200&q=88", alt: "Modern white architecture against the sky", tile: "tile-tall" },
-  { id: "03", title: "A quiet object", category: "Product", image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=1200&q=88", alt: "Minimal skincare product photographed in soft light", tile: "tile-square" },
-  { id: "04", title: "Mara in afternoon light", category: "Editorial", image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1400&q=88", alt: "Editorial portrait in warm daylight", tile: "tile-wide" },
-  { id: "05", title: "Blue hour study", category: "Editorial", image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1000&q=88", alt: "Person walking through an open landscape", tile: "tile-tall" },
-  { id: "06", title: "Quiet summit", category: "Architecture", image: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1000&q=88", alt: "Snowy mountain peak under a dark sky", tile: "tile-square" },
-  { id: "07", title: "Green room", category: "Editorial", image: "https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=1000&q=88", alt: "Green leaves layered in close-up", tile: "tile-tall" },
-  { id: "08", title: "Road to nowhere", category: "Automobile", image: "https://images.unsplash.com/photo-1494783367193-149034c05e8f?auto=format&fit=crop&w=1200&q=88", alt: "Winding road through a green landscape", tile: "tile-wide" },
-  { id: "09", title: "Salt water", category: "Editorial", image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=88", alt: "Blue sea meeting a pale beach", tile: "tile-wide" },
-  { id: "10", title: "The long way home", category: "Automobile", image: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=88", alt: "Mountain road through a wide valley", tile: "tile-tall" },
-  { id: "11", title: "Forest frequency", category: "Architecture", image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1000&q=88", alt: "Sunlight filtering through a dense forest", tile: "tile-square" },
-  { id: "12", title: "Surface study", category: "Product", image: "https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&w=1000&q=88", alt: "Minimal chair and table in a bright interior", tile: "tile-tall" },
+  { id: "01", title: "The dining room", category: "Architecture", image: "/manus-storage/01-dining-room_d033637f.jpg", alt: "Bright dining room with layered tables, curved windows, and pendant lights", tile: "tile-wide" },
+  { id: "02", title: "Poolside still life", category: "Product", image: "/manus-storage/02-poolside-still-life_43b86f31.jpg", alt: "Poolside lounge with umbrellas, dark stone, and warm yellow cushions", tile: "tile-tall" },
+  { id: "03", title: "Courtyard waterline", category: "Architecture", image: "/manus-storage/03-courtyard-waterline_6f4fcd01.jpg", alt: "Lush courtyard architecture with a swimming pool and timber balconies", tile: "tile-square" },
+  { id: "04", title: "Warm interior", category: "Architecture", image: "/manus-storage/04-warm-interior_71aa8a86.jpg", alt: "Inviting interior with timber ceiling, lounge furniture, and sculptural lighting", tile: "tile-wide" },
+  { id: "05", title: "The long table", category: "Editorial", image: "/manus-storage/05-long-table_c4486230.jpg", alt: "Outdoor dining table set beside a tropical pool and garden", tile: "tile-tall" },
+  { id: "06", title: "Window light", category: "Architecture", image: "/manus-storage/06-window-light_9a1cc2b3.jpg", alt: "Minimal restaurant interior washed with soft daylight through tall windows", tile: "tile-square" },
+  { id: "07", title: "Quiet table", category: "Product", image: "/manus-storage/07-quiet-table_95f55067.jpg", alt: "Long dining table and chairs framed by translucent curtains", tile: "tile-tall" },
+  { id: "08", title: "Mural room", category: "Architecture", image: "/manus-storage/08-mural-room_bf47f2fd.jpg", alt: "Bright dining room with botanical wall murals and blue chairs", tile: "tile-wide" },
+  { id: "09", title: "Terrace study", category: "Product", image: "/manus-storage/09-terrace-study_1ac0a757.jpg", alt: "Rooftop terrace with graphic paving, tables, and a distant city view", tile: "tile-wide" },
+  { id: "10", title: "Evening facade", category: "Architecture", image: "/manus-storage/10-evening-facade_1a5397e9.jpg", alt: "Restaurant facade and terrace arranged for evening service", tile: "tile-tall" },
+  { id: "11", title: "Reception geometry", category: "Product", image: "/manus-storage/11-reception-geometry_e87d1fbd.jpg", alt: "Minimal reception desk with warm wood, stone, and a circular mirror", tile: "tile-square" },
+  { id: "12", title: "Material detail", category: "Editorial", image: "/manus-storage/01-dining-room_d033637f.jpg", alt: "Editorial detail of a bright hospitality interior and layered materials", tile: "tile-tall" },
 ];
 
 const categories: Category[] = ["All", "Automobile", "Architecture", "Product", "Editorial", "Portrait"];

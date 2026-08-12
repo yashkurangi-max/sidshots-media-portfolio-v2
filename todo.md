@@ -34,3 +34,6 @@
 - [x] Make dashboard photo clicks display only the selected image in a focused viewer.
 - [x] Verify close behavior, keyboard escape, and responsive single-photo presentation.
 - [x] Save the focused photo viewer checkpoint.
+- [x] Inspect newsidshots_portfolio.zip and map its images to Architecture, Automobile, Product, and supporting categories.
+- [x] Import the supplied assets and replace current sample photo references.
+- [x] Verify the supplied images across strips, dashboards, and the single-photo viewer, then save a checkpoint.
