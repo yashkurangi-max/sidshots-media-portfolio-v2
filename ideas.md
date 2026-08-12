@@ -61,3 +61,8 @@ The mark is a six-blade aperture merged with a single rising leaf: a symbol of l
 ### Signature Brand Color
 **Signal Moss — #6E9D73**, a softened moss green that feels distinctive on cream paper and stays legible beside warm yellow.
 
+## Reference Ground-Truth Spec — Attached Spoils Trophy Video
+
+The attached video supersedes the previous pastel direction for the visual treatment. The portfolio should now use a strict black-and-white editorial system where the photographs provide the only color. The structure is a long-scroll archive with a sticky minimalist header, a centered wordmark, compact navigation, and a high-contrast action button.
+
+The hero should feel like a photo competition or printed contact sheet: oversized serif branding, small uppercase metadata, a dense row of varied image frames, thin gutters, visible print borders, and subtle rotation. Gallery work should use grayscale imagery, crisp card edges, hover reveals, and a masonry rhythm. A black studio section, film-strip ticker, grain, light leaks, and restrained slide-up reveals should create analog motion without overwhelming the photography. Mobile layouts should collapse into a single-column archive while preserving prominent type and generous image frames.

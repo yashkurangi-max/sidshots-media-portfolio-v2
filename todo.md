@@ -5,3 +5,6 @@
 - [x] Recheck desktop/mobile layout, run typecheck, and save the revised checkpoint.
 - [x] Replace the current hero composition with a full redesigned SidshotsMedia hero.
 - [x] Make SidshotsMedia the exact primary hero heading and verify responsive behavior.
+- [x] Analyze the attached reference video for layout, typography, color, motion, and interaction cues.
+- [x] Rework the portfolio to match the reference direction while retaining SidshotsMedia content and booking flow.
+- [x] Verify the reference-inspired experience on desktop and mobile, then save a new checkpoint.

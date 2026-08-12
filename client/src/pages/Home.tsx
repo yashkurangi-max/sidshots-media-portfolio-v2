@@ -76,6 +76,11 @@ export default function Home() {
       <div className="grain" aria-hidden="true" />
 
       <header className="site-header">
+        <nav className="reference-nav-left" aria-label="Section navigation">
+          <button onClick={() => scrollTo("work")}>Work</button>
+          <button onClick={() => scrollTo("studio")}>Studio</button>
+          <button onClick={() => scrollTo("booking")}>Bookings</button>
+        </nav>
         <button className="brand-lockup" onClick={() => scrollTo("top")} aria-label="Back to top">
           <span className="brand-mark"><span className="aperture-mark" aria-hidden="true"><i /><i /><i /><i /><i /><i /></span></span>
           <span className="brand-name">SidshotsMedia</span>
@@ -84,7 +89,7 @@ export default function Home() {
         <nav className={menuOpen ? "site-nav is-open" : "site-nav"} aria-label="Primary navigation">
           <button onClick={() => scrollTo("work")}>Selected work <span>04</span></button>
           <button onClick={() => scrollTo("studio")}>Studio notes</button>
-          <button onClick={() => scrollTo("booking")}>Bookings <ArrowUpRight size={14} /></button>
+          <button onClick={() => scrollTo("booking")}>See winners <ArrowUpRight size={14} /></button>
         </nav>
         <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? "Close navigation" : "Open navigation"}>
           {menuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -93,51 +98,30 @@ export default function Home() {
 
       <main id="top">
         <section className="hero-section section-pad">
-          <div className="hero-topline reveal-up"><div className="eyebrow"><span className="eyebrow-dot" /> SidshotsMedia / Visual storyteller</div><span className="hero-topline-note">Commercial image studio / Copenhagen — worldwide</span></div>
-          <div className="hero-main">
-            <div className="hero-copy reveal-up">
-              <h1 className="hero-brand-heading">Sidshots<span>Media</span><sup>™</sup></h1>
-              <p className="hero-kicker">Make the useful <em>unforgettable.</em></p>
-              <p className="hero-description">Commercial photography for brands with something worth looking at twice — from the road to the room, from the object to the person.</p>
-              <div className="hero-actions">
-                <button className="button-primary" onClick={() => scrollTo("work")}>Explore the work <MoveRight size={17} /></button>
-                <button className="button-quiet" onClick={() => scrollTo("booking")}>Bring the brief <ArrowUpRight size={16} /></button>
-              </div>
-            </div>
-
-            <div className="hero-visual reveal-up delay-one">
-              <div className="hero-image-frame hero-art-frame" aria-label="Abstract lens artwork for SidshotsMedia">
-                <div className="hero-art-glow" aria-hidden="true" />
-                <div className="hero-lens-rings" aria-hidden="true"><span className="lens-ring ring-one" /><span className="lens-ring ring-two" /><span className="lens-ring ring-three" /></div>
-                <div className="hero-aperture" aria-hidden="true"><i /><i /><i /><i /><i /><i /></div>
-                <div className="image-index">JH / 001</div>
-                <div className="image-caption">A study in light.<br /><span>Nothing staged.</span></div>
-                <div className="hero-art-label">Optical study<br /><b>01—04</b></div>
-              </div>
-              <div className="focus-card">
-                <div className="focus-card-top"><span>Current focus</span><span className="live-dot">Live</span></div>
-                <strong>People + product</strong>
-                <div className="focus-progress"><span /></div>
-                <div className="focus-card-bottom"><span>Field note 24</span><span>02—04</span></div>
-              </div>
-            </div>
-
-            <aside className="hero-indexes" aria-label="SidshotsMedia specialties"><span className="hero-indexes-title">Inside the frame</span><span>01 / Automobile</span><span>02 / Architecture</span><span>03 / Product</span><span>04 / People</span></aside>
+          <div className="reference-hero-meta reveal-up"><span>COMMERCIAL PHOTOGRAPHY / 2024</span><span>JASPER HALE / SIDSHOTSMEDIA</span><span>SCROLL TO ENTER THE ARCHIVE ↓</span></div>
+          <div className="reference-hero-copy reveal-up">
+            <div><span className="eyebrow"><span className="eyebrow-dot" /> The useful made unforgettable</span><h1 className="hero-brand-heading">Sidshots<span>Media</span><sup>™</sup></h1></div>
+            <div className="reference-hero-intro"><p>Images for brands with a point of view — automotive, architecture, product, and the people behind the thing.</p><button className="reference-cta" onClick={() => scrollTo("booking")}>Bring the brief <ArrowUpRight size={16} /></button></div>
           </div>
-          <div className="hero-bottomline"><span>Light is a collaborator.</span><span className="hero-bottomline-rule" /><span>Available for selected projects / 2024</span></div>
+          <div className="hero-contact-sheet reveal-up delay-one" aria-label="Selected SidshotsMedia work">
+            {galleryImages.map((item, index) => <figure className={`contact-frame frame-${index + 1}`} key={item.id}><img src={item.image} alt={item.title} /><figcaption><span>{item.id}</span><span>{item.project}</span></figcaption></figure>)}
+          </div>
+          <div className="reference-hero-foot"><span>01—04 / SELECTED ENTRIES</span><span className="hero-foot-rule" /><span>LIGHT, MATERIAL, MOTION</span></div>
         </section>
 
         <section className="signal-strip section-pad" aria-label="Studio capabilities">
-          <div className="signal-intro"><span className="mono-label">The short version</span><p>Campaigns, launches, and the in-between moments that give a brand its pulse.</p></div>
+          <div className="signal-intro"><span className="mono-label">Studio / The short version</span><p>Campaigns, launches, and the in-between moments that give a brand its pulse.</p></div>
           <div className="signal-stat"><strong>14</strong><span>years making<br />images</span></div>
           <div className="signal-stat"><strong>32</strong><span>cities, one<br />camera bag</span></div>
           <div className="signal-stat signal-quote"><Sparkles size={18} /><span>“Bring the brief.<br />I’ll bring the light.”</span></div>
         </section>
 
+        <div className="film-strip" aria-hidden="true"><div className="film-strip-track">{Array.from({ length: 8 }, (_, index) => <span key={index}>SIDSHOTSMEDIA <b>·</b> FRAME {String(index + 1).padStart(2, "0")}</span>)}</div></div>
+
         <section className="work-section section-pad" id="work">
           <div className="section-heading">
-            <div><span className="mono-label">Selected work / 2023—24</span><h2>A point of view,<br /><em>in four frames.</em></h2></div>
-            <p>Scroll the contact sheet. Choose a lane. Stay for the details.</p>
+            <div><span className="mono-label">Selected entries / 2023—24</span><h2>A point of view,<br /><em>in four frames.</em></h2></div>
+            <p>Choose a lane. Hover the image. Stay for the details.</p>
           </div>
 
           <div className="dashboard-grid">
