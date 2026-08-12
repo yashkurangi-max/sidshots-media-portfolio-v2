@@ -28,3 +28,6 @@
 - [x] Replace the current long dashboard panels with a compact three-card “Three Disciplines. One Craft.” section.
 - [x] Match the reference card overlays, image proportions, supporting navigation, and mobile stacking.
 - [x] Verify the redesigned dashboards and save a fresh checkpoint.
+- [x] Make each dashboard card open a dedicated photo-board view.
+- [x] Fill each board with at least 12 photography tiles and a final plus tile for future additions.
+- [x] Verify board navigation, lightbox behavior, mobile layout, and save the updated checkpoint.

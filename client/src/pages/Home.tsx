@@ -1,6 +1,6 @@
 /* Screenshot-matched collage direction: black trophy-style chrome, centered wordmark, colorful photography, white print frames, and a dense gallery wall. */
 import { useEffect, useMemo, useState } from "react";
-import { ArrowUpRight, ChevronRight, Menu, X } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, ChevronRight, Menu, X } from "lucide-react";
 import { toast } from "sonner";
 
 type Category = "All" | "Automobile" | "Architecture" | "Product" | "Editorial" | "Portrait";
@@ -37,16 +37,27 @@ const dashboardData = [
   { index: "03", category: "Product" as const, title: "Objects with a pulse.", service: "Prototypes · Branding · UI", copy: "Tactile product stories that make the useful feel considered, desirable, and alive.", stats: ["04 sets", "11 surfaces", "32 final frames"], primary: photos[2], secondary: photos[11] },
 ];
 
+const dashboardPhotoMap: Record<(typeof dashboardData)[number]["category"], Photo[]> = {
+  Architecture: [photos[1], photos[5], photos[10], photos[11], photos[6], photos[4], photos[8], photos[9], photos[2], photos[3], photos[7], photos[0]],
+  Automobile: [photos[0], photos[7], photos[9], photos[4], photos[8], photos[1], photos[10], photos[5], photos[3], photos[6], photos[2], photos[11]],
+  Product: [photos[2], photos[11], photos[3], photos[6], photos[1], photos[10], photos[4], photos[8], photos[0], photos[7], photos[5], photos[9]],
+};
+
 export default function Home() {
   const [activeCategory, setActiveCategory] = useState<Category>("All");
   const [menuOpen, setMenuOpen] = useState(false);
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
+  const [selectedDashboard, setSelectedDashboard] = useState<(typeof dashboardData)[number] | null>(null);
   const visiblePhotos = useMemo(() => activeCategory === "All" ? photos : photos.filter((photo) => photo.category === activeCategory), [activeCategory]);
   const stripOne = visiblePhotos.filter((_, index) => index % 2 === 0);
   const stripTwo = visiblePhotos.filter((_, index) => index % 2 !== 0);
 
   useEffect(() => {
-    const closeOnEscape = (event: KeyboardEvent) => event.key === "Escape" && setSelectedPhoto(null);
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      setSelectedPhoto(null);
+      setSelectedDashboard(null);
+    };
     window.addEventListener("keydown", closeOnEscape);
     return () => window.removeEventListener("keydown", closeOnEscape);
   }, []);
@@ -92,7 +103,7 @@ export default function Home() {
         <section className="dashboard-suite dashboard-reference" id="dashboards" aria-label="Photography dashboards">
           <div className="dashboard-reference-top"><span className="dashboard-mini-mark" aria-label="SidshotsMedia mark">SM</span><nav className="dashboard-reference-links" aria-label="Dashboard navigation"><button onClick={() => scrollTo("archive")}>Work</button><button onClick={() => scrollTo("dashboards")}>About</button><button onClick={() => scrollTo("booking")}>Services</button><button onClick={() => scrollTo("booking")}>Contact</button></nav></div>
           <div className="dashboard-reference-head"><h2>Three Disciplines. <em>One Craft.</em></h2><p>Explore interactive dashboards tailored for each focus area.</p></div>
-          <div className="dashboard-card-grid">{dashboardData.map((dashboard) => <article className="dashboard-card" key={dashboard.category}><button className="dashboard-card-media" onClick={() => { setActiveCategory(dashboard.category); scrollTo("archive"); }} aria-label={`Open ${dashboard.category} dashboard`}><img src={dashboard.primary.image} alt={dashboard.primary.alt} loading="lazy" /><span className="dashboard-card-shade" /><div className="dashboard-card-copy"><h3>{dashboard.category}</h3><p>{dashboard.service}</p><span className="dashboard-card-action">Open dashboard <ArrowUpRight size={14} /></span></div></button></article>)}</div>
+          <div className="dashboard-card-grid">{dashboardData.map((dashboard) => <article className="dashboard-card" key={dashboard.category}><button className="dashboard-card-media" onClick={() => setSelectedDashboard(dashboard)} aria-label={`Open ${dashboard.category} dashboard`}><img src={dashboard.primary.image} alt={dashboard.primary.alt} loading="lazy" /><span className="dashboard-card-shade" /><div className="dashboard-card-copy"><h3>{dashboard.category}</h3><p>{dashboard.service}</p><span className="dashboard-card-action">Open dashboard <ArrowUpRight size={14} /></span></div></button></article>)}</div>
         </section>
 
         <section className="collage-filter-bar" aria-label="Filter photography archive">
@@ -119,6 +130,8 @@ export default function Home() {
       </main>
 
       <footer className="collage-footer"><span>SidshotsMedia / Jasper Hale</span><span>Automotive · Architecture · Product · Editorial</span><a href="mailto:studio@jasperhale.co">studio@jasperhale.co <ArrowUpRight size={14} /></a></footer>
+
+      {selectedDashboard && <div className="dashboard-detail" role="dialog" aria-modal="true" aria-label={`${selectedDashboard.category} photography dashboard`}><div className="dashboard-detail-bar"><button className="dashboard-detail-back" onClick={() => setSelectedDashboard(null)}><ArrowLeft size={16} /> Back to dashboards</button><span>{selectedDashboard.index} / {selectedDashboard.category}</span><button className="dashboard-detail-close" onClick={() => setSelectedDashboard(null)} aria-label="Close dashboard"><X size={20} /></button></div><div className="dashboard-detail-intro"><div><span className="collage-kicker">SidshotsMedia / Photo board</span><h2>{selectedDashboard.category}<br /><em>{selectedDashboard.title}</em></h2></div><p>{selectedDashboard.copy}<br /><span>{dashboardPhotoMap[selectedDashboard.category].length} image slots · final tile reserved for additions</span></p></div><div className="dashboard-board-grid">{dashboardPhotoMap[selectedDashboard.category].map((photo, index) => <button className="dashboard-board-tile" key={`${selectedDashboard.category}-${photo.id}-${index}`} onClick={() => setSelectedPhoto(photo)} aria-label={`Open ${photo.title}`}><img src={photo.image} alt={photo.alt} loading="lazy" /><span className="dashboard-board-index">{String(index + 1).padStart(2, "0")}</span><span className="dashboard-board-title">{photo.title}</span></button>)}<button className="dashboard-add-tile" onClick={() => toast.info(`New ${selectedDashboard.category.toLowerCase()} photo slot ready for a future image.`)}><strong>+</strong><span>Add photo</span><small>Future frame</small></button></div></div>}
 
       {selectedPhoto && <div className="collage-lightbox" role="dialog" aria-modal="true" aria-label={`${selectedPhoto.title} photograph`} onClick={() => setSelectedPhoto(null)}><button aria-label="Close photograph" onClick={() => setSelectedPhoto(null)}><X size={20} /></button><figure onClick={(event) => event.stopPropagation()}><img src={selectedPhoto.image} alt={selectedPhoto.alt} /><figcaption><span>{selectedPhoto.id} / {selectedPhoto.category}</span><strong>{selectedPhoto.title}</strong></figcaption></figure></div>}
     </div>
