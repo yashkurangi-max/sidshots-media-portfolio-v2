@@ -78,7 +78,7 @@ export default function Home() {
       <header className="site-header">
         <button className="brand-lockup" onClick={() => scrollTo("top")} aria-label="Back to top">
           <span className="brand-mark"><span className="aperture-mark" aria-hidden="true"><i /><i /><i /><i /><i /><i /></span></span>
-          <span className="brand-name">Sidshotsmedia</span>
+          <span className="brand-name">SidshotsMedia</span>
           <span className="brand-role">by Jasper Hale</span>
         </button>
         <nav className={menuOpen ? "site-nav is-open" : "site-nav"} aria-label="Primary navigation">
@@ -93,36 +93,38 @@ export default function Home() {
 
       <main id="top">
         <section className="hero-section section-pad">
-          <div className="hero-copy reveal-up">
-            <div className="eyebrow"><span className="eyebrow-dot" /> Sidshotsmedia / Visual storyteller</div>
-            <div className="hero-wordmark">Sidshotsmedia<span>™</span></div>
-            <h1>Make the useful<br /><em>unforgettable.</em></h1>
-            <p className="hero-description">Commercial photography for brands with something worth looking at twice — from the road to the room, from the object to the person.</p>
-            <div className="hero-actions">
-              <button className="button-primary" onClick={() => scrollTo("work")}>Explore the work <MoveRight size={17} /></button>
-              <button className="button-quiet" onClick={() => scrollTo("booking")}>Bring the brief <ArrowUpRight size={16} /></button>
+          <div className="hero-topline reveal-up"><div className="eyebrow"><span className="eyebrow-dot" /> SidshotsMedia / Visual storyteller</div><span className="hero-topline-note">Commercial image studio / Copenhagen — worldwide</span></div>
+          <div className="hero-main">
+            <div className="hero-copy reveal-up">
+              <h1 className="hero-brand-heading">Sidshots<span>Media</span><sup>™</sup></h1>
+              <p className="hero-kicker">Make the useful <em>unforgettable.</em></p>
+              <p className="hero-description">Commercial photography for brands with something worth looking at twice — from the road to the room, from the object to the person.</p>
+              <div className="hero-actions">
+                <button className="button-primary" onClick={() => scrollTo("work")}>Explore the work <MoveRight size={17} /></button>
+                <button className="button-quiet" onClick={() => scrollTo("booking")}>Bring the brief <ArrowUpRight size={16} /></button>
+              </div>
             </div>
-          </div>
 
-          <div className="hero-visual reveal-up delay-one">
-            <div className="hero-image-frame hero-art-frame" aria-label="Abstract lens artwork for Sidshotsmedia">
-              <div className="hero-art-glow" aria-hidden="true" />
-              <div className="hero-lens-rings" aria-hidden="true"><span className="lens-ring ring-one" /><span className="lens-ring ring-two" /><span className="lens-ring ring-three" /></div>
-              <div className="hero-aperture" aria-hidden="true"><i /><i /><i /><i /><i /><i /></div>
-              <div className="image-index">JH / 001</div>
-              <div className="image-caption">A study in light.<br /><span>Nothing staged.</span></div>
+            <div className="hero-visual reveal-up delay-one">
+              <div className="hero-image-frame hero-art-frame" aria-label="Abstract lens artwork for SidshotsMedia">
+                <div className="hero-art-glow" aria-hidden="true" />
+                <div className="hero-lens-rings" aria-hidden="true"><span className="lens-ring ring-one" /><span className="lens-ring ring-two" /><span className="lens-ring ring-three" /></div>
+                <div className="hero-aperture" aria-hidden="true"><i /><i /><i /><i /><i /><i /></div>
+                <div className="image-index">JH / 001</div>
+                <div className="image-caption">A study in light.<br /><span>Nothing staged.</span></div>
+                <div className="hero-art-label">Optical study<br /><b>01—04</b></div>
+              </div>
+              <div className="focus-card">
+                <div className="focus-card-top"><span>Current focus</span><span className="live-dot">Live</span></div>
+                <strong>People + product</strong>
+                <div className="focus-progress"><span /></div>
+                <div className="focus-card-bottom"><span>Field note 24</span><span>02—04</span></div>
+              </div>
             </div>
-            <div className="hero-orbit orbit-a" aria-hidden="true" />
-            <div className="hero-orbit orbit-b" aria-hidden="true" />
-            <div className="focus-card">
-              <div className="focus-card-top"><span>Current focus</span><span className="live-dot">Live</span></div>
-              <strong>People + product</strong>
-              <div className="focus-progress"><span /></div>
-              <div className="focus-card-bottom"><span>Field note 24</span><span>02—04</span></div>
-            </div>
-          </div>
 
-          <div className="hero-side-note"><span>01</span><span>From the studio<br />in Copenhagen</span></div>
+            <aside className="hero-indexes" aria-label="SidshotsMedia specialties"><span className="hero-indexes-title">Inside the frame</span><span>01 / Automobile</span><span>02 / Architecture</span><span>03 / Product</span><span>04 / People</span></aside>
+          </div>
+          <div className="hero-bottomline"><span>Light is a collaborator.</span><span className="hero-bottomline-rule" /><span>Available for selected projects / 2024</span></div>
         </section>
 
         <section className="signal-strip section-pad" aria-label="Studio capabilities">
@@ -193,7 +195,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="site-footer section-pad"><div className="footer-brand"><span className="brand-mark"><span className="aperture-mark" aria-hidden="true"><i /><i /><i /><i /><i /><i /></span></span><span className="brand-name">Sidshotsmedia</span></div><div className="footer-contact"><span>Available for selected projects / 2024</span><a href="mailto:studio@jasperhale.co">studio@jasperhale.co <ArrowUpRight size={14} /></a></div><div className="footer-social"><a href="#top">Instagram</a><a href="#top">Are.na</a><a href="#top">Back to top ↑</a></div></footer>
+      <footer className="site-footer section-pad"><div className="footer-brand"><span className="brand-mark"><span className="aperture-mark" aria-hidden="true"><i /><i /><i /><i /><i /><i /></span></span><span className="brand-name">SidshotsMedia</span></div><div className="footer-contact"><span>Available for selected projects / 2024</span><a href="mailto:studio@jasperhale.co">studio@jasperhale.co <ArrowUpRight size={14} /></a></div><div className="footer-social"><a href="#top">Instagram</a><a href="#top">Are.na</a><a href="#top">Back to top ↑</a></div></footer>
     </div>
   );
 }

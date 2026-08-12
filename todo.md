@@ -3,3 +3,5 @@
 - [x] Verify the hero visually, run typecheck, and save a new checkpoint.
 - [x] Remove the hero portrait and replace it with a portrait-free composition.
 - [x] Recheck desktop/mobile layout, run typecheck, and save the revised checkpoint.
+- [x] Replace the current hero composition with a full redesigned SidshotsMedia hero.
+- [x] Make SidshotsMedia the exact primary hero heading and verify responsive behavior.

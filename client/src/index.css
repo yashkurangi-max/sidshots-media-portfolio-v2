@@ -285,3 +285,57 @@ blockquote { max-width: 48rem; margin: 1.5rem 0 2.2rem; font-family: "Playfair D
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
 }
+
+/* Soft Signal Studio / hero revision: SidshotsMedia is the primary visual object, with the lens artwork acting as a quiet studio instrument. */
+.hero-section { min-height: 48rem; display: flex; flex-direction: column; align-items: stretch; justify-content: space-between; gap: 1rem; padding-top: 2rem; padding-bottom: 1.6rem; }
+.hero-section::before { background: radial-gradient(circle at 84% 32%, rgba(244,205,101,.76) 0 7%, rgba(244,205,101,.18) 19%, transparent 37%), radial-gradient(circle at 56% 77%, rgba(110,157,115,.42), transparent 35%), linear-gradient(125deg, #f7f3e7 0%, #e4ebd2 48%, #f7e4ac 100%); }
+.hero-section::after { width: 58rem; height: 24rem; right: -8rem; top: 19%; transform: rotate(-13deg); border-color: rgba(110,157,115,.22); box-shadow: 0 0 0 1.6rem rgba(244,205,101,.1), 0 0 0 3.5rem rgba(110,157,115,.06); }
+.hero-topline { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+.hero-topline .eyebrow { margin: 0; }
+.hero-topline-note { color: rgba(32,59,43,.53); font-family: "Space Mono", monospace; font-size: .58rem; letter-spacing: .08em; text-transform: uppercase; }
+.hero-main { width: 100%; display: grid; grid-template-columns: minmax(18rem, .86fr) minmax(31rem, 1.16fr) 8.5rem; align-items: center; gap: clamp(2rem, 4.5vw, 6rem); flex: 1; }
+.hero-copy { max-width: none; padding: 0; position: relative; z-index: 3; }
+.hero-brand-heading { margin: 0; color: var(--ink); font-family: "Playfair Display", serif; font-size: clamp(4.6rem, 8.6vw, 9.4rem); font-weight: 500; letter-spacing: -.1em; line-height: .79; white-space: nowrap; }
+.hero-brand-heading span { color: var(--moss); font-style: italic; }
+.hero-brand-heading sup { color: var(--butter); font-family: "Space Mono", monospace; font-size: .68rem; letter-spacing: 0; margin-left: .3rem; vertical-align: top; }
+.hero-kicker { max-width: 20rem; margin: 2.1rem 0 .9rem; color: var(--moss-deep); font-family: "Playfair Display", serif; font-size: clamp(1.45rem, 2.3vw, 2.25rem); letter-spacing: -.06em; line-height: 1.02; }
+.hero-kicker em { color: var(--ink); font-style: italic; }
+.hero-description { margin-top: 1.1rem; }
+.hero-visual { min-height: 33rem; width: 100%; display: grid; place-items: center; position: relative; }
+.hero-image-frame { width: min(100%, 34rem); height: 33rem; box-shadow: 1.35rem 1.35rem 0 rgba(244,205,101,.74); }
+.hero-art-frame { background: radial-gradient(circle at 73% 24%, rgba(255,250,214,.88), transparent 29%), radial-gradient(circle at 26% 82%, rgba(110,157,115,.75), transparent 43%), linear-gradient(140deg, #eff0d7 0%, #d5e3c1 50%, #f4d16f 100%); }
+.hero-aperture { width: 15rem; height: 15rem; top: 8.3rem; }
+.hero-aperture::after { width: 5rem; height: 5rem; left: 5rem; top: 5rem; }
+.hero-art-label { position: absolute; right: 1.1rem; bottom: 1.05rem; z-index: 2; color: rgba(32,59,43,.68); font-family: "Space Mono", monospace; font-size: .57rem; line-height: 1.45; letter-spacing: .05em; text-align: right; text-transform: uppercase; }
+.hero-art-label b { color: var(--moss-deep); font-weight: 400; }
+.hero-indexes { align-self: center; display: flex; flex-direction: column; gap: .85rem; border-left: 1px solid rgba(49,93,67,.28); padding-left: 1rem; color: rgba(32,59,43,.55); font-family: "Space Mono", monospace; font-size: .57rem; line-height: 1.35; text-transform: uppercase; }
+.hero-indexes-title { color: var(--moss-deep); margin-bottom: .4rem; }
+.hero-bottomline { width: 100%; display: flex; align-items: center; gap: 1rem; color: rgba(32,59,43,.58); font-family: "Space Mono", monospace; font-size: .57rem; letter-spacing: .06em; text-transform: uppercase; }
+.hero-bottomline-rule { display: block; width: 5rem; height: 1px; background: var(--moss); }
+
+@media (max-width: 960px) {
+  .hero-main { grid-template-columns: minmax(16rem, .9fr) minmax(25rem, 1.1fr); gap: 2rem; }
+  .hero-indexes { display: none; }
+  .hero-brand-heading { font-size: clamp(4rem, 8.5vw, 7.2rem); }
+  .hero-image-frame { height: 31rem; }
+}
+
+@media (max-width: 720px) {
+  .hero-section { min-height: auto; gap: 1.5rem; padding-top: 2.7rem; padding-bottom: 2rem; }
+  .hero-topline-note { display: none; }
+  .hero-main { display: block; }
+  .hero-brand-heading { font-size: clamp(4rem, 17vw, 6.5rem); line-height: .8; white-space: normal; max-width: 22rem; }
+  .hero-kicker { margin-top: 1.6rem; font-size: 1.55rem; }
+  .hero-description { max-width: 21rem; }
+  .hero-visual { min-height: 27rem; margin-top: 2.7rem; }
+  .hero-image-frame { width: 100%; height: 25rem; box-shadow: .75rem .75rem 0 rgba(244,205,101,.74); }
+  .hero-aperture { width: 10.8rem; height: 10.8rem; top: 6.3rem; }
+  .hero-aperture::after { width: 3.6rem; height: 3.6rem; left: 3.6rem; top: 3.6rem; }
+  .ring-one { width: 26rem; height: 12rem; top: 6rem; left: -4rem; }
+  .ring-two { width: 21rem; height: 14rem; top: 3.4rem; left: 2rem; }
+  .ring-three { width: 15rem; height: 15rem; top: 8rem; left: 5rem; }
+  .hero-indexes { display: grid; grid-template-columns: 1fr 1fr; margin-top: 1.3rem; padding: 1rem 0 0; border-left: 0; border-top: 1px solid rgba(49,93,67,.28); gap: .65rem .8rem; }
+  .hero-indexes-title { grid-column: 1 / -1; margin-bottom: .15rem; }
+  .hero-bottomline { flex-wrap: wrap; gap: .55rem .75rem; margin-top: .8rem; }
+  .hero-bottomline-rule { width: 2.5rem; }
+}
