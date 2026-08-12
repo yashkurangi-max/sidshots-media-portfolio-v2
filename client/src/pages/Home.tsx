@@ -33,17 +33,32 @@ const photos: Photo[] = [
   { id: "16", title: "Open road", category: "Automobile", image: "https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1400&q=88", alt: "Vehicle moving along an open road in warm light", tile: "tile-wide" },
 ];
 
+const vehiclePhotos: Photo[] = [
+  { id: "V01", title: "Rubicon trail", category: "Automobile", image: "/manus-storage/vehicle-01-rubicon_9ff3b652.jpg", alt: "Rugged four-wheel-drive vehicle photographed on a green trail", tile: "tile-wide" },
+  { id: "V02", title: "Chrome and red", category: "Automobile", image: "/manus-storage/vehicle-02-motorcycle-detail_17a61b67.jpg", alt: "Close motorcycle detail with red bodywork and chrome handlebars", tile: "tile-tall" },
+  { id: "V03", title: "City motorcycle", category: "Automobile", image: "/manus-storage/vehicle-03-motorcycle-city_b2a152a1.jpg", alt: "Motorcycle photographed against a city street and historic architecture", tile: "tile-square" },
+  { id: "V04", title: "Green through rain", category: "Automobile", image: "/manus-storage/vehicle-04-green-car-rain_3eda856d.jpg", alt: "Green vehicle passing through a rain-washed road scene", tile: "tile-wide" },
+  { id: "V05", title: "Trail machine", category: "Automobile", image: "/manus-storage/vehicle-05-suv-trail_38fd21a6.jpg", alt: "SUV photographed on a muddy green off-road trail", tile: "tile-tall" },
+  { id: "V06", title: "Front profile", category: "Automobile", image: "/manus-storage/vehicle-06-suv-portrait_20209bb4.jpg", alt: "SUV front profile framed against a lush outdoor landscape", tile: "tile-square" },
+  { id: "V07", title: "Red on the road", category: "Automobile", image: "/manus-storage/vehicle-07-red-suv-road_61b0e3bc.jpg", alt: "Red SUV positioned on a quiet road beneath an overcast sky", tile: "tile-wide" },
+  { id: "V08", title: "The lineup", category: "Automobile", image: "/manus-storage/vehicle-08-suv-lineup_90ff3ae4.jpg", alt: "Lineup of colorful SUVs in an open gravel landscape", tile: "tile-tall" },
+  { id: "V09", title: "Station stop", category: "Automobile", image: "/manus-storage/vehicle-09-scooter-station_93bc04c5.jpg", alt: "Scooter parked beside a fuel station in a residential street", tile: "tile-square" },
+  { id: "V10", title: "Yellow motion", category: "Automobile", image: "/manus-storage/vehicle-10-yellow-car-road_1e359209.jpg", alt: "Yellow car moving along a palm-lined road", tile: "tile-wide" },
+  { id: "V11", title: "Water crossing", category: "Automobile", image: "/manus-storage/vehicle-11-motorcycle-water_e2b29d6c.jpg", alt: "Motorcycle rider crossing a shallow waterway in a tropical landscape", tile: "tile-tall" },
+  { id: "V12", title: "Desert rider", category: "Automobile", image: "/manus-storage/vehicle-12-motorcycle-desert_7aeb1be7.jpg", alt: "Motorcycle rider photographed in a bright sandy landscape", tile: "tile-square" },
+];
+
 const categories: Category[] = ["All", "Automobile", "Architecture", "Product", "Editorial", "Portrait"];
 
 const dashboardData = [
   { index: "01", category: "Architecture" as const, title: "Built forms in changing light.", service: "Buildings · Interiors · Hospitality", copy: "Spatial studies, material details, and quiet geometry for places with a point of view.", stats: ["07 locations", "03 days", "24 final frames"], primary: photos[0], secondary: photos[2] },
-  { index: "02", category: "Automobile" as const, title: "Motion, held for a second.", service: "Vehicle campaigns · Detail studies", copy: "A dedicated visual board built from the supplied SidshotsMedia archive, ready for the next automotive series.", stats: ["05 locations", "12 supplied frames", "18 final frames"], primary: photos[4], secondary: photos[8] },
+  { index: "02", category: "Automobile" as const, title: "Motion, held for a second.", service: "Vehicles · Motorcycles · Road stories", copy: "A field-ready automotive board built from the vehicle work in the supplied SidshotsMedia archive.", stats: ["12 vehicle frames", "06 road studies", "18 final frames"], primary: vehiclePhotos[0], secondary: vehiclePhotos[6] },
   { index: "03", category: "Product" as const, title: "Objects with a pulse.", service: "Objects · Interiors · Details", copy: "Tactile product stories that make the useful feel considered, desirable, and alive.", stats: ["04 sets", "11 surfaces", "32 final frames"], primary: photos[1], secondary: photos[6] },
 ];
 
 const dashboardPhotoMap: Record<(typeof dashboardData)[number]["category"], Photo[]> = {
   Architecture: [photos[0], photos[2], photos[3], photos[5], photos[7], photos[9], photos[0], photos[2], photos[3], photos[5], photos[7], photos[9]],
-  Automobile: [photos[4], photos[8], photos[0], photos[3], photos[5], photos[7], photos[1], photos[2], photos[6], photos[9], photos[10], photos[11]],
+  Automobile: vehiclePhotos,
   Product: [photos[1], photos[6], photos[8], photos[10], photos[4], photos[11], photos[1], photos[6], photos[8], photos[10], photos[4], photos[11]],
 };
 

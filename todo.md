@@ -43,3 +43,6 @@
 - [x] Map the supplied ZIP images directly into the Architecture, Automobile, and Product dashboard boards.
 - [x] Preserve 12 photo slots plus the add tile while using only the supplied archive assets in those boards.
 - [x] Verify dashboard photo rendering and single-photo viewing, then save a checkpoint.
+- [x] Inspect the supplied archive for vehicle photographs suitable for the Automobile dashboard.
+- [x] Replace the Automobile dashboard board assets with supplied vehicle photographs while preserving 12 slots and the add tile.
+- [x] Verify the updated Automobile board and focused photo viewer, then save a checkpoint.
