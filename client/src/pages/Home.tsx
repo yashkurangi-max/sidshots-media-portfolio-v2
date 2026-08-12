@@ -105,10 +105,12 @@ export default function Home() {
           </div>
 
           <div className="hero-visual reveal-up delay-one">
-            <div className="hero-image-frame">
-              <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=1400&q=85" alt="Jasper Hale holding a vintage camera in a soft green studio" />
+            <div className="hero-image-frame hero-art-frame" aria-label="Abstract lens artwork for Sidshotsmedia">
+              <div className="hero-art-glow" aria-hidden="true" />
+              <div className="hero-lens-rings" aria-hidden="true"><span className="lens-ring ring-one" /><span className="lens-ring ring-two" /><span className="lens-ring ring-three" /></div>
+              <div className="hero-aperture" aria-hidden="true"><i /><i /><i /><i /><i /><i /></div>
               <div className="image-index">JH / 001</div>
-              <div className="image-caption">Light is a collaborator.<br /><span>Not a backdrop.</span></div>
+              <div className="image-caption">A study in light.<br /><span>Nothing staged.</span></div>
             </div>
             <div className="hero-orbit orbit-a" aria-hidden="true" />
             <div className="hero-orbit orbit-b" aria-hidden="true" />

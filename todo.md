@@ -1,3 +1,5 @@
 - [x] Replace the hero-facing name with Sidshotsmedia while keeping the existing studio identity readable.
 - [x] Add a more creative photographer-focused hero background treatment that works on desktop and mobile.
 - [x] Verify the hero visually, run typecheck, and save a new checkpoint.
+- [x] Remove the hero portrait and replace it with a portrait-free composition.
+- [x] Recheck desktop/mobile layout, run typecheck, and save the revised checkpoint.

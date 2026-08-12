@@ -103,6 +103,25 @@ h1 em, h2 em { color: var(--moss); font-style: italic; }
 .hero-image-frame { width: min(100%, 31rem); height: 36rem; position: relative; overflow: hidden; background: var(--pistachio); box-shadow: 1.4rem 1.4rem 0 rgba(244,205,101,.75); }
 .hero-image-frame::after { content: ""; position: absolute; inset: 0; background: linear-gradient(150deg, rgba(255,255,255,.15), transparent 48%, rgba(32,59,43,.14)); pointer-events: none; }
 .hero-image-frame img { width: 100%; height: 100%; display: block; object-fit: cover; }
+.hero-art-frame { background: radial-gradient(circle at 72% 28%, rgba(244,205,101,.92) 0 7%, rgba(244,205,101,.18) 24%, transparent 42%), radial-gradient(circle at 27% 82%, rgba(110,157,115,.72), transparent 42%), linear-gradient(135deg, #eff0d7 0%, #d6e5c2 50%, #f4d16f 100%); }
+.hero-art-frame::after { background: linear-gradient(145deg, rgba(255,255,255,.34), transparent 43%, rgba(32,59,43,.1)); mix-blend-mode: soft-light; }
+.hero-art-glow { position: absolute; width: 22rem; height: 22rem; right: -5rem; top: -4rem; border-radius: 50%; background: radial-gradient(circle, rgba(255,250,214,.8), rgba(255,250,214,0) 68%); filter: blur(5px); }
+.hero-lens-rings { position: absolute; inset: -3rem; transform: rotate(-18deg); }
+.lens-ring { position: absolute; border: 1px solid rgba(49,93,67,.36); border-radius: 50%; }
+.ring-one { width: 34rem; height: 14rem; top: 8rem; left: -2rem; }
+.ring-two { width: 28rem; height: 19rem; top: 4rem; left: 5rem; border-color: rgba(244,205,101,.82); }
+.ring-three { width: 19rem; height: 19rem; top: 12rem; left: 10rem; border-color: rgba(49,93,67,.22); }
+.hero-aperture { position: absolute; width: 13.5rem; height: 13.5rem; top: 8.2rem; left: 50%; transform: translateX(-50%) rotate(30deg); display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(3, 1fr); gap: .35rem; filter: drop-shadow(1rem 1rem 0 rgba(244,205,101,.35)); }
+.hero-aperture::after { content: ""; position: absolute; width: 4.7rem; height: 4.7rem; left: 4.4rem; top: 4.4rem; border-radius: 50%; background: radial-gradient(circle at 33% 28%, #f7f3e7, #6e9d73 58%, #203b2b 100%); border: 2px solid rgba(247,243,231,.72); }
+.hero-aperture i { display: block; background: rgba(49,93,67,.92); border-radius: 3px 21px 3px 21px; transform: skew(-10deg); }
+.hero-aperture i:nth-child(1) { grid-area: 1 / 2; }
+.hero-aperture i:nth-child(2) { grid-area: 2 / 3; }
+.hero-aperture i:nth-child(3) { grid-area: 3 / 2; }
+.hero-aperture i:nth-child(4) { grid-area: 2 / 1; }
+.hero-aperture i:nth-child(5) { grid-area: 1 / 1; background: rgba(244,205,101,.98); }
+.hero-aperture i:nth-child(6) { grid-area: 3 / 3; }
+.hero-art-frame .image-index, .hero-art-frame .image-caption { color: var(--ink); text-shadow: none; }
+.hero-art-frame .image-caption span { color: var(--moss-deep); }
 .image-index, .image-caption { position: absolute; z-index: 2; color: #fbf8ed; font-family: "Space Mono", monospace; font-size: .61rem; letter-spacing: .06em; text-transform: uppercase; text-shadow: 0 1px 16px rgba(0,0,0,.24); }
 .image-index { top: 1rem; left: 1rem; }
 .image-caption { left: 1.15rem; bottom: 1.1rem; line-height: 1.5; }
