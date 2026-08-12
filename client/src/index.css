@@ -124,6 +124,11 @@
 .film-strip-track span { font-family: "Space Mono", monospace; font-size: .55rem; letter-spacing: .12em; white-space: nowrap; }
 .film-strip-track b { font-size: 1rem; font-weight: 400; }
 @keyframes film-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.photo-process-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; position: relative; z-index: 1; padding-top: 0; padding-bottom: 0; border-bottom: 1px solid var(--ink); background: #fff; }
+.photo-process-strip > div { min-height: 9rem; display: flex; flex-direction: column; justify-content: center; gap: .4rem; border-right: 1px solid var(--ink); padding: 1.3rem 1.4rem; }
+.photo-process-strip > div:first-child { border-left: 1px solid var(--ink); }
+.photo-process-strip strong { color: var(--ink); font-family: "Playfair Display", serif; font-size: 1.35rem; font-weight: 500; letter-spacing: -.04em; }
+.photo-process-strip small { color: #555; font-size: .72rem; }
 
 .work-section, .testimonial-section, .booking-section { position: relative; z-index: 1; background: #fff; }
 .work-section { padding-top: 8rem; padding-bottom: 8rem; }
@@ -279,6 +284,8 @@ blockquote { max-width: 48rem; margin: 1.5rem 0 2.2rem; color: var(--ink); font-
   .frame-2 img, .frame-3 img, .frame-4 img { aspect-ratio: .95 / 1.1; }
   .reference-hero-foot { margin-top: 1.25rem; flex-wrap: wrap; }
   .signal-strip, .dashboard-grid, .booking-panel, .site-footer { grid-template-columns: 1fr; }
+  .photo-process-strip { grid-template-columns: 1fr; }
+  .photo-process-strip > div, .photo-process-strip > div:first-child { min-height: 7rem; border-left: 1px solid var(--ink); border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
   .signal-strip { gap: 1rem; }
   .signal-stat { border-left: 0; border-top: 1px solid var(--ink); padding: 1rem 0 0; }
   .film-strip-track { gap: 1.8rem; }

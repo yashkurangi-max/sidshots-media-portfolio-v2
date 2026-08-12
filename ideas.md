@@ -66,3 +66,9 @@ The mark is a six-blade aperture merged with a single rising leaf: a symbol of l
 The attached video supersedes the previous pastel direction for the visual treatment. The portfolio should now use a strict black-and-white editorial system where the photographs provide the only color. The structure is a long-scroll archive with a sticky minimalist header, a centered wordmark, compact navigation, and a high-contrast action button.
 
 The hero should feel like a photo competition or printed contact sheet: oversized serif branding, small uppercase metadata, a dense row of varied image frames, thin gutters, visible print borders, and subtle rotation. Gallery work should use grayscale imagery, crisp card edges, hover reveals, and a masonry rhythm. A black studio section, film-strip ticker, grain, light leaks, and restrained slide-up reveals should create analog motion without overwhelming the photography. Mobile layouts should collapse into a single-column archive while preserving prominent type and generous image frames.
+
+## New Portfolio Build — Spoils Trophy Reference System
+
+This is a fresh portfolio composition rather than a hero-only refresh. The full page should behave like a monochrome photography archive: sticky navigation, alternating black and white chapters, oversized editorial typography, print-like image borders, contact-sheet hero, category index, masonry work grid, film-strip separator, black studio statement, testimonial pull quote, booking module, and utility footer.
+
+Use black and white as the interface system and let the photography carry all visible color. Keep the interface high-contrast, compact, and tactile. Motion should come from scroll reveals, light hover lifts, an animated film strip, and a small rolling number treatment. The site should feel like a premium competition or editorial archive, not a conventional agency landing page.

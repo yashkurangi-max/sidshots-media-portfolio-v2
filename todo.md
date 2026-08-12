@@ -11,3 +11,8 @@
 - [x] Audit and restyle every portfolio section to follow the attached reference video, not only the hero.
 - [x] Add cohesive archive-like interactions and section transitions across the page.
 - [x] Verify the full page on desktop and mobile, then save the complete reference-aligned checkpoint.
+- [x] Analyze the attached reference video as the new ground-truth portfolio specification.
+- [x] Replace the current portfolio with a clean, reference-inspired composition and motion system.
+- [x] Verify the new portfolio on desktop and mobile, then save a fresh checkpoint.
+- [x] Ensure the new portfolio content, imagery, labels, and interactions are explicitly photography-focused.
+- [x] Rebuild the fresh reference-inspired photography composition and verify it across responsive layouts.

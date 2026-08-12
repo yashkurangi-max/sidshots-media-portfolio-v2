@@ -117,14 +117,20 @@ export default function Home() {
           <div className="reference-hero-foot"><span>01—04 / SELECTED ENTRIES</span><span className="hero-foot-rule" /><span>LIGHT, MATERIAL, MOTION</span></div>
         </section>
 
-        <section className="signal-strip section-pad" aria-label="Studio capabilities">
-          <div className="signal-intro"><span className="mono-label">Studio / The short version</span><p>Campaigns, launches, and the in-between moments that give a brand its pulse.</p></div>
-          <div className="signal-stat"><strong>14</strong><span>years making<br />images</span></div>
+        <section className="signal-strip section-pad" aria-label="Photography studio capabilities">
+          <div className="signal-intro"><span className="mono-label">Photography studio / The short version</span><p>Campaigns, launches, portraits, and the in-between frames that give a brand its pulse.</p></div>
+          <div className="signal-stat"><strong>14</strong><span>years making<br />photographs</span></div>
           <div className="signal-stat"><strong>32</strong><span>cities, one<br />camera bag</span></div>
           <div className="signal-stat signal-quote"><Sparkles size={18} /><span>“Bring the brief.<br />I’ll bring the light.”</span></div>
         </section>
 
         <div className="film-strip" aria-hidden="true"><div className="film-strip-track">{Array.from({ length: 8 }, (_, index) => <span key={index}>SIDSHOTSMEDIA <b>·</b> FRAME {String(index + 1).padStart(2, "0")}</span>)}</div></div>
+
+        <section className="photo-process-strip section-pad" aria-label="Jasper Hale photography process">
+          <div><span className="mono-label">01 / Capture</span><strong>Light before language.</strong><small>Shape the frame on set.</small></div>
+          <div><span className="mono-label">02 / Edit</span><strong>Keep the honest detail.</strong><small>Make the useful unforgettable.</small></div>
+          <div><span className="mono-label">03 / Deliver</span><strong>Images with a point of view.</strong><small>Ready for the real world.</small></div>
+        </section>
 
         <section className="work-section section-pad" id="work">
           <div className="section-heading">
@@ -162,7 +168,7 @@ export default function Home() {
         </section>
 
         <section className="category-wall section-pad" aria-labelledby="category-wall-title">
-          <div className="category-wall-head"><span className="mono-label">Archive / Awarded categories</span><span>Hover to preview the lane</span></div>
+          <div className="category-wall-head"><span className="mono-label">Photography archive / Selected bodies of work</span><span>Hover to preview the lane</span></div>
           <div className="category-wall-grid">
             <div className="category-wall-list">
               <h2 id="category-wall-title">Find the<br /><em>frequency.</em></h2>
