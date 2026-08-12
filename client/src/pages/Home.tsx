@@ -36,6 +36,8 @@ export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
   const visiblePhotos = useMemo(() => activeCategory === "All" ? photos : photos.filter((photo) => photo.category === activeCategory), [activeCategory]);
+  const stripOne = visiblePhotos.filter((_, index) => index % 2 === 0);
+  const stripTwo = visiblePhotos.filter((_, index) => index % 2 !== 0);
 
   useEffect(() => {
     const closeOnEscape = (event: KeyboardEvent) => event.key === "Escape" && setSelectedPhoto(null);
@@ -76,8 +78,9 @@ export default function Home() {
           <p>Automotive, architecture, product, portrait, and editorial photography for brands with a point of view.</p>
         </section>
 
-        <section className="collage-wall" id="archive" aria-label="SidshotsMedia photography archive">
-          {visiblePhotos.map((photo) => <button className={`collage-tile ${photo.tile}`} key={photo.id} onClick={() => setSelectedPhoto(photo)} aria-label={`View ${photo.title}, ${photo.category}`}><span className="collage-tile-image"><img src={photo.image} alt={photo.alt} loading="lazy" /></span><span className="collage-tile-caption"><b>{photo.id}</b><span>{photo.category}</span><ChevronRight size={14} /></span></button>)}
+        <section className="moving-gallery" id="archive" aria-label="SidshotsMedia moving photography archive">
+          <div className="moving-strip moving-strip-forward"><div className="moving-strip-track">{[...stripOne, ...stripOne].map((photo, index) => <button className="moving-photo" key={`${photo.id}-forward-${index}`} onClick={() => setSelectedPhoto(photo)} aria-label={`View ${photo.title}, ${photo.category}`}><span className="moving-photo-image"><img src={photo.image} alt={photo.alt} loading="lazy" /></span><span className="moving-photo-caption"><b>{photo.id}</b><span>{photo.category}</span><ChevronRight size={13} /></span></button>)}</div></div>
+          <div className="moving-strip moving-strip-reverse"><div className="moving-strip-track">{[...stripTwo, ...stripTwo].map((photo, index) => <button className="moving-photo" key={`${photo.id}-reverse-${index}`} onClick={() => setSelectedPhoto(photo)} aria-label={`View ${photo.title}, ${photo.category}`}><span className="moving-photo-image"><img src={photo.image} alt={photo.alt} loading="lazy" /></span><span className="moving-photo-caption"><b>{photo.id}</b><span>{photo.category}</span><ChevronRight size={13} /></span></button>)}</div></div>
         </section>
 
         <section className="collage-filter-bar" aria-label="Filter photography archive">

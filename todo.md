@@ -19,3 +19,6 @@
 - [x] Replace the current white editorial page with a black trophy-style collage canvas matching the supplied screenshot.
 - [x] Build a dense white-framed photography wall with colorful images, centered wordmark, and compact CTA navigation.
 - [x] Verify the collage on desktop/mobile and save a fresh checkpoint.
+- [x] Replace the static photo wall with two horizontal automatic photography strips.
+- [x] Add opposite-direction motion, hover pause, and reduced-motion support.
+- [x] Verify desktop/mobile behavior and save the moving-strip checkpoint.
