@@ -125,6 +125,27 @@
 .dashboard-preview span { position: absolute; right: .5rem; bottom: .45rem; left: .5rem; display: flex; align-items: center; justify-content: space-between; gap: .45rem; color: var(--black); font-family: "Space Mono", monospace; font-size: .5rem; letter-spacing: .04em; text-transform: uppercase; }
 .dashboard-preview span b { font-weight: 400; }
 .dashboard-preview-secondary { min-height: 17rem; }
+.dashboard-reference { padding-top: clamp(4.5rem, 8vw, 7rem); padding-bottom: clamp(4.5rem, 8vw, 7rem); }
+.dashboard-reference-top { max-width: 72rem; margin: 0 auto 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.dashboard-mini-mark { display: grid; width: 2.45rem; height: 2.45rem; place-items: center; border: 1px solid rgba(255,255,255,.72); color: var(--white); font-family: "Space Mono", monospace; font-size: .63rem; letter-spacing: -.08em; }
+.dashboard-reference-links { display: flex; align-items: center; gap: .25rem; padding: .3rem; border: 1px solid rgba(255,255,255,.17); border-radius: 99rem; background: rgba(255,255,255,.04); }
+.dashboard-reference-links button { padding: .58rem .95rem; border-radius: 99rem; color: rgba(255,255,255,.75); font-family: "Space Mono", monospace; font-size: .52rem; letter-spacing: .06em; text-transform: uppercase; transition: background .18s ease, color .18s ease; }
+.dashboard-reference-links button:hover, .dashboard-reference-links button:focus-visible { background: rgba(255,255,255,.12); color: var(--white); outline: none; }
+.dashboard-reference-head { max-width: 60rem; margin: 0 auto 2.8rem; text-align: center; }
+.dashboard-reference-head h2 { margin: 0; color: var(--white); font-family: "DM Sans", sans-serif; font-size: clamp(2.8rem, 6vw, 6rem); font-weight: 300; letter-spacing: -.07em; line-height: .95; }
+.dashboard-reference-head h2 em { color: #d56b35; font-family: "Playfair Display", serif; font-weight: 500; }
+.dashboard-reference-head p { margin: 1.25rem auto 0; color: rgba(255,255,255,.68); font-size: .83rem; }
+.dashboard-card-grid { max-width: 72rem; margin: 0 auto; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.3rem; }
+.dashboard-card { min-width: 0; }
+.dashboard-card-media { width: 100%; aspect-ratio: .78; position: relative; overflow: hidden; border: 0; border-radius: .7rem; padding: 0; background: #1c1c1c; text-align: left; box-shadow: 0 1.2rem 2.6rem rgba(0,0,0,.24); transition: transform .28s var(--ease-out), box-shadow .28s ease; }
+.dashboard-card-media:hover, .dashboard-card-media:focus-visible { transform: translateY(-7px); box-shadow: 0 1.8rem 3.2rem rgba(0,0,0,.38); outline: none; }
+.dashboard-card-media img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform .55s var(--ease-out), filter .3s ease; }
+.dashboard-card-media:hover img { transform: scale(1.06); filter: saturate(1.12) contrast(1.04); }
+.dashboard-card-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.03) 35%, rgba(0,0,0,.8) 100%); }
+.dashboard-card-copy { position: absolute; right: 1.25rem; bottom: 1.2rem; left: 1.25rem; color: var(--white); }
+.dashboard-card-copy h3 { margin: 0 0 .3rem; font-family: "Playfair Display", serif; font-size: clamp(1.9rem, 3vw, 3rem); font-weight: 500; letter-spacing: -.07em; line-height: .9; }
+.dashboard-card-copy p { margin: 0; color: rgba(255,255,255,.82); font-size: .72rem; }
+.dashboard-card-action { display: inline-flex; align-items: center; gap: .4rem; margin-top: 1.3rem; color: #d56b35; font-family: "Space Mono", monospace; font-size: .52rem; letter-spacing: .06em; text-transform: uppercase; }
 
 .collage-filter-bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem clamp(1.25rem, 8vw, 8rem); background: var(--black); color: var(--gray); border-top: 1px solid rgba(255,255,255,.36); border-bottom: 1px solid rgba(255,255,255,.36); font-family: "Space Mono", monospace; font-size: .55rem; letter-spacing: .07em; text-transform: uppercase; }
 .collage-filter-bar > div { display: flex; flex-wrap: wrap; justify-content: center; gap: .8rem; }
@@ -197,6 +218,15 @@
   .dashboard-copy { grid-column: 1 / -1; min-height: 16rem; }
   .dashboard-preview-primary, .dashboard-preview-secondary { min-height: 12rem; border-width: .35rem; }
   .dashboard-preview span { right: .25rem; bottom: .3rem; left: .25rem; font-size: .42rem; }
+  .dashboard-reference-top { margin-bottom: 1.5rem; }
+  .dashboard-reference-links { gap: 0; }
+  .dashboard-reference-links button { padding: .48rem .58rem; font-size: .43rem; }
+  .dashboard-reference-head { margin-bottom: 2rem; }
+  .dashboard-reference-head h2 { font-size: clamp(2.7rem, 13vw, 4.4rem); }
+  .dashboard-reference-head p { font-size: .75rem; line-height: 1.5; }
+  .dashboard-card-grid { grid-template-columns: 1fr; gap: .85rem; }
+  .dashboard-card-media { aspect-ratio: 1.25; }
+  .dashboard-card-copy { right: 1rem; bottom: .95rem; left: 1rem; }
   .collage-filter-bar { display: block; padding: .85rem 1.25rem; }
   .collage-filter-bar > div { justify-content: flex-start; gap: .7rem; margin: .75rem 0; }
   .collage-statement { display: block; padding: 5.5rem 1.25rem; }

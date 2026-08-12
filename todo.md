@@ -25,3 +25,6 @@
 - [x] Add dedicated Architecture, Automobile, and Product photography dashboards after the moving strips.
 - [x] Add dashboard metrics, featured frames, and category actions that connect to the gallery.
 - [x] Verify the dashboards on desktop/mobile and save the updated checkpoint.
+- [x] Replace the current long dashboard panels with a compact three-card “Three Disciplines. One Craft.” section.
+- [x] Match the reference card overlays, image proportions, supporting navigation, and mobile stacking.
+- [x] Verify the redesigned dashboards and save a fresh checkpoint.
