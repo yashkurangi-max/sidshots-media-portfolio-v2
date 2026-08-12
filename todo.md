@@ -31,3 +31,6 @@
 - [x] Make each dashboard card open a dedicated photo-board view.
 - [x] Fill each board with at least 12 photography tiles and a final plus tile for future additions.
 - [x] Verify board navigation, lightbox behavior, mobile layout, and save the updated checkpoint.
+- [x] Make dashboard photo clicks display only the selected image in a focused viewer.
+- [x] Verify close behavior, keyboard escape, and responsive single-photo presentation.
+- [x] Save the focused photo viewer checkpoint.
