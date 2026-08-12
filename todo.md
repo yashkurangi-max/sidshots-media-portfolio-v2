@@ -8,3 +8,6 @@
 - [x] Analyze the attached reference video for layout, typography, color, motion, and interaction cues.
 - [x] Rework the portfolio to match the reference direction while retaining SidshotsMedia content and booking flow.
 - [x] Verify the reference-inspired experience on desktop and mobile, then save a new checkpoint.
+- [x] Audit and restyle every portfolio section to follow the attached reference video, not only the hero.
+- [x] Add cohesive archive-like interactions and section transitions across the page.
+- [x] Verify the full page on desktop and mobile, then save the complete reference-aligned checkpoint.

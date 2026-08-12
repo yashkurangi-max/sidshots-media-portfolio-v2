@@ -50,9 +50,17 @@ const dashboardCards = [
   { label: "03", title: "Product", description: "Objects with enough light to become a point of view.", image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=1200&q=85", filter: "Product" as Filter, metric: "06 sets" },
 ];
 
+const categoryHighlights = [
+  { number: "01", title: "Automobile", note: "Motion / material / atmosphere", image: galleryImages[0].image },
+  { number: "02", title: "Architecture", note: "Structure / light / rhythm", image: galleryImages[1].image },
+  { number: "03", title: "Product", note: "Object / surface / desire", image: galleryImages[2].image },
+  { number: "04", title: "Editorial", note: "People / place / presence", image: galleryImages[3].image },
+];
+
 export default function Home() {
   const [activeFilter, setActiveFilter] = useState<Filter>("All");
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeCategory, setActiveCategory] = useState(categoryHighlights[0]);
   const filteredImages = useMemo(
     () => activeFilter === "All" ? galleryImages : galleryImages.filter((item) => item.filter === activeFilter),
     [activeFilter],
@@ -150,6 +158,17 @@ export default function Home() {
                 <h3>{item.title}</h3>
               </article>
             ))}
+          </div>
+        </section>
+
+        <section className="category-wall section-pad" aria-labelledby="category-wall-title">
+          <div className="category-wall-head"><span className="mono-label">Archive / Awarded categories</span><span>Hover to preview the lane</span></div>
+          <div className="category-wall-grid">
+            <div className="category-wall-list">
+              <h2 id="category-wall-title">Find the<br /><em>frequency.</em></h2>
+              {categoryHighlights.map((category) => <button className={activeCategory.title === category.title ? "category-row is-active" : "category-row"} key={category.title} onMouseEnter={() => setActiveCategory(category)} onFocus={() => setActiveCategory(category)} onClick={() => selectFilter(category.title === "Product" ? "Product" : category.title === "Editorial" ? "Editorial" : "Corporate")}><span>{category.number}</span><strong>{category.title}</strong><small>{category.note}</small><ChevronRight size={16} /></button>)}
+            </div>
+            <div className="category-preview"><img src={activeCategory.image} alt={`${activeCategory.title} selected preview`} /><div className="category-preview-label"><span>{activeCategory.number} / {activeCategory.title}</span><span>Selected frame ↗</span></div></div>
           </div>
         </section>
 
