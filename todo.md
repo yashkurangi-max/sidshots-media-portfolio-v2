@@ -82,3 +82,6 @@
 - [x] Identify the duplicate watch-and-chess and perfume-detail photos in the Product dashboard.
 - [x] Remove the two duplicate Product dashboard photos while preserving the remaining gallery layout.
 - [x] Verify the Product dashboard and focused photo viewer, then save a checkpoint.
+- [x] Stage and upload the supplied FinalSlide.mp4 video.
+- [x] Replace the current "Frames in motion" video source in Home.tsx.
+- [x] Verify video rendering and responsive playback, then save a checkpoint.
