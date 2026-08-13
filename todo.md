@@ -61,3 +61,6 @@
 - [x] Audit the existing booking/contact section and footer content.
 - [x] Build the premium “Let’s Create Together” contact section with cinematic background and clickable details.
 - [x] Verify contact links, CTA behavior, animations, responsive layout, and save a checkpoint.
+- [x] Audit the current upper and lower moving-strip photo sets.
+- [x] Move selected upper-strip photos into the lower strip without changing dashboard assets.
+- [x] Verify both moving strips and save a checkpoint.

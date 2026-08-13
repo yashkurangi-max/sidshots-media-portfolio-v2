@@ -38,12 +38,15 @@ const firstStripPhotos: Photo[] = [
   { id: "F02", title: "Frame 11", category: "Editorial", image: "/manus-storage/strip-02-11_146f60dc.webp", alt: "SidshotsMedia editorial frame 11 from the newly uploaded photo set", tile: "tile-tall" },
   { id: "F03", title: "Frame 7", category: "Editorial", image: "/manus-storage/strip-03-7-2_ce2c88a0.webp", alt: "SidshotsMedia editorial frame 7 from the newly uploaded photo set", tile: "tile-square" },
   { id: "F04", title: "DSC03172", category: "Editorial", image: "/manus-storage/strip-04-dsc03172_e1da8e6c.webp", alt: "SidshotsMedia editorial frame DSC03172 from the newly uploaded photo set", tile: "tile-wide" },
-  { id: "F05", title: "Copy of 22", category: "Editorial", image: "/manus-storage/strip-05-copy-of-22_b8594586.webp", alt: "SidshotsMedia editorial frame from the newly uploaded photo set", tile: "tile-tall" },
   { id: "F06", title: "DSC05298", category: "Editorial", image: "/manus-storage/strip-06-dsc05298-recovered_7e57ace5.webp", alt: "SidshotsMedia editorial frame DSC05298 from the newly uploaded photo set", tile: "tile-square" },
   { id: "F07", title: "Frame 12", category: "Editorial", image: "/manus-storage/strip-07-12-copy_f438de90.webp", alt: "SidshotsMedia editorial frame 12 from the newly uploaded photo set", tile: "tile-wide" },
-  { id: "F08", title: "DSC04009", category: "Editorial", image: "/manus-storage/strip-08-dsc04009_e725ef77.webp", alt: "SidshotsMedia editorial frame DSC04009 from the newly uploaded photo set", tile: "tile-tall" },
   { id: "F09", title: "DSC03186", category: "Editorial", image: "/manus-storage/strip-09-dsc03186_127b5855.webp", alt: "SidshotsMedia editorial frame DSC03186 from the newly uploaded photo set", tile: "tile-square" },
   { id: "F10", title: "DSC0761", category: "Editorial", image: "/manus-storage/strip-10-dsc0761_4d243182.webp", alt: "SidshotsMedia editorial frame DSC0761 from the newly uploaded photo set", tile: "tile-wide" },
+];
+
+const movedToSecondStripPhotos: Photo[] = [
+  { id: "F05", title: "Copy of 22", category: "Editorial", image: "/manus-storage/strip-05-copy-of-22_b8594586.webp", alt: "SidshotsMedia editorial frame from the newly uploaded photo set", tile: "tile-tall" },
+  { id: "F08", title: "DSC04009", category: "Editorial", image: "/manus-storage/strip-08-dsc04009_e725ef77.webp", alt: "SidshotsMedia editorial frame DSC04009 from the newly uploaded photo set", tile: "tile-tall" },
   { id: "F11", title: "DSC04088", category: "Editorial", image: "/manus-storage/strip-11-dsc04088_5ef9a449.webp", alt: "SidshotsMedia editorial frame DSC04088 from the newly uploaded photo set", tile: "tile-tall" },
   { id: "F12", title: "DSC09874", category: "Editorial", image: "/manus-storage/strip-12-dsc09874_b473fb9e.webp", alt: "SidshotsMedia editorial frame DSC09874 from the newly uploaded photo set", tile: "tile-square" },
 ];
@@ -62,6 +65,7 @@ const secondStripPhotos: Photo[] = [
   { id: "S11", title: "Body line", category: "Automobile", image: photos[13].image, alt: photos[13].alt, tile: "tile-tall" },
   { id: "S12", title: "Red signal", category: "Automobile", image: photos[14].image, alt: photos[14].alt, tile: "tile-square" },
   { id: "S13", title: "Open road", category: "Automobile", image: photos[15].image, alt: photos[15].alt, tile: "tile-wide" },
+  ...movedToSecondStripPhotos,
 ];
 
 const vehiclePhotos: Photo[] = [
