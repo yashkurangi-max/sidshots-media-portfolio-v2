@@ -67,3 +67,6 @@
 - [x] Stage the seven newly supplied still-life and product photographs for the lower strip.
 - [x] Add the supplied photographs to the lower moving strip without changing the upper strip or dashboards.
 - [x] Verify the lower strip and save a checkpoint.
+- [x] Identify the screenshot-matched Architecture and Automobile entries in the moving strips.
+- [x] Remove the selected strip photos without changing dashboard boards.
+- [x] Verify the strips and dashboards, then save a checkpoint.

@@ -62,19 +62,12 @@ const lowerStripSuppliedPhotos: Photo[] = [
 ];
 
 const secondStripPhotos: Photo[] = [
-  { id: "S01", title: "Concrete rhythm", category: "Architecture", image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1400&q=88", alt: "Modern white building with strong geometric lines and blue sky", tile: "tile-wide" },
-  { id: "S02", title: "Open volume", category: "Architecture", image: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1400&q=88", alt: "Contemporary interior with plants, timber, and open workspaces", tile: "tile-tall" },
-  { id: "S03", title: "Glass and shadow", category: "Architecture", image: "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1400&q=88", alt: "Monumental glass architecture viewed from a low angle", tile: "tile-square" },
   { id: "S04", title: "Light on stone", category: "Architecture", image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=88", alt: "Warm modern living space with stone, wood, and soft daylight", tile: "tile-wide" },
   { id: "S05", title: "The long table", category: "Editorial", image: photos[4].image, alt: photos[4].alt, tile: "tile-tall" },
   { id: "S06", title: "Poolside still life", category: "Product", image: photos[1].image, alt: photos[1].alt, tile: "tile-square" },
   { id: "S07", title: "Quiet table", category: "Product", image: photos[6].image, alt: photos[6].alt, tile: "tile-wide" },
   { id: "S08", title: "Terrace study", category: "Product", image: photos[8].image, alt: photos[8].alt, tile: "tile-tall" },
   { id: "S09", title: "Reception geometry", category: "Product", image: photos[10].image, alt: photos[10].alt, tile: "tile-square" },
-  { id: "S10", title: "Night drive", category: "Automobile", image: photos[12].image, alt: photos[12].alt, tile: "tile-wide" },
-  { id: "S11", title: "Body line", category: "Automobile", image: photos[13].image, alt: photos[13].alt, tile: "tile-tall" },
-  { id: "S12", title: "Red signal", category: "Automobile", image: photos[14].image, alt: photos[14].alt, tile: "tile-square" },
-  { id: "S13", title: "Open road", category: "Automobile", image: photos[15].image, alt: photos[15].alt, tile: "tile-wide" },
   ...movedToSecondStripPhotos,
   ...lowerStripSuppliedPhotos,
 ];
