@@ -85,3 +85,6 @@
 - [x] Stage and upload the supplied FinalSlide.mp4 video.
 - [x] Replace the current "Frames in motion" video source in Home.tsx.
 - [x] Verify video rendering and responsive playback, then save a checkpoint.
+- [x] Audit the current wordmark markup and typography styles.
+- [x] Change the wordmark to uppercase with only SIDSHOTS bold.
+- [x] Verify the wordmark on desktop and mobile, then save a checkpoint.

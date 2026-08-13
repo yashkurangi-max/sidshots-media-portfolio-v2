@@ -153,7 +153,7 @@ export default function Home() {
 
         <button className="collage-wordmark" onClick={() => scrollTo("top")} aria-label="Back to the SidshotsMedia home page">
           <span className="collage-mark" aria-hidden="true">✣</span>
-          <span>SidshotsMedia</span>
+          <span className="collage-wordmark-text"><strong>SIDSHOTS</strong> <span>MEDIA</span></span>
         </button>
 
         <div className="collage-header-actions">
