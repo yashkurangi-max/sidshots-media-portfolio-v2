@@ -97,8 +97,8 @@ const productPhotos: Photo[] = [
   { id: "P07", title: "White leather", category: "Product", image: "/manus-storage/product-07-white-handbag_251427ba.jpg", alt: "White handbag styled against soft neutral fabric", tile: "tile-wide" },
   { id: "P08", title: "Orange silhouette", category: "Product", image: "/manus-storage/product-08-orange-handbag_3f54a641.jpg", alt: "Orange handbag photographed against bold color blocks", tile: "tile-tall" },
   { id: "P09", title: "Green sneaker", category: "Product", image: "/manus-storage/product-09-sneaker-green_1b5b7141.jpg", alt: "White sneaker floating against a deep green background", tile: "tile-square" },
-  { id: "P10", title: "Watch and chess", category: "Product", image: "/manus-storage/product-10-watch-still-life_b2af5168.jpg", alt: "Smartwatch arranged with chess pieces and a small wooden block", tile: "tile-wide" },
-  { id: "P11", title: "Perfume detail", category: "Product", image: "/manus-storage/product-01-perfume_0506998b.jpg", alt: "Close product detail of the perfume bottle on a clean white set", tile: "tile-tall" },
+  { id: "P10", title: "Graphic mascara", category: "Product", image: lowerStripSuppliedPhotos[3].image, alt: lowerStripSuppliedPhotos[3].alt, tile: "tile-wide" },
+  { id: "P11", title: "Lavender wash", category: "Product", image: lowerStripSuppliedPhotos[6].image, alt: lowerStripSuppliedPhotos[6].alt, tile: "tile-tall" },
   { id: "P12", title: "Watch detail", category: "Product", image: "/manus-storage/product-10-watch-still-life_b2af5168.jpg", alt: "Close product detail of a smartwatch styled with chess pieces", tile: "tile-square" },
 ];
 

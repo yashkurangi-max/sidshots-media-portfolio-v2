@@ -79,3 +79,6 @@
 - [x] Increase the supplied header logo and white visibility box slightly.
 - [x] Verify the enlarged logo across desktop and mobile header layouts.
 - [x] Save the header-logo scale update.
+- [x] Identify the duplicate watch-and-chess and perfume-detail photos in the Product dashboard.
+- [x] Remove the two duplicate Product dashboard photos while preserving the remaining gallery layout.
+- [x] Verify the Product dashboard and focused photo viewer, then save a checkpoint.
