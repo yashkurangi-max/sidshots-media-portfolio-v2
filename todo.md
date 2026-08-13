@@ -88,3 +88,6 @@
 - [x] Audit the current wordmark markup and typography styles.
 - [x] Change the wordmark to uppercase with only SIDSHOTS bold.
 - [x] Verify the wordmark on desktop and mobile, then save a checkpoint.
+- [x] Increase the decorative mark beside the SIDSHOTS MEDIA wordmark.
+- [x] Verify mark-to-wordmark balance on desktop and mobile.
+- [x] Save the decorative-mark scale update.
