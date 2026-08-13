@@ -51,6 +51,16 @@ const movedToSecondStripPhotos: Photo[] = [
   { id: "F12", title: "DSC09874", category: "Editorial", image: "/manus-storage/strip-12-dsc09874_b473fb9e.webp", alt: "SidshotsMedia editorial frame DSC09874 from the newly uploaded photo set", tile: "tile-square" },
 ];
 
+const lowerStripSuppliedPhotos: Photo[] = [
+  { id: "L01", title: "Coffee and cookies", category: "Product", image: "/manus-storage/lower-strip-01-coffee-cookies_b851c230.jpg", alt: "Overhead still life of coffee cups, chocolate chip cookies, and delicate flowers", tile: "tile-wide" },
+  { id: "L02", title: "Chocolate study", category: "Product", image: "/manus-storage/lower-strip-02-chocolate-still-life_76bb30d1.jpg", alt: "Chocolate pieces spilling from a glass jar beside soft white flowers and book pages", tile: "tile-tall" },
+  { id: "L03", title: "Coffee and pages", category: "Editorial", image: "/manus-storage/lower-strip-03-coffee-books_142d7ba5.jpg", alt: "Warm coffee still life with open books, flowers, and a ceramic cup", tile: "tile-square" },
+  { id: "L04", title: "Graphic mascara", category: "Product", image: "/manus-storage/lower-strip-04-mascara_0918d297.webp", alt: "Minimal black mascara product framed against a high-contrast white and black backdrop", tile: "tile-wide" },
+  { id: "L05", title: "Tea and biscuits", category: "Product", image: "/manus-storage/lower-strip-05-cookies-tea_ea09844c.webp", alt: "Stacked cookies and tea service styled against a soft turquoise background", tile: "tile-tall" },
+  { id: "L06", title: "Tropical pour", category: "Product", image: "/manus-storage/lower-strip-06-cocktail-still-life_28a717a9.webp", alt: "Colorful tropical drink styled with citrus, pineapple, and roses against warm wood", tile: "tile-square" },
+  { id: "L07", title: "Lavender wash", category: "Product", image: "/manus-storage/lower-strip-07-handwash_f48b01ad.webp", alt: "Lavender hand wash bottle staged with graphic color blocks and palm leaves", tile: "tile-wide" },
+];
+
 const secondStripPhotos: Photo[] = [
   { id: "S01", title: "Concrete rhythm", category: "Architecture", image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1400&q=88", alt: "Modern white building with strong geometric lines and blue sky", tile: "tile-wide" },
   { id: "S02", title: "Open volume", category: "Architecture", image: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1400&q=88", alt: "Contemporary interior with plants, timber, and open workspaces", tile: "tile-tall" },
@@ -66,6 +76,7 @@ const secondStripPhotos: Photo[] = [
   { id: "S12", title: "Red signal", category: "Automobile", image: photos[14].image, alt: photos[14].alt, tile: "tile-square" },
   { id: "S13", title: "Open road", category: "Automobile", image: photos[15].image, alt: photos[15].alt, tile: "tile-wide" },
   ...movedToSecondStripPhotos,
+  ...lowerStripSuppliedPhotos,
 ];
 
 const vehiclePhotos: Photo[] = [

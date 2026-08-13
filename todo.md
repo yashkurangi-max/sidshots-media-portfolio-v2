@@ -64,3 +64,6 @@
 - [x] Audit the current upper and lower moving-strip photo sets.
 - [x] Move selected upper-strip photos into the lower strip without changing dashboard assets.
 - [x] Verify both moving strips and save a checkpoint.
+- [x] Stage the seven newly supplied still-life and product photographs for the lower strip.
+- [x] Add the supplied photographs to the lower moving strip without changing the upper strip or dashboards.
+- [x] Verify the lower strip and save a checkpoint.
