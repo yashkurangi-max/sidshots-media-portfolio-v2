@@ -145,6 +145,7 @@ export default function Home() {
     <div className="collage-site">
       <header className="collage-header">
         <nav className="collage-nav collage-nav-left" aria-label="Main navigation">
+          <span className="collage-header-logo" aria-label="Sidshots Media logo"><img src="/manus-storage/sidshots-card-mark_835ab97c.png" alt="Sidshots Media logo mark" /></span>
           <button onClick={() => scrollTo("top")}>Home</button>
           <button onClick={() => scrollTo("dashboards")}>Dashboards</button>
           <button onClick={() => scrollTo("booking")}>Bookings</button>
@@ -175,7 +176,7 @@ export default function Home() {
         </section>
 
         <section className="dashboard-suite dashboard-reference" id="dashboards" aria-label="Photography dashboards">
-          <div className="dashboard-reference-top"><span className="dashboard-mini-mark" aria-label="Sidshots Media mark"><img src="/manus-storage/sidshots-card-mark_835ab97c.png" alt="Sidshots Media logo mark" /></span><nav className="dashboard-reference-links" aria-label="Dashboard navigation"><button onClick={() => scrollTo("archive")}>Work</button><button onClick={() => scrollTo("dashboards")}>About</button><button onClick={() => scrollTo("dashboards")}>Services</button><button onClick={() => scrollTo("booking")}>Contact</button></nav></div>
+          <div className="dashboard-reference-top"><span className="dashboard-reference-spacer" aria-hidden="true" /><nav className="dashboard-reference-links" aria-label="Dashboard navigation"><button onClick={() => scrollTo("archive")}>Work</button><button onClick={() => scrollTo("dashboards")}>About</button><button onClick={() => scrollTo("dashboards")}>Services</button><button onClick={() => scrollTo("booking")}>Contact</button></nav></div>
           <div className="dashboard-reference-head"><h2>Three Disciplines. <em>One Craft.</em></h2><p>Explore interactive dashboards tailored for each focus area.</p></div>
           <div className="dashboard-card-grid">{dashboardData.map((dashboard) => <article className="dashboard-card" key={dashboard.category}><button className="dashboard-card-media" onClick={() => setSelectedDashboard(dashboard)} aria-label={`Open ${dashboard.category} dashboard`}><img src={dashboard.primary.image} alt={dashboard.primary.alt} loading="lazy" /><span className="dashboard-card-shade" /><div className="dashboard-card-copy"><h3>{dashboard.category}</h3><p>{dashboard.service}</p><span className="dashboard-card-action">Open dashboard <ArrowUpRight size={14} /></span></div></button></article>)}</div>
         </section>

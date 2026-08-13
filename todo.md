@@ -73,3 +73,6 @@
 - [x] Inspect the supplied SM visiting-card branding asset.
 - [x] Replace the current footer SM mark with the supplied branding asset.
 - [x] Verify the footer branding and responsive layout, then save a checkpoint.
+- [x] Audit the header and dashboard logo placements.
+- [x] Move the supplied logo beside Home in a white visibility box and remove it from the dashboard rail.
+- [x] Verify header visibility and dashboard cleanup, then save a checkpoint.
