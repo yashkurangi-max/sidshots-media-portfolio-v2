@@ -55,3 +55,6 @@
 - [x] Inspect and stage the 12 newly uploaded photographs for the first moving strip.
 - [x] Use the new photographs in the first strip without changing the second strip or dashboard boards.
 - [x] Verify the updated first strip and save a checkpoint.
+- [x] Inspect available video assets and define the video slide flow before contact.
+- [x] Add a responsive video slide section before the contact/booking section.
+- [x] Verify playback controls, layout, and mobile behavior, then save a checkpoint.

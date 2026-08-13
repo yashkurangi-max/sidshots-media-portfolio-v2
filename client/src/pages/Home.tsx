@@ -184,6 +184,21 @@ export default function Home() {
           <p>I work with teams who care about the difference between a picture of something and a picture that makes it felt.</p>
         </section>
 
+        <section className="collage-video" id="reel" aria-label="SidshotsMedia video slide">
+          <div className="collage-video-head">
+            <div><span className="collage-kicker">SidshotsMedia / Motion archive</span><h2>Frames in <em>motion.</em></h2></div>
+            <span className="collage-video-count">01 / 01 · Editorial reel</span>
+          </div>
+          <div className="collage-video-stage">
+            <video controls autoPlay loop muted playsInline preload="metadata" src="/manus-storage/sidshots-editorial-reel_815c5da8.mp4" aria-label="SidshotsMedia editorial motion reel" />
+            <div className="collage-video-overlay" aria-hidden="true"><span>SidshotsMedia / Moving image</span><span>Play the reel ↗</span></div>
+          </div>
+          <div className="collage-video-footer">
+            <p>A moving-image study for campaigns, launches, and visual worlds that need more than a single frame.</p>
+            <button onClick={() => scrollTo("booking")}>Book a motion brief <ArrowUpRight size={15} /></button>
+          </div>
+        </section>
+
         <section className="collage-booking" id="booking">
           <div><span className="collage-kicker">The next frame</span><h2>Have a brief<br /><em>in mind?</em></h2><p>Tell me what you’re making, where it lives, and when the light needs to be right.</p></div>
           <form onSubmit={(event) => { event.preventDefault(); toast.success("Thanks — your photography brief is ready for Jasper."); }}>

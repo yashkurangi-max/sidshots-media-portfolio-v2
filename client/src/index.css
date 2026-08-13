@@ -183,6 +183,20 @@
 .collage-statement h2 { margin: 0; font-family: "Playfair Display", serif; font-size: clamp(2.6rem, 5.3vw, 6rem); font-weight: 500; letter-spacing: -.08em; line-height: .87; }
 .collage-statement p { max-width: 15rem; margin: 0; color: #505050; font-size: .77rem; line-height: 1.55; }
 
+.collage-video { padding: clamp(4.8rem, 9vw, 8.5rem) clamp(1.25rem, 8vw, 8rem); background: #171717; color: var(--white); border-top: 1px solid rgba(255,255,255,.28); border-bottom: 1px solid rgba(255,255,255,.28); }
+.collage-video-head { max-width: 78rem; margin: 0 auto 2.6rem; display: flex; align-items: end; justify-content: space-between; gap: 2rem; }
+.collage-video-head h2 { margin: .8rem 0 0; font-family: "Playfair Display", serif; font-size: clamp(3rem, 6.2vw, 6.8rem); font-weight: 500; letter-spacing: -.09em; line-height: .82; }
+.collage-video-head h2 em { font-weight: 400; }
+.collage-video-count { color: rgba(255,255,255,.55); font-family: "Space Mono", monospace; font-size: .54rem; letter-spacing: .08em; text-transform: uppercase; }
+.collage-video-stage { max-width: 78rem; margin: 0 auto; position: relative; overflow: hidden; border: .65rem solid var(--white); background: var(--white); box-shadow: 0 1.2rem 2.8rem rgba(0,0,0,.38); }
+.collage-video-stage video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #090909; object-fit: cover; }
+.collage-video-stage::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(0,0,0,.08), transparent 38%, rgba(0,0,0,.34)); }
+.collage-video-overlay { position: absolute; right: 1rem; bottom: 1rem; left: 1rem; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 1rem; color: rgba(255,255,255,.78); font-family: "Space Mono", monospace; font-size: .52rem; letter-spacing: .07em; text-transform: uppercase; pointer-events: none; }
+.collage-video-footer { max-width: 78rem; margin: 1.4rem auto 0; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+.collage-video-footer p { max-width: 25rem; margin: 0; color: rgba(255,255,255,.62); font-size: .78rem; line-height: 1.55; }
+.collage-video-footer button { display: inline-flex; align-items: center; gap: .55rem; border: 1px solid rgba(255,255,255,.55); padding: .8rem 1rem; background: transparent; color: var(--white); font-family: "Space Mono", monospace; font-size: .54rem; letter-spacing: .07em; text-transform: uppercase; transition: background .18s ease, color .18s ease, transform .18s var(--ease-out); }
+.collage-video-footer button:hover, .collage-video-footer button:focus-visible { background: var(--white); color: var(--black); transform: translateY(-2px); outline: none; }
+
 .collage-booking { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 8vw, 8rem); padding: 8rem clamp(1.25rem, 8vw, 8rem); background: var(--black); color: var(--white); }
 .collage-booking h2 { margin: .9rem 0 1.4rem; font-family: "Playfair Display", serif; font-size: clamp(3.4rem, 6.5vw, 7rem); font-weight: 500; letter-spacing: -.09em; line-height: .82; }
 .collage-booking p { max-width: 20rem; margin: 0; color: #bebebe; font-size: .8rem; line-height: 1.5; }
@@ -266,6 +280,14 @@
   .collage-filter-bar > div { justify-content: flex-start; gap: .7rem; margin: .75rem 0; }
   .collage-statement { display: block; padding: 5.5rem 1.25rem; }
   .collage-statement h2 { margin: 1.5rem 0; font-size: clamp(2.75rem, 12vw, 4.2rem); }
+  .collage-video { padding: 5.5rem 1.25rem; }
+  .collage-video-head { display: block; margin-bottom: 1.8rem; }
+  .collage-video-head h2 { font-size: clamp(3rem, 14vw, 4.8rem); }
+  .collage-video-count { display: inline-block; margin-top: 1.4rem; }
+  .collage-video-stage { border-width: .35rem; }
+  .collage-video-overlay { right: .65rem; bottom: .65rem; left: .65rem; font-size: .42rem; }
+  .collage-video-footer { display: block; }
+  .collage-video-footer button { margin-top: 1.25rem; }
   .collage-booking { display: block; padding: 5.5rem 1.25rem; }
   .collage-booking form { margin-top: 3.5rem; }
   .collage-footer { display: block; padding: 1.2rem 1.25rem 1.5rem; }
