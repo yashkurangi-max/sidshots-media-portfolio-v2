@@ -199,18 +199,31 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="collage-booking" id="booking">
-          <div><span className="collage-kicker">The next frame</span><h2>Have a brief<br /><em>in mind?</em></h2><p>Tell me what you’re making, where it lives, and when the light needs to be right.</p></div>
-          <form onSubmit={(event) => { event.preventDefault(); toast.success("Thanks — your photography brief is ready for Jasper."); }}>
-            <label>Your name<input required placeholder="Name" /></label>
-            <label>Work email<input required type="email" placeholder="you@company.com" /></label>
-            <label>What are we photographing?<textarea required rows={3} placeholder="A campaign, a product, a portrait series..." /></label>
-            <button type="submit">Send the brief <ArrowUpRight size={16} /></button>
-          </form>
+        <section className="collage-contact" id="booking" aria-label="Contact SidshotsMedia">
+          <div className="collage-contact-backdrop" aria-hidden="true" />
+          <div className="collage-contact-inner">
+            <div className="collage-contact-topline"><span className="collage-kicker">SidshotsMedia / Contact</span><span>01 — 05</span></div>
+            <div className="collage-contact-grid">
+              <div className="collage-contact-copy">
+                <span className="collage-contact-availability">Available for select commissions</span>
+                <h2>Let’s Create<br /><em>Together.</em></h2>
+                <p>Bring the brief, the feeling, or just the first idea. We’ll shape the next frame from there.</p>
+                <a className="collage-contact-cta" href="mailto:studio@jasperhale.co?subject=Book%20a%20shoot%20with%20SidshotsMedia">Book a Shoot <ArrowUpRight size={16} /></a>
+              </div>
+              <div className="collage-contact-details" aria-label="SidshotsMedia contact details">
+                <div className="collage-contact-detail"><span>Team / Studio</span><strong>SidshotsMedia<em>by Jasper Hale</em></strong></div>
+                <div className="collage-contact-detail"><span>Email</span><a href="mailto:studio@jasperhale.co">studio@jasperhale.co <ArrowUpRight size={14} /></a></div>
+                <div className="collage-contact-detail"><span>Phone / WhatsApp</span><a href="https://api.whatsapp.com/send?text=Hello%20SidshotsMedia%2C%20I%27d%20like%20to%20start%20a%20project." target="_blank" rel="noreferrer">Start a WhatsApp chat <ArrowUpRight size={14} /></a><small>Phone details available on request</small></div>
+                <div className="collage-contact-detail"><span>Instagram</span><a href="https://www.instagram.com/sidshotsmedia/" target="_blank" rel="noreferrer">@sidshotsmedia <ArrowUpRight size={14} /></a></div>
+                <div className="collage-contact-detail"><span>Location</span><strong>India <em>Worldwide commissions</em></strong></div>
+              </div>
+            </div>
+            <div className="collage-contact-note"><span>Commercial photography · Moving image · Visual direction</span><p>For campaigns, products, architecture, automobiles, and portraits with a point of view.</p></div>
+          </div>
         </section>
       </main>
 
-      <footer className="collage-footer"><span>SidshotsMedia / Jasper Hale</span><span>Automotive · Architecture · Product · Editorial</span><a href="mailto:studio@jasperhale.co">studio@jasperhale.co <ArrowUpRight size={14} /></a></footer>
+      <footer className="collage-footer"><div className="collage-footer-brand"><strong>SidshotsMedia</strong><span>by Jasper Hale</span></div><div className="collage-footer-links"><a href="mailto:studio@jasperhale.co">Email <ArrowUpRight size={13} /></a><a href="https://www.instagram.com/sidshotsmedia/" target="_blank" rel="noreferrer">Instagram <ArrowUpRight size={13} /></a><a href="#booking">Book a shoot <ArrowUpRight size={13} /></a></div><div className="collage-footer-meta"><span>© 2026 SidshotsMedia</span><span>India · Worldwide commissions</span></div></footer>
 
       {selectedDashboard && !selectedPhoto && <div className="dashboard-detail" role="dialog" aria-modal="true" aria-label={`${selectedDashboard.category} photography dashboard`}><div className="dashboard-detail-bar"><button className="dashboard-detail-back" onClick={() => setSelectedDashboard(null)}><ArrowLeft size={16} /> Back to dashboards</button><span>{selectedDashboard.index} / {selectedDashboard.category}</span><button className="dashboard-detail-close" onClick={() => setSelectedDashboard(null)} aria-label="Close dashboard"><X size={20} /></button></div><div className="dashboard-detail-intro"><div><span className="collage-kicker">SidshotsMedia / Photo board</span><h2>{selectedDashboard.category}<br /><em>{selectedDashboard.title}</em></h2></div><p>{selectedDashboard.copy}<br /><span>{dashboardPhotoMap[selectedDashboard.category].length} image slots · final tile reserved for additions</span></p></div><div className="dashboard-board-grid">{dashboardPhotoMap[selectedDashboard.category].map((photo, index) => <button className="dashboard-board-tile" key={`${selectedDashboard.category}-${photo.id}-${index}`} onClick={() => setSelectedPhoto(photo)} aria-label={`Open ${photo.title}`}><img src={photo.image} alt={photo.alt} loading="lazy" /><span className="dashboard-board-index">{String(index + 1).padStart(2, "0")}</span><span className="dashboard-board-title">{photo.title}</span></button>)}<button className="dashboard-add-tile" onClick={() => toast.info(`New ${selectedDashboard.category.toLowerCase()} photo slot ready for a future image.`)}><strong>+</strong><span>Add photo</span><small>Future frame</small></button></div></div>}
 
