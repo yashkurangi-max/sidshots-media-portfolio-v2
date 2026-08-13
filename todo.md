@@ -52,3 +52,6 @@
 - [x] Audit overlap between the moving strips and the three dashboard photo boards.
 - [x] Use distinct photography in both moving strips without changing the dashboard boards.
 - [x] Verify the separated strip presentation and save a checkpoint.
+- [x] Inspect and stage the 12 newly uploaded photographs for the first moving strip.
+- [x] Use the new photographs in the first strip without changing the second strip or dashboard boards.
+- [x] Verify the updated first strip and save a checkpoint.

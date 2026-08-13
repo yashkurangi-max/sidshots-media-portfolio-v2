@@ -33,7 +33,22 @@ const photos: Photo[] = [
   { id: "16", title: "Open road", category: "Automobile", image: "https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1400&q=88", alt: "Vehicle moving along an open road in warm light", tile: "tile-wide" },
 ];
 
-const stripPhotos: Photo[] = [
+const firstStripPhotos: Photo[] = [
+  { id: "F01", title: "Copy of 15", category: "Editorial", image: "/manus-storage/strip-01-copy-of-15_5c37011b.webp", alt: "SidshotsMedia editorial frame from the newly uploaded photo set", tile: "tile-wide" },
+  { id: "F02", title: "Frame 11", category: "Editorial", image: "/manus-storage/strip-02-11_146f60dc.webp", alt: "SidshotsMedia editorial frame 11 from the newly uploaded photo set", tile: "tile-tall" },
+  { id: "F03", title: "Frame 7", category: "Editorial", image: "/manus-storage/strip-03-7-2_ce2c88a0.webp", alt: "SidshotsMedia editorial frame 7 from the newly uploaded photo set", tile: "tile-square" },
+  { id: "F04", title: "DSC03172", category: "Editorial", image: "/manus-storage/strip-04-dsc03172_e1da8e6c.webp", alt: "SidshotsMedia editorial frame DSC03172 from the newly uploaded photo set", tile: "tile-wide" },
+  { id: "F05", title: "Copy of 22", category: "Editorial", image: "/manus-storage/strip-05-copy-of-22_b8594586.webp", alt: "SidshotsMedia editorial frame from the newly uploaded photo set", tile: "tile-tall" },
+  { id: "F06", title: "DSC05298", category: "Editorial", image: "/manus-storage/strip-06-dsc05298-recovered_7e57ace5.webp", alt: "SidshotsMedia editorial frame DSC05298 from the newly uploaded photo set", tile: "tile-square" },
+  { id: "F07", title: "Frame 12", category: "Editorial", image: "/manus-storage/strip-07-12-copy_f438de90.webp", alt: "SidshotsMedia editorial frame 12 from the newly uploaded photo set", tile: "tile-wide" },
+  { id: "F08", title: "DSC04009", category: "Editorial", image: "/manus-storage/strip-08-dsc04009_e725ef77.webp", alt: "SidshotsMedia editorial frame DSC04009 from the newly uploaded photo set", tile: "tile-tall" },
+  { id: "F09", title: "DSC03186", category: "Editorial", image: "/manus-storage/strip-09-dsc03186_127b5855.webp", alt: "SidshotsMedia editorial frame DSC03186 from the newly uploaded photo set", tile: "tile-square" },
+  { id: "F10", title: "DSC0761", category: "Editorial", image: "/manus-storage/strip-10-dsc0761_4d243182.webp", alt: "SidshotsMedia editorial frame DSC0761 from the newly uploaded photo set", tile: "tile-wide" },
+  { id: "F11", title: "DSC04088", category: "Editorial", image: "/manus-storage/strip-11-dsc04088_5ef9a449.webp", alt: "SidshotsMedia editorial frame DSC04088 from the newly uploaded photo set", tile: "tile-tall" },
+  { id: "F12", title: "DSC09874", category: "Editorial", image: "/manus-storage/strip-12-dsc09874_b473fb9e.webp", alt: "SidshotsMedia editorial frame DSC09874 from the newly uploaded photo set", tile: "tile-square" },
+];
+
+const secondStripPhotos: Photo[] = [
   { id: "S01", title: "Concrete rhythm", category: "Architecture", image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1400&q=88", alt: "Modern white building with strong geometric lines and blue sky", tile: "tile-wide" },
   { id: "S02", title: "Open volume", category: "Architecture", image: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1400&q=88", alt: "Contemporary interior with plants, timber, and open workspaces", tile: "tile-tall" },
   { id: "S03", title: "Glass and shadow", category: "Architecture", image: "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1400&q=88", alt: "Monumental glass architecture viewed from a low angle", tile: "tile-square" },
@@ -99,9 +114,9 @@ export default function Home() {
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
   const [selectedDashboard, setSelectedDashboard] = useState<(typeof dashboardData)[number] | null>(null);
   const visiblePhotos = useMemo(() => activeCategory === "All" ? photos : photos.filter((photo) => photo.category === activeCategory), [activeCategory]);
-  const visibleStripPhotos = useMemo(() => activeCategory === "All" ? stripPhotos : stripPhotos.filter((photo) => photo.category === activeCategory), [activeCategory]);
-  const stripOne = visibleStripPhotos.filter((_, index) => index % 2 === 0);
-  const stripTwo = visibleStripPhotos.filter((_, index) => index % 2 !== 0);
+  const visibleSecondStripPhotos = useMemo(() => activeCategory === "All" ? secondStripPhotos : secondStripPhotos.filter((photo) => photo.category === activeCategory), [activeCategory]);
+  const stripOne = firstStripPhotos;
+  const stripTwo = visibleSecondStripPhotos;
 
   useEffect(() => {
     const closeOnEscape = (event: KeyboardEvent) => {
