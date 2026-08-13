@@ -76,3 +76,6 @@
 - [x] Audit the header and dashboard logo placements.
 - [x] Move the supplied logo beside Home in a white visibility box and remove it from the dashboard rail.
 - [x] Verify header visibility and dashboard cleanup, then save a checkpoint.
+- [x] Increase the supplied header logo and white visibility box slightly.
+- [x] Verify the enlarged logo across desktop and mobile header layouts.
+- [x] Save the header-logo scale update.
