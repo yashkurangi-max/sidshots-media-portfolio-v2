@@ -49,3 +49,6 @@
 - [x] Inspect the supplied archive for product photographs suitable for the Product dashboard.
 - [x] Replace the Product dashboard board assets with supplied product photographs while preserving 12 slots and the add tile.
 - [x] Verify the updated Product board and focused photo viewer, then save a checkpoint.
+- [x] Audit overlap between the moving strips and the three dashboard photo boards.
+- [x] Use distinct photography in both moving strips without changing the dashboard boards.
+- [x] Verify the separated strip presentation and save a checkpoint.
