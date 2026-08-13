@@ -70,3 +70,6 @@
 - [x] Identify the screenshot-matched Architecture and Automobile entries in the moving strips.
 - [x] Remove the selected strip photos without changing dashboard boards.
 - [x] Verify the strips and dashboards, then save a checkpoint.
+- [x] Inspect the supplied SM visiting-card branding asset.
+- [x] Replace the current footer SM mark with the supplied branding asset.
+- [x] Verify the footer branding and responsive layout, then save a checkpoint.
