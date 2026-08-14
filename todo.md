@@ -94,3 +94,6 @@
 - [x] Remove the decorative mark beside the SIDSHOTS MEDIA wordmark.
 - [x] Verify wordmark alignment and responsive headers.
 - [x] Save the simplified wordmark update.
+- [x] Audit current font imports and typography rules.
+- [x] Apply Montserrat across the entire website while preserving the hierarchy.
+- [x] Verify desktop/mobile typography and save a checkpoint.
