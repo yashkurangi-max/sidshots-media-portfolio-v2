@@ -139,3 +139,12 @@ Verification note: the sixth Automobile image is now the card and detail cover i
 - [x] Save a checkpoint for the verified About paragraph edit.
 
 Verification note: Home.tsx line 216 now identifies Siddharth Dadhe as a photographer with over 7 years of experience, removing “and cinematographer.” The paragraph remains readable in the desktop two-column About slide and the mobile single-column layout. Typecheck and production build passed.
+- [x] Inspect the supplied Sidshots Media team-slide PDF for exact content and structure.
+- [x] Build an OUR TEAM slide between About and Frames in motion that matches the reference and portfolio style.
+- [x] Verify slide order, readability, and responsive behavior, then save a checkpoint.
+
+Reference note: the supplied one-page PDF specifies the title “OUR TEAM,” subtitle “The people behind Sidshots Media,” and six roles/names: Senior Photographer — Siddharth Dadhe; Senior Cinematographer — Dilan Pemmaiah; Web Developer — Apurva Kurangi; Content Writer — Aastha Dadhe; HR — Chaithra Paadi; Manager — Akash Brahmane. Its closing line describes a multidisciplinary team bringing photography, cinematography, content, technology, and project management together.
+
+Desktop verification note: the new slide appears between the About biography and Frames in motion, uses the portfolio’s warm orange accent and editorial type system, and keeps the six-member two-column roster legible in the full-page desktop capture.
+
+Mobile verification note: the OUR TEAM heading remains prominent, the six roster entries stack into one readable column, and the slide transitions cleanly into Frames in motion without overflow or clipping.

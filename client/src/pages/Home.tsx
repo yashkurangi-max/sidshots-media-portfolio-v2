@@ -210,17 +210,34 @@ export default function Home() {
         </section>
 
         <section className="collage-statement collage-about" id="about" aria-label="About Siddharth Dadhe">
-          <div className="collage-about-label"><span className="collage-kicker">SidshotsMedia / About</span><span>03 — 05</span></div>
+          <div className="collage-about-label"><span className="collage-kicker">SidshotsMedia / About</span><span>03 — 06</span></div>
           <div className="collage-about-content">
             <h2>Behind<br /><em>the frame.</em></h2>
             <p>I’m Siddharth Dadhe, a photographer with over 7 years of experience in the industry. Over the years, I’ve had the opportunity to work with different brands and automotive magazines, along with projects in automotive, interiors, architecture, products, and commercial photography. Working across different industries has helped me understand that every brand has its own personality. My job is to find that personality and bring it out through the camera. After spending years working in the industry, I decided to take the next step and build something of my own. That’s when I started SIDSHOTS MEDIA. Today, I work with brands to create photography and films that feel real, look good, and most importantly, represent who they are. I’m here to create, experiment, and keep getting better with every frame.</p>
           </div>
         </section>
 
+        <section className="collage-team" id="team" aria-label="Our team">
+          <div className="collage-team-label"><span className="collage-kicker">SidshotsMedia / Our team</span><span>04 — 06</span></div>
+          <div className="collage-team-heading">
+            <h2>OUR <em>TEAM</em></h2>
+            <p>The people behind Sidshots Media</p>
+          </div>
+          <div className="collage-team-grid">
+            <article className="collage-team-member"><span>Senior Photographer</span><strong>Siddharth Dadhe</strong></article>
+            <article className="collage-team-member"><span>Senior Cinematographer</span><strong>Dilan Pemmaiah</strong></article>
+            <article className="collage-team-member"><span>Web Developer</span><strong>Apurva Kurangi</strong></article>
+            <article className="collage-team-member"><span>Content Writer</span><strong>Aastha Dadhe</strong></article>
+            <article className="collage-team-member"><span>HR</span><strong>Chaithra Paadi</strong></article>
+            <article className="collage-team-member"><span>Manager</span><strong>Akash Brahmane</strong></article>
+          </div>
+          <p className="collage-team-note">A multidisciplinary team bringing photography, cinematography, content, technology and project management together to create impactful visual experiences.</p>
+        </section>
+
         <section className="collage-video" id="reel" aria-label="SidshotsMedia video slide">
           <div className="collage-video-head">
             <div><span className="collage-kicker">SidshotsMedia / Motion archive</span><h2>Frames in <em>motion.</em></h2></div>
-            <span className="collage-video-count">01 / 01 · Editorial reel</span>
+            <span className="collage-video-count">05 / 06 · Editorial reel</span>
           </div>
           <div className="collage-video-stage">
             <video controls autoPlay loop muted playsInline preload="metadata" src="/manus-storage/final-slide_ba62d737.mp4" aria-label="SidshotsMedia FinalSlide motion reel" />
@@ -235,7 +252,7 @@ export default function Home() {
         <section className="collage-contact" id="booking" aria-label="Contact SidshotsMedia">
           <div className="collage-contact-backdrop" aria-hidden="true" />
           <div className="collage-contact-inner">
-            <div className="collage-contact-topline"><span className="collage-kicker">SidshotsMedia / Contact</span><span>01 — 05</span></div>
+            <div className="collage-contact-topline"><span className="collage-kicker">SidshotsMedia / Contact</span><span>06 — 06</span></div>
             <div className="collage-contact-grid">
               <div className="collage-contact-copy">
                 <span className="collage-contact-availability">Available for select commissions</span>
