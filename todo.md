@@ -106,3 +106,6 @@
 - [x] Audit the hero “See the Work” CTA and the Three Disciplines destination section.
 - [x] Wire the CTA to scroll directly to the Three Disciplines section.
 - [x] Verify the CTA on desktop and mobile, then save a checkpoint.
+- [x] Remove Editorial and Portrait from the visible category filters.
+- [x] Make All return to the first portfolio slide and category filters open the matching dashboard with confirmation.
+- [x] Verify the revised category navigation on desktop and mobile, then save a checkpoint.

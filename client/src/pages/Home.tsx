@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowUpRight, ChevronRight, Menu, X } from "lucide-react";
 import { toast } from "sonner";
 
 type Category = "All" | "Automobile" | "Architecture" | "Product" | "Editorial" | "Portrait";
+type FilterCategory = "All" | "Automobile" | "Architecture" | "Product";
 
 type Photo = {
   id: string;
@@ -106,7 +107,7 @@ const productPhotos: Photo[] = [
   { id: "P12", title: "Watch detail", category: "Product", image: "/manus-storage/product-10-watch-still-life_b2af5168.jpg", alt: "Close product detail of a smartwatch styled with chess pieces", tile: "tile-square" },
 ];
 
-const categories: Category[] = ["All", "Automobile", "Architecture", "Product", "Editorial", "Portrait"];
+const categories: FilterCategory[] = ["All", "Automobile", "Architecture", "Product"];
 
 const dashboardData = [
   { index: "01", category: "Architecture" as const, title: "Built forms in changing light.", service: "Buildings · Interiors · Hospitality", copy: "Spatial studies, material details, and quiet geometry for places with a point of view.", stats: ["07 locations", "03 days", "24 final frames"], primary: photos[0], secondary: photos[2] },
@@ -121,7 +122,7 @@ const dashboardPhotoMap: Record<(typeof dashboardData)[number]["category"], Phot
 };
 
 export default function Home() {
-  const [activeCategory, setActiveCategory] = useState<Category>("All");
+  const [activeCategory, setActiveCategory] = useState<FilterCategory>("All");
   const [menuOpen, setMenuOpen] = useState(false);
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
   const [selectedDashboard, setSelectedDashboard] = useState<(typeof dashboardData)[number] | null>(null);
@@ -143,6 +144,24 @@ export default function Home() {
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
     setMenuOpen(false);
+  };
+
+  const handleCategorySelect = (category: FilterCategory) => {
+    setActiveCategory(category);
+    setSelectedPhoto(null);
+
+    if (category === "All") {
+      setSelectedDashboard(null);
+      scrollTo("archive");
+      return;
+    }
+
+    const dashboard = dashboardData.find((item) => item.category === category) ?? null;
+    setSelectedDashboard(dashboard);
+    scrollTo("dashboards");
+    if (dashboard) {
+      toast.success(`${dashboard.category} dashboard selected — this is the correct dashboard for your selection.`);
+    }
   };
 
   return (
@@ -186,7 +205,7 @@ export default function Home() {
 
         <section className="collage-filter-bar" aria-label="Filter photography archive">
           <span>Selected frames / 2026</span>
-          <div>{categories.map((category) => <button key={category} className={activeCategory === category ? "is-active" : ""} onClick={() => setActiveCategory(category)}>{category}</button>)}</div>
+          <div>{categories.map((category) => <button key={category} className={activeCategory === category ? "is-active" : ""} onClick={() => handleCategorySelect(category)}>{category}</button>)}</div>
           <span>{String(visiblePhotos.length).padStart(2, "0")} photographs</span>
         </section>
 
@@ -237,7 +256,7 @@ export default function Home() {
 
       <footer className="collage-footer"><div className="collage-footer-brand"><strong>SidshotsMedia</strong><span>by Jasper Hale</span></div><div className="collage-footer-links"><a href="mailto:studio@jasperhale.co">Email <ArrowUpRight size={13} /></a><a href="https://www.instagram.com/sidshotsmedia/" target="_blank" rel="noreferrer">Instagram <ArrowUpRight size={13} /></a><a href="#booking">Book a shoot <ArrowUpRight size={13} /></a></div><div className="collage-footer-meta"><span>© 2026 SidshotsMedia</span><span>India · Worldwide commissions</span></div></footer>
 
-      {selectedDashboard && !selectedPhoto && <div className="dashboard-detail" role="dialog" aria-modal="true" aria-label={`${selectedDashboard.category} photography dashboard`}><div className="dashboard-detail-bar"><button className="dashboard-detail-back" onClick={() => setSelectedDashboard(null)}><ArrowLeft size={16} /> Back to dashboards</button><span>{selectedDashboard.index} / {selectedDashboard.category}</span><button className="dashboard-detail-close" onClick={() => setSelectedDashboard(null)} aria-label="Close dashboard"><X size={20} /></button></div><div className="dashboard-detail-intro"><div><span className="collage-kicker">SidshotsMedia / Photo board</span><h2>{selectedDashboard.category}<br /><em>{selectedDashboard.title}</em></h2></div><p>{selectedDashboard.copy}<br /><span>{dashboardPhotoMap[selectedDashboard.category].length} image slots · final tile reserved for additions</span></p></div><div className="dashboard-board-grid">{dashboardPhotoMap[selectedDashboard.category].map((photo, index) => <button className="dashboard-board-tile" key={`${selectedDashboard.category}-${photo.id}-${index}`} onClick={() => setSelectedPhoto(photo)} aria-label={`Open ${photo.title}`}><img src={photo.image} alt={photo.alt} loading="lazy" /><span className="dashboard-board-index">{String(index + 1).padStart(2, "0")}</span><span className="dashboard-board-title">{photo.title}</span></button>)}<button className="dashboard-add-tile" onClick={() => toast.info(`New ${selectedDashboard.category.toLowerCase()} photo slot ready for a future image.`)}><strong>+</strong><span>Add photo</span><small>Future frame</small></button></div></div>}
+      {selectedDashboard && !selectedPhoto && <div className="dashboard-detail" role="dialog" aria-modal="true" aria-label={`${selectedDashboard.category} photography dashboard`}><div className="dashboard-detail-bar"><button className="dashboard-detail-back" onClick={() => setSelectedDashboard(null)}><ArrowLeft size={16} /> Back to dashboards</button><span>{selectedDashboard.index} / {selectedDashboard.category}</span><button className="dashboard-detail-close" onClick={() => setSelectedDashboard(null)} aria-label="Close dashboard"><X size={20} /></button></div><div className="dashboard-detail-intro"><div><span className="collage-kicker">SidshotsMedia / Photo board</span><span className="dashboard-detail-match" aria-live="polite">Correct dashboard selected · {selectedDashboard.category}</span><h2>{selectedDashboard.category}<br /><em>{selectedDashboard.title}</em></h2></div><p>{selectedDashboard.copy}<br /><span>{dashboardPhotoMap[selectedDashboard.category].length} image slots · final tile reserved for additions</span></p></div><div className="dashboard-board-grid">{dashboardPhotoMap[selectedDashboard.category].map((photo, index) => <button className="dashboard-board-tile" key={`${selectedDashboard.category}-${photo.id}-${index}`} onClick={() => setSelectedPhoto(photo)} aria-label={`Open ${photo.title}`}><img src={photo.image} alt={photo.alt} loading="lazy" /><span className="dashboard-board-index">{String(index + 1).padStart(2, "0")}</span><span className="dashboard-board-title">{photo.title}</span></button>)}<button className="dashboard-add-tile" onClick={() => toast.info(`New ${selectedDashboard.category.toLowerCase()} photo slot ready for a future image.`)}><strong>+</strong><span>Add photo</span><small>Future frame</small></button></div></div>}
 
       {selectedPhoto && <div className="collage-lightbox" role="dialog" aria-modal="true" aria-label={`${selectedPhoto.title} photograph`} onClick={() => setSelectedPhoto(null)}><button aria-label="Close photograph" onClick={() => setSelectedPhoto(null)}><X size={20} /></button><figure onClick={(event) => event.stopPropagation()}><img src={selectedPhoto.image} alt={selectedPhoto.alt} /><figcaption><span>{selectedPhoto.id} / {selectedPhoto.category}</span><strong>{selectedPhoto.title}</strong></figcaption></figure></div>}
     </div>
