@@ -124,6 +124,11 @@
 - [x] Audit the Services navigation target and Frames in motion section anchor.
 - [x] Connect Services to the fourth Frames in motion section.
 - [x] Verify the Services destination on desktop and mobile, then save a checkpoint.
+- [x] Audit every Book a Shoot action and identify the WhatsApp contact target.
+- [x] Route every Book a Shoot action directly to the WhatsApp contact section.
+- [x] Verify WhatsApp navigation on desktop and mobile, then save a checkpoint.
+
+Verification note: the main and footer “Book a Shoot” actions now open the prefilled SIDSHOTS MEDIA WhatsApp chat in a new tab. Typecheck, production build, desktop full-page capture, and mobile full-page capture passed.
 
 Verification note: the Services control now scrolls to the section with id="reel", whose heading is “Frames in motion.” Typecheck, production build, desktop full-page capture, and mobile full-page capture passed.
 
