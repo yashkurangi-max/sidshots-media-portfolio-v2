@@ -226,7 +226,7 @@ export default function Home() {
           <div className="collage-team-grid">
             <article className="collage-team-member"><span>Senior Photographer</span><strong>Siddharth Dadhe</strong></article>
             <article className="collage-team-member"><span>Senior Cinematographer</span><strong>Dilan Pemmaiah</strong></article>
-            <article className="collage-team-member"><span>Web Developer</span><strong>Apurva Kurangi</strong></article>
+            <article className="collage-team-member"><span>Web Developer</span><strong>Apurwa Kurangi</strong></article>
             <article className="collage-team-member"><span>Content Writer</span><strong>Aastha Dadhe</strong></article>
             <article className="collage-team-member"><span>HR</span><strong>Chaithra Paadi</strong></article>
             <article className="collage-team-member"><span>Manager</span><strong>Akash Brahmane</strong></article>

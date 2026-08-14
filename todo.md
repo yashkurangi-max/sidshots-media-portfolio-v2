@@ -148,3 +148,8 @@ Reference note: the supplied one-page PDF specifies the title “OUR TEAM,” su
 Desktop verification note: the new slide appears between the About biography and Frames in motion, uses the portfolio’s warm orange accent and editorial type system, and keeps the six-member two-column roster legible in the full-page desktop capture.
 
 Mobile verification note: the OUR TEAM heading remains prominent, the six roster entries stack into one readable column, and the slide transitions cleanly into Frames in motion without overflow or clipping.
+- [x] Verify the OUR TEAM name is corrected to “Apurwa Kurangi.”
+- [x] Run checks and responsive verification for the corrected OUR TEAM slide.
+- [x] Save a checkpoint for the corrected team member name.
+
+Verification note: Home.tsx shows “Apurwa Kurangi” in the Web Developer roster entry. The OUR TEAM slide remains balanced in the desktop full-page capture and stacks cleanly on mobile. Typecheck and production build passed; the build retains the existing runtime-only storage-path warning and the pre-existing bundle-size warning.
