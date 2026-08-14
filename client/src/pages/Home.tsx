@@ -198,7 +198,7 @@ export default function Home() {
         </section>
 
         <section className="dashboard-suite dashboard-reference" id="dashboards" aria-label="Photography dashboards">
-          <div className="dashboard-reference-top"><span className="dashboard-reference-spacer" aria-hidden="true" /><nav className="dashboard-reference-links" aria-label="Dashboard navigation"><button onClick={() => scrollTo("archive")}>Work</button><button onClick={() => scrollTo("dashboards")}>About</button><button onClick={() => scrollTo("dashboards")}>Services</button><button onClick={() => scrollTo("booking")}>Contact</button></nav></div>
+          <div className="dashboard-reference-top"><span className="dashboard-reference-spacer" aria-hidden="true" /><nav className="dashboard-reference-links" aria-label="Dashboard navigation"><button onClick={() => scrollTo("archive")}>Work</button><button onClick={() => scrollTo("about")}>About</button><button onClick={() => scrollTo("dashboards")}>Services</button><button onClick={() => scrollTo("booking")}>Contact</button></nav></div>
           <div className="dashboard-reference-head"><h2>Three Disciplines. <em>One Craft.</em></h2><p>Explore interactive dashboards tailored for each focus area.</p></div>
           <div className="dashboard-card-grid">{dashboardData.map((dashboard) => <article className="dashboard-card" key={dashboard.category}><button className="dashboard-card-media" onClick={() => setSelectedDashboard(dashboard)} aria-label={`Open ${dashboard.category} dashboard`}><img src={dashboard.primary.image} alt={dashboard.primary.alt} loading="lazy" /><span className="dashboard-card-shade" /><div className="dashboard-card-copy"><h3>{dashboard.category}</h3><p>{dashboard.service}</p><span className="dashboard-card-action">Open dashboard <ArrowUpRight size={14} /></span></div></button></article>)}</div>
         </section>
@@ -209,10 +209,12 @@ export default function Home() {
           <span>{String(visiblePhotos.length).padStart(2, "0")} photographs</span>
         </section>
 
-        <section className="collage-statement">
-          <span className="collage-kicker">A note from behind the camera</span>
-          <h2>Photographs that make people<br />stop for <em>one second longer.</em></h2>
-          <p>I work with teams who care about the difference between a picture of something and a picture that makes it felt.</p>
+        <section className="collage-statement collage-about" id="about" aria-label="About Siddharth Dadhe">
+          <div className="collage-about-label"><span className="collage-kicker">SidshotsMedia / About</span><span>03 — 05</span></div>
+          <div className="collage-about-content">
+            <h2>Behind<br /><em>the frame.</em></h2>
+            <p>I’m Siddharth Dadhe, a photographer and cinematographer with over 7 years of experience in the industry. Over the years, I’ve had the opportunity to work with different brands and automotive magazines, along with projects in automotive, interiors, architecture, products, and commercial photography. Working across different industries has helped me understand that every brand has its own personality. My job is to find that personality and bring it out through the camera. After spending years working in the industry, I decided to take the next step and build something of my own. That’s when I started SIDSHOTS MEDIA. Today, I work with brands to create photography and films that feel real, look good, and most importantly, represent who they are. I’m here to create, experiment, and keep getting better with every frame.</p>
+          </div>
         </section>
 
         <section className="collage-video" id="reel" aria-label="SidshotsMedia video slide">

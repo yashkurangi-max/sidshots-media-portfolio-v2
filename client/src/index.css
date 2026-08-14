@@ -189,6 +189,12 @@
 .collage-statement .collage-kicker { color: #656565; }
 .collage-statement h2 { margin: 0; font-family: "Montserrat", sans-serif; font-size: clamp(2.6rem, 5.3vw, 6rem); font-weight: 500; letter-spacing: -.045em; line-height: .87; }
 .collage-statement p { max-width: 15rem; margin: 0; color: #505050; font-size: .77rem; line-height: 1.55; }
+.collage-about { display: block; padding-top: clamp(5rem, 9vw, 9rem); padding-bottom: clamp(5rem, 9vw, 9rem); }
+.collage-about-label { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: clamp(2.5rem, 6vw, 5.5rem); color: #656565; font-family: "Montserrat", sans-serif; font-size: .55rem; letter-spacing: .08em; text-transform: uppercase; }
+.collage-about-content { display: grid; grid-template-columns: minmax(14rem, .8fr) minmax(0, 1.2fr); gap: clamp(2rem, 8vw, 9rem); align-items: start; max-width: 72rem; margin: 0 auto; }
+.collage-about-content h2 { max-width: 22rem; font-size: clamp(3.4rem, 7vw, 7.4rem); }
+.collage-about-content h2 em { color: #d56b35; font-weight: 400; }
+.collage-about-content p { max-width: 43rem; margin: .25rem 0 0; color: #3f3f3f; font-size: clamp(.95rem, 1.25vw, 1.16rem); line-height: 1.85; }
 
 .collage-video { padding: clamp(4.8rem, 9vw, 8.5rem) clamp(1.25rem, 8vw, 8rem); background: #171717; color: var(--white); border-top: 1px solid rgba(255,255,255,.28); border-bottom: 1px solid rgba(255,255,255,.28); }
 .collage-video-head { max-width: 78rem; margin: 0 auto 2.6rem; display: flex; align-items: end; justify-content: space-between; gap: 2rem; }
@@ -306,6 +312,11 @@
   .collage-filter-bar > div { justify-content: flex-start; gap: .7rem; margin: .75rem 0; }
   .collage-statement { display: block; padding: 5.5rem 1.25rem; }
   .collage-statement h2 { margin: 1.5rem 0; font-size: clamp(2.75rem, 12vw, 4.2rem); }
+  .collage-about { padding-top: 4.6rem; padding-bottom: 4.8rem; }
+  .collage-about-label { margin-bottom: 2.6rem; }
+  .collage-about-content { display: block; }
+  .collage-about-content h2 { width: 100%; margin: 0 0 1.6rem; font-size: clamp(3.2rem, 16vw, 5.4rem); }
+  .collage-about-content p { width: 100%; max-width: none; margin: 0; font-size: .92rem; line-height: 1.75; }
   .collage-video { padding: 5.5rem 1.25rem; }
   .collage-video-head { display: block; margin-bottom: 1.8rem; }
   .collage-video-head h2 { font-size: clamp(3rem, 14vw, 4.8rem); }

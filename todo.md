@@ -109,3 +109,6 @@
 - [x] Remove Editorial and Portrait from the visible category filters.
 - [x] Make All return to the first portfolio slide and category filters open the matching dashboard with confirmation.
 - [x] Verify the revised category navigation on desktop and mobile, then save a checkpoint.
+- [x] Audit the current About navigation and slide copy.
+- [x] Open a dedicated third About slide and replace its copy with the supplied Siddharth Dadhe biography.
+- [x] Verify About navigation and biography readability on desktop and mobile, then save a checkpoint.
