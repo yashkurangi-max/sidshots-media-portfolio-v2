@@ -121,5 +121,10 @@
 - [x] Audit the Automobile dashboard cover-photo selection.
 - [x] Set the sixth Automobile photograph as the dashboard cover without changing the 12-photo board.
 - [x] Verify the Automobile cover and board on desktop and mobile, then save a checkpoint.
+- [x] Audit the Services navigation target and Frames in motion section anchor.
+- [x] Connect Services to the fourth Frames in motion section.
+- [x] Verify the Services destination on desktop and mobile, then save a checkpoint.
+
+Verification note: the Services control now scrolls to the section with id="reel", whose heading is “Frames in motion.” Typecheck, production build, desktop full-page capture, and mobile full-page capture passed.
 
 Verification note: the sixth Automobile image is now the card and detail cover image; the 12-image vehicle board remains unchanged. Typecheck, production build, desktop full-page capture, and mobile full-page capture passed.
