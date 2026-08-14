@@ -111,7 +111,7 @@ const categories: FilterCategory[] = ["All", "Automobile", "Architecture", "Prod
 
 const dashboardData = [
   { index: "01", category: "Architecture" as const, title: "Built forms in changing light.", service: "Buildings · Interiors · Hospitality", copy: "Spatial studies, material details, and quiet geometry for places with a point of view.", stats: ["07 locations", "03 days", "24 final frames"], primary: photos[0], secondary: photos[2] },
-  { index: "02", category: "Automobile" as const, title: "Motion, held for a second.", service: "Vehicles · Motorcycles · Road stories", copy: "A field-ready automotive board built from the vehicle work in the supplied SidshotsMedia archive.", stats: ["12 vehicle frames", "06 road studies", "18 final frames"], primary: vehiclePhotos[0], secondary: vehiclePhotos[6] },
+  { index: "02", category: "Automobile" as const, title: "Motion, held for a second.", service: "Vehicles · Motorcycles · Road stories", copy: "A field-ready automotive board built from the vehicle work in the supplied SidshotsMedia archive.", stats: ["12 vehicle frames", "06 road studies", "18 final frames"], primary: vehiclePhotos[5], secondary: vehiclePhotos[6] },
   { index: "03", category: "Product" as const, title: "Objects with a pulse.", service: "Objects · Beauty · Fashion", copy: "Tactile product stories built from the supplied archive, making useful things feel considered, desirable, and alive.", stats: ["12 supplied frames", "08 set-ups", "32 final frames"], primary: productPhotos[0], secondary: productPhotos[7] },
 ];
 

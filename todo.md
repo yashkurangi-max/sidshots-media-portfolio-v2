@@ -118,3 +118,8 @@
 - [x] Audit image sizes, loading behavior, animation costs, and visual effects.
 - [x] Optimize image delivery and reduce unnecessary runtime visual work while preserving key motion.
 - [x] Validate the optimized portfolio on desktop and mobile, then save a checkpoint.
+- [x] Audit the Automobile dashboard cover-photo selection.
+- [x] Set the sixth Automobile photograph as the dashboard cover without changing the 12-photo board.
+- [x] Verify the Automobile cover and board on desktop and mobile, then save a checkpoint.
+
+Verification note: the sixth Automobile image is now the card and detail cover image; the 12-image vehicle board remains unchanged. Typecheck, production build, desktop full-page capture, and mobile full-page capture passed.
