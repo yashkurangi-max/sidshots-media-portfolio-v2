@@ -224,12 +224,12 @@ export default function Home() {
             <p>The people behind Sidshots Media</p>
           </div>
           <div className="collage-team-grid">
-            <article className="collage-team-member"><span>Senior Photographer</span><strong>Siddharth Dadhe</strong></article>
-            <article className="collage-team-member"><span>Senior Cinematographer</span><strong>Dilan Pemmaiah</strong></article>
-            <article className="collage-team-member"><span>Web Developer</span><strong>Apurwa Kurangi</strong></article>
-            <article className="collage-team-member"><span>Content Writer</span><strong>Aastha Dadhe</strong></article>
+            <article className="collage-team-member"><span>SENIOR PHOTOGRAPHER</span><strong>Siddharth Dadhe</strong></article>
+            <article className="collage-team-member"><span>SENIOR CINEMATOGRAPHER</span><strong>Dilan Pemmaiah</strong></article>
+            <article className="collage-team-member"><span>WEB DEVELOPER</span><strong>Apurwa Kurangi</strong></article>
+            <article className="collage-team-member"><span>CONTENT WRITER</span><strong>Aastha Dadhe</strong></article>
             <article className="collage-team-member"><span>HR</span><strong>Chaithra Paadi</strong></article>
-            <article className="collage-team-member"><span>Manager</span><strong>Akash Brahmane</strong></article>
+            <article className="collage-team-member"><span>MANAGER</span><strong>Akash Brahmane</strong></article>
           </div>
           <p className="collage-team-note">A multidisciplinary team bringing photography, cinematography, content, technology and project management together to create impactful visual experiences.</p>
         </section>

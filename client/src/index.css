@@ -205,7 +205,7 @@
 .collage-team-grid { max-width: 72rem; margin: 0 auto; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid rgba(0,0,0,.24); }
 .collage-team-member { display: grid; gap: .65rem; padding: 1.35rem 1.5rem 1.45rem; border-bottom: 1px solid rgba(0,0,0,.24); }
 .collage-team-member:nth-child(odd) { border-right: 1px solid rgba(0,0,0,.24); }
-.collage-team-member span { color: #686868; font-family: "Montserrat", sans-serif; font-size: .53rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
+.collage-team-member span { color: #b45224; font-family: "Montserrat", sans-serif; font-size: clamp(.76rem, 1vw, .98rem); font-weight: 800; letter-spacing: .13em; line-height: 1.15; text-transform: uppercase; }
 .collage-team-member strong { color: var(--black); font-family: "Montserrat", sans-serif; font-size: clamp(1.05rem, 1.7vw, 1.5rem); font-weight: 600; letter-spacing: -.025em; }
 .collage-team-note { max-width: 42rem; margin: 1.7rem auto 0; color: #5c5c5c; font-size: .72rem; line-height: 1.55; text-align: center; }
 

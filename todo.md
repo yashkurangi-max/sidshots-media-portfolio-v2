@@ -153,3 +153,8 @@ Mobile verification note: the OUR TEAM heading remains prominent, the six roster
 - [x] Save a checkpoint for the corrected team member name.
 
 Verification note: Home.tsx shows “Apurwa Kurangi” in the Web Developer roster entry. The OUR TEAM slide remains balanced in the desktop full-page capture and stacks cleanly on mobile. Typecheck and production build passed; the build retains the existing runtime-only storage-path warning and the pre-existing bundle-size warning.
+- [x] Enlarge and uppercase all six OUR TEAM role labels, with stronger contrast and tracking than the member names.
+- [x] Verify the updated role-label hierarchy on desktop and mobile, then run typecheck and production build.
+- [ ] Save a checkpoint for the OUR TEAM role-label visibility refinement.
+
+Verification note: the six OUR TEAM roles are rendered in uppercase with a larger Montserrat scale, heavier weight, wider tracking, and the warm orange accent for clearer hierarchy. Typecheck, production build, desktop full-page capture, and mobile full-page capture passed.
