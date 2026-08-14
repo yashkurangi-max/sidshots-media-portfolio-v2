@@ -163,3 +163,8 @@ Verification note: the six OUR TEAM roles are rendered in uppercase with a large
 - [ ] Verify caption readability on desktop and mobile, then save a checkpoint.
 
 Verification note: the moving photo strips now display subject-based titles such as “Pink bottle study,” “Green sneaker,” “White handbag,” “Wet road motion,” and “Window-lit dining” instead of file IDs or camera names. Typecheck, production build, desktop full-page capture, and mobile full-page capture passed.
+- [x] Audit every moving-strip title against the actual photo subject.
+- [x] Correct mismatched subject labels and matching alt descriptions.
+- [ ] Verify the corrected captions on desktop and mobile, then save a checkpoint.
+
+Verification note: the moving-strip audit corrected the silver sedan label to “Silver sedan on the road,” and updated the remaining strip titles and alt descriptions to match their actual subjects, including product bottles, sneakers, a watch flatlay, a smartwatch, off-road vehicles, and cars. Typecheck, production build, desktop full-page capture, and mobile full-page capture passed.

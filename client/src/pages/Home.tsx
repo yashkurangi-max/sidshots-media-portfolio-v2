@@ -35,21 +35,21 @@ const photos: Photo[] = [
 ];
 
 const firstStripPhotos: Photo[] = [
-  { id: "F01", title: "Pink bottle study", category: "Editorial", image: "/manus-storage/strip-01-copy-of-15_5c37011b.webp", alt: "Pink bottle styled against a soft pink studio background", tile: "tile-wide" },
-  { id: "F02", title: "Green sneaker", category: "Editorial", image: "/manus-storage/strip-02-11_146f60dc.webp", alt: "White and green sneaker photographed against a graphic dark backdrop", tile: "tile-tall" },
+  { id: "F01", title: "Pink product bottles", category: "Editorial", image: "/manus-storage/strip-01-copy-of-15_5c37011b.webp", alt: "Pink product bottles arranged as a clean studio still life", tile: "tile-wide" },
+  { id: "F02", title: "Green and white sneakers", category: "Editorial", image: "/manus-storage/strip-02-11_146f60dc.webp", alt: "Pair of white and green sneakers photographed against a graphic dark backdrop", tile: "tile-tall" },
   { id: "F03", title: "White handbag", category: "Editorial", image: "/manus-storage/strip-03-7-2_ce2c88a0.webp", alt: "White handbag styled against folded blush fabric", tile: "tile-square" },
-  { id: "F04", title: "Wet road motion", category: "Editorial", image: "/manus-storage/strip-04-dsc03172_e1da8e6c.webp", alt: "Vehicle moving through a wet road with water splashing around it", tile: "tile-wide" },
-  { id: "F06", title: "Modern living room", category: "Editorial", image: "/manus-storage/strip-06-dsc05298-recovered_7e57ace5.webp", alt: "Modern living room framed by large windows and warm timber", tile: "tile-square" },
-  { id: "F07", title: "Poolside dining", category: "Editorial", image: "/manus-storage/strip-07-12-copy_f438de90.webp", alt: "Outdoor dining table arranged beside a tropical pool", tile: "tile-wide" },
-  { id: "F09", title: "Garden lounge", category: "Editorial", image: "/manus-storage/strip-09-dsc03186_127b5855.webp", alt: "Outdoor lounge arranged beneath umbrellas and lush greenery", tile: "tile-square" },
-  { id: "F10", title: "Window-lit dining", category: "Editorial", image: "/manus-storage/strip-10-dsc0761_4d243182.webp", alt: "Dining room washed with soft light through tall windows", tile: "tile-wide" },
+  { id: "F04", title: "Car through water", category: "Editorial", image: "/manus-storage/strip-04-dsc03172_e1da8e6c.webp", alt: "Car driving through a wet road with water splashing around it", tile: "tile-wide" },
+  { id: "F06", title: "Silver sedan on the road", category: "Editorial", image: "/manus-storage/strip-06-dsc05298-recovered_7e57ace5.webp", alt: "Silver sedan parked on an open road beneath a softly lit sky", tile: "tile-square" },
+  { id: "F07", title: "Watch and phone flatlay", category: "Editorial", image: "/manus-storage/strip-07-12-copy_f438de90.webp", alt: "Wristwatch, smartphone, pen, and coffee arranged on a wooden desk", tile: "tile-wide" },
+  { id: "F09", title: "Off-road vehicle portrait", category: "Editorial", image: "/manus-storage/strip-09-dsc03186_127b5855.webp", alt: "Rugged off-road vehicle photographed in a grassy field", tile: "tile-square" },
+  { id: "F10", title: "Red SUV roadside", category: "Editorial", image: "/manus-storage/strip-10-dsc0761_4d243182.webp", alt: "Red SUV photographed on a quiet roadside beneath trees", tile: "tile-wide" },
 ];
 
 const movedToSecondStripPhotos: Photo[] = [
-  { id: "F05", title: "Poolside breakfast", category: "Editorial", image: "/manus-storage/strip-05-copy-of-22_b8594586.webp", alt: "Breakfast table styled beside a bright poolside setting", tile: "tile-tall" },
-  { id: "F08", title: "Tropical exterior", category: "Editorial", image: "/manus-storage/strip-08-dsc04009_e725ef77.webp", alt: "Tropical hospitality exterior framed by plants and open shade", tile: "tile-tall" },
-  { id: "F11", title: "Courtyard lounge", category: "Editorial", image: "/manus-storage/strip-11-dsc04088_5ef9a449.webp", alt: "Courtyard lounge with outdoor seating and deep green foliage", tile: "tile-tall" },
-  { id: "F12", title: "Light-filled dining", category: "Editorial", image: "/manus-storage/strip-12-dsc09874_b473fb9e.webp", alt: "Long dining room filled with soft natural light", tile: "tile-square" },
+  { id: "F05", title: "Detoxifying face mask", category: "Editorial", image: "/manus-storage/strip-05-copy-of-22_b8594586.webp", alt: "Black detoxifying peel-off face mask tube styled on a warm wood surface", tile: "tile-tall" },
+  { id: "F08", title: "Smartwatch on blue textile", category: "Editorial", image: "/manus-storage/strip-08-dsc04009_e725ef77.webp", alt: "Smartwatch photographed against a textured blue textile background", tile: "tile-tall" },
+  { id: "F11", title: "Muddy 4x4 detail", category: "Editorial", image: "/manus-storage/strip-11-dsc04088_5ef9a449.webp", alt: "Close detail of a mud-covered four-wheel-drive vehicle", tile: "tile-tall" },
+  { id: "F12", title: "White car on a winding road", category: "Editorial", image: "/manus-storage/strip-12-dsc09874_b473fb9e.webp", alt: "White car driving along a winding road lined with trees", tile: "tile-square" },
 ];
 
 const lowerStripSuppliedPhotos: Photo[] = [
@@ -277,7 +277,7 @@ export default function Home() {
 
       {selectedDashboard && !selectedPhoto && <div className="dashboard-detail" role="dialog" aria-modal="true" aria-label={`${selectedDashboard.category} photography dashboard`}><div className="dashboard-detail-bar"><button className="dashboard-detail-back" onClick={() => setSelectedDashboard(null)}><ArrowLeft size={16} /> Back to dashboards</button><span>{selectedDashboard.index} / {selectedDashboard.category}</span><button className="dashboard-detail-close" onClick={() => setSelectedDashboard(null)} aria-label="Close dashboard"><X size={20} /></button></div><div className="dashboard-detail-intro"><div><span className="collage-kicker">SidshotsMedia / Photo board</span><span className="dashboard-detail-match" aria-live="polite">Correct dashboard selected · {selectedDashboard.category}</span><h2>{selectedDashboard.category}<br /><em>{selectedDashboard.title}</em></h2></div><p>{selectedDashboard.copy}<br /><span>{dashboardPhotoMap[selectedDashboard.category].length} image slots · final tile reserved for additions</span></p></div><div className="dashboard-board-grid">{dashboardPhotoMap[selectedDashboard.category].map((photo, index) => <button className="dashboard-board-tile" key={`${selectedDashboard.category}-${photo.id}-${index}`} onClick={() => setSelectedPhoto(photo)} aria-label={`Open ${photo.title}`}><img src={photo.image} alt={photo.alt} loading="lazy" decoding="async" /><span className="dashboard-board-index">{String(index + 1).padStart(2, "0")}</span><span className="dashboard-board-title">{photo.title}</span></button>)}<button className="dashboard-add-tile" onClick={() => toast.info(`New ${selectedDashboard.category.toLowerCase()} photo slot ready for a future image.`)}><strong>+</strong><span>Add photo</span><small>Future frame</small></button></div></div>}
 
-      {selectedPhoto && <div className="collage-lightbox" role="dialog" aria-modal="true" aria-label={`${selectedPhoto.title} photograph`} onClick={() => setSelectedPhoto(null)}><button aria-label="Close photograph" onClick={() => setSelectedPhoto(null)}><X size={20} /></button><figure onClick={(event) => event.stopPropagation()}><img src={selectedPhoto.image} alt={selectedPhoto.alt} decoding="async" fetchPriority="high" /><figcaption><span>{selectedPhoto.id} / {selectedPhoto.category}</span><strong>{selectedPhoto.title}</strong></figcaption></figure></div>}
+      {selectedPhoto && <div className="collage-lightbox" role="dialog" aria-modal="true" aria-label={`${selectedPhoto.title} photograph`} onClick={() => setSelectedPhoto(null)}><button aria-label="Close photograph" onClick={() => setSelectedPhoto(null)}><X size={20} /></button><figure onClick={(event) => event.stopPropagation()}><img src={selectedPhoto.image} alt={selectedPhoto.alt} decoding="async" fetchPriority="high" /><figcaption><span>{selectedPhoto.category}</span><strong>{selectedPhoto.title}</strong></figcaption></figure></div>}
     </div>
   );
 }
