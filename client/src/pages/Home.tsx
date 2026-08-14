@@ -35,21 +35,21 @@ const photos: Photo[] = [
 ];
 
 const firstStripPhotos: Photo[] = [
-  { id: "F01", title: "Copy of 15", category: "Editorial", image: "/manus-storage/strip-01-copy-of-15_5c37011b.webp", alt: "SidshotsMedia editorial frame from the newly uploaded photo set", tile: "tile-wide" },
-  { id: "F02", title: "Frame 11", category: "Editorial", image: "/manus-storage/strip-02-11_146f60dc.webp", alt: "SidshotsMedia editorial frame 11 from the newly uploaded photo set", tile: "tile-tall" },
-  { id: "F03", title: "Frame 7", category: "Editorial", image: "/manus-storage/strip-03-7-2_ce2c88a0.webp", alt: "SidshotsMedia editorial frame 7 from the newly uploaded photo set", tile: "tile-square" },
-  { id: "F04", title: "DSC03172", category: "Editorial", image: "/manus-storage/strip-04-dsc03172_e1da8e6c.webp", alt: "SidshotsMedia editorial frame DSC03172 from the newly uploaded photo set", tile: "tile-wide" },
-  { id: "F06", title: "DSC05298", category: "Editorial", image: "/manus-storage/strip-06-dsc05298-recovered_7e57ace5.webp", alt: "SidshotsMedia editorial frame DSC05298 from the newly uploaded photo set", tile: "tile-square" },
-  { id: "F07", title: "Frame 12", category: "Editorial", image: "/manus-storage/strip-07-12-copy_f438de90.webp", alt: "SidshotsMedia editorial frame 12 from the newly uploaded photo set", tile: "tile-wide" },
-  { id: "F09", title: "DSC03186", category: "Editorial", image: "/manus-storage/strip-09-dsc03186_127b5855.webp", alt: "SidshotsMedia editorial frame DSC03186 from the newly uploaded photo set", tile: "tile-square" },
-  { id: "F10", title: "DSC0761", category: "Editorial", image: "/manus-storage/strip-10-dsc0761_4d243182.webp", alt: "SidshotsMedia editorial frame DSC0761 from the newly uploaded photo set", tile: "tile-wide" },
+  { id: "F01", title: "Pink bottle study", category: "Editorial", image: "/manus-storage/strip-01-copy-of-15_5c37011b.webp", alt: "Pink bottle styled against a soft pink studio background", tile: "tile-wide" },
+  { id: "F02", title: "Green sneaker", category: "Editorial", image: "/manus-storage/strip-02-11_146f60dc.webp", alt: "White and green sneaker photographed against a graphic dark backdrop", tile: "tile-tall" },
+  { id: "F03", title: "White handbag", category: "Editorial", image: "/manus-storage/strip-03-7-2_ce2c88a0.webp", alt: "White handbag styled against folded blush fabric", tile: "tile-square" },
+  { id: "F04", title: "Wet road motion", category: "Editorial", image: "/manus-storage/strip-04-dsc03172_e1da8e6c.webp", alt: "Vehicle moving through a wet road with water splashing around it", tile: "tile-wide" },
+  { id: "F06", title: "Modern living room", category: "Editorial", image: "/manus-storage/strip-06-dsc05298-recovered_7e57ace5.webp", alt: "Modern living room framed by large windows and warm timber", tile: "tile-square" },
+  { id: "F07", title: "Poolside dining", category: "Editorial", image: "/manus-storage/strip-07-12-copy_f438de90.webp", alt: "Outdoor dining table arranged beside a tropical pool", tile: "tile-wide" },
+  { id: "F09", title: "Garden lounge", category: "Editorial", image: "/manus-storage/strip-09-dsc03186_127b5855.webp", alt: "Outdoor lounge arranged beneath umbrellas and lush greenery", tile: "tile-square" },
+  { id: "F10", title: "Window-lit dining", category: "Editorial", image: "/manus-storage/strip-10-dsc0761_4d243182.webp", alt: "Dining room washed with soft light through tall windows", tile: "tile-wide" },
 ];
 
 const movedToSecondStripPhotos: Photo[] = [
-  { id: "F05", title: "Copy of 22", category: "Editorial", image: "/manus-storage/strip-05-copy-of-22_b8594586.webp", alt: "SidshotsMedia editorial frame from the newly uploaded photo set", tile: "tile-tall" },
-  { id: "F08", title: "DSC04009", category: "Editorial", image: "/manus-storage/strip-08-dsc04009_e725ef77.webp", alt: "SidshotsMedia editorial frame DSC04009 from the newly uploaded photo set", tile: "tile-tall" },
-  { id: "F11", title: "DSC04088", category: "Editorial", image: "/manus-storage/strip-11-dsc04088_5ef9a449.webp", alt: "SidshotsMedia editorial frame DSC04088 from the newly uploaded photo set", tile: "tile-tall" },
-  { id: "F12", title: "DSC09874", category: "Editorial", image: "/manus-storage/strip-12-dsc09874_b473fb9e.webp", alt: "SidshotsMedia editorial frame DSC09874 from the newly uploaded photo set", tile: "tile-square" },
+  { id: "F05", title: "Poolside breakfast", category: "Editorial", image: "/manus-storage/strip-05-copy-of-22_b8594586.webp", alt: "Breakfast table styled beside a bright poolside setting", tile: "tile-tall" },
+  { id: "F08", title: "Tropical exterior", category: "Editorial", image: "/manus-storage/strip-08-dsc04009_e725ef77.webp", alt: "Tropical hospitality exterior framed by plants and open shade", tile: "tile-tall" },
+  { id: "F11", title: "Courtyard lounge", category: "Editorial", image: "/manus-storage/strip-11-dsc04088_5ef9a449.webp", alt: "Courtyard lounge with outdoor seating and deep green foliage", tile: "tile-tall" },
+  { id: "F12", title: "Light-filled dining", category: "Editorial", image: "/manus-storage/strip-12-dsc09874_b473fb9e.webp", alt: "Long dining room filled with soft natural light", tile: "tile-square" },
 ];
 
 const lowerStripSuppliedPhotos: Photo[] = [
@@ -193,8 +193,8 @@ export default function Home() {
         </section>
 
         <section className="moving-gallery" id="archive" aria-label="SidshotsMedia moving photography archive">
-          <div className="moving-strip moving-strip-forward"><div className="moving-strip-track">{[...stripOne, ...stripOne].map((photo, index) => <button className="moving-photo" key={`${photo.id}-forward-${index}`} onClick={() => setSelectedPhoto(photo)} aria-label={`View ${photo.title}, ${photo.category}`}><span className="moving-photo-image"><img src={photo.image} alt={photo.alt} loading="lazy" decoding="async" /></span><span className="moving-photo-caption"><b>{photo.id}</b><span>{photo.category}</span><ChevronRight size={13} /></span></button>)}</div></div>
-          <div className="moving-strip moving-strip-reverse"><div className="moving-strip-track">{[...stripTwo, ...stripTwo].map((photo, index) => <button className="moving-photo" key={`${photo.id}-reverse-${index}`} onClick={() => setSelectedPhoto(photo)} aria-label={`View ${photo.title}, ${photo.category}`}><span className="moving-photo-image"><img src={photo.image} alt={photo.alt} loading="lazy" decoding="async" /></span><span className="moving-photo-caption"><b>{photo.id}</b><span>{photo.category}</span><ChevronRight size={13} /></span></button>)}</div></div>
+          <div className="moving-strip moving-strip-forward"><div className="moving-strip-track">{[...stripOne, ...stripOne].map((photo, index) => <button className="moving-photo" key={`${photo.id}-forward-${index}`} onClick={() => setSelectedPhoto(photo)} aria-label={`View ${photo.title}, ${photo.category}`}><span className="moving-photo-image"><img src={photo.image} alt={photo.alt} loading="lazy" decoding="async" /></span><span className="moving-photo-caption"><b>{photo.title}</b><ChevronRight size={13} /></span></button>)}</div></div>
+          <div className="moving-strip moving-strip-reverse"><div className="moving-strip-track">{[...stripTwo, ...stripTwo].map((photo, index) => <button className="moving-photo" key={`${photo.id}-reverse-${index}`} onClick={() => setSelectedPhoto(photo)} aria-label={`View ${photo.title}, ${photo.category}`}><span className="moving-photo-image"><img src={photo.image} alt={photo.alt} loading="lazy" decoding="async" /></span><span className="moving-photo-caption"><b>{photo.title}</b><ChevronRight size={13} /></span></button>)}</div></div>
         </section>
 
         <section className="dashboard-suite dashboard-reference" id="dashboards" aria-label="Photography dashboards">

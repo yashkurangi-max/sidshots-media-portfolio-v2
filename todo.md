@@ -158,3 +158,8 @@ Verification note: Home.tsx shows “Apurwa Kurangi” in the Web Developer rost
 - [ ] Save a checkpoint for the OUR TEAM role-label visibility refinement.
 
 Verification note: the six OUR TEAM roles are rendered in uppercase with a larger Montserrat scale, heavier weight, wider tracking, and the warm orange accent for clearer hierarchy. Typecheck, production build, desktop full-page capture, and mobile full-page capture passed.
+- [x] Audit all visible photo captions for generic file or camera names.
+- [x] Replace generic captions with concise labels describing the subject or scene.
+- [ ] Verify caption readability on desktop and mobile, then save a checkpoint.
+
+Verification note: the moving photo strips now display subject-based titles such as “Pink bottle study,” “Green sneaker,” “White handbag,” “Wet road motion,” and “Window-lit dining” instead of file IDs or camera names. Typecheck, production build, desktop full-page capture, and mobile full-page capture passed.
