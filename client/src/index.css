@@ -230,6 +230,7 @@
 .collage-contact-detail strong, .collage-contact-detail a { display: inline-flex; align-items: center; gap: .4rem; color: var(--white); font-size: .8rem; font-weight: 500; line-height: 1.35; text-decoration: none; }
 .collage-contact-detail strong { display: grid; }
 .collage-contact-detail strong em { color: rgba(255,255,255,.58); font-family: "Montserrat", sans-serif; font-size: .95rem; font-style: italic; font-weight: 400; }
+.collage-contact-phone-links { display: grid; gap: .45rem; }
 .collage-contact-detail a:hover, .collage-contact-detail a:focus-visible { color: #e5b37b; outline: none; }
 .collage-contact-detail small { grid-column: 2; margin-top: -.45rem; color: rgba(255,255,255,.4); font-family: "Montserrat", sans-serif; font-size: .45rem; letter-spacing: .05em; text-transform: uppercase; }
 .collage-contact-note { display: flex; align-items: end; justify-content: space-between; gap: 2rem; padding-top: 1.2rem; border-top: 1px solid rgba(255,255,255,.22); color: rgba(255,255,255,.52); font-family: "Montserrat", sans-serif; font-size: .51rem; letter-spacing: .06em; text-transform: uppercase; }
@@ -332,6 +333,8 @@
   .collage-contact-copy p { max-width: 19rem; }
   .collage-contact-details { margin-top: 3.6rem; }
   .collage-contact-detail { grid-template-columns: 1fr; gap: .35rem; }
+  .collage-contact-phone-links { gap: .35rem; }
+  .collage-contact-detail small { grid-column: 1; }
   .collage-contact-detail small { grid-column: 1; margin-top: 0; }
   .collage-contact-note { display: block; }
   .collage-contact-note p { margin-top: .8rem; text-align: left; }

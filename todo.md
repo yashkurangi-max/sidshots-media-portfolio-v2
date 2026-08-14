@@ -112,3 +112,6 @@
 - [x] Audit the current About navigation and slide copy.
 - [x] Open a dedicated third About slide and replace its copy with the supplied Siddharth Dadhe biography.
 - [x] Verify About navigation and biography readability on desktop and mobile, then save a checkpoint.
+- [x] Audit the current final “Let’s Create Together” contact details.
+- [x] Replace the final-slide contact information with the supplied SIDSHOTS MEDIA details.
+- [x] Verify the contact layout and links on desktop and mobile, then save a checkpoint.
