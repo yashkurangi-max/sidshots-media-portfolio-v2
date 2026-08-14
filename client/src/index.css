@@ -82,8 +82,8 @@
 .collage-tile:hover, .collage-tile:focus-visible { z-index: 2; transform: translateY(-5px) scale(1.012); box-shadow: 0 .75rem 1.1rem rgba(0,0,0,.48); outline: none; }
 .collage-tile:hover::after { opacity: .2; }
 .collage-tile-image { display: block; flex: 1; min-height: 0; overflow: hidden; }
-.collage-tile img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform .55s var(--ease-out), filter .35s ease; }
-.collage-tile:hover img { transform: scale(1.08); filter: saturate(1.08) contrast(1.04); }
+.collage-tile img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform .42s var(--ease-out); }
+.collage-tile:hover img { transform: scale(1.045); }
 .collage-tile-caption { position: absolute; right: .45rem; bottom: -.01rem; left: .45rem; z-index: 3; display: flex; align-items: center; justify-content: space-between; gap: .5rem; color: var(--black); font-family: "Montserrat", sans-serif; font-size: .53rem; letter-spacing: .055em; text-transform: uppercase; }
 .collage-tile-caption b { font-weight: 400; }
 .tile-wide { grid-column: span 2; }
@@ -98,8 +98,8 @@
 .moving-photo { flex: 0 0 clamp(14rem, 24vw, 25rem); height: clamp(10rem, 16vw, 16rem); display: flex; flex-direction: column; position: relative; overflow: hidden; border: .55rem solid var(--white); border-bottom-width: 1.9rem; padding: 0; background: var(--white); color: var(--black); box-shadow: 0 .2rem 0 rgba(0,0,0,.3); text-align: left; transition: transform .22s var(--ease-out), box-shadow .22s ease; }
 .moving-photo:hover, .moving-photo:focus-visible { z-index: 2; transform: translateY(-5px) scale(1.015); box-shadow: 0 .75rem 1.1rem rgba(0,0,0,.48); outline: none; }
 .moving-photo-image { flex: 1; min-height: 0; overflow: hidden; }
-.moving-photo img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform .5s var(--ease-out), filter .35s ease; }
-.moving-photo:hover img { transform: scale(1.08); filter: saturate(1.1) contrast(1.05); }
+.moving-photo img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform .38s var(--ease-out); }
+.moving-photo:hover img { transform: scale(1.045); }
 .moving-photo-caption { position: absolute; right: .45rem; bottom: -.01rem; left: .45rem; z-index: 2; display: flex; align-items: center; justify-content: space-between; gap: .45rem; color: var(--black); font-family: "Montserrat", sans-serif; font-size: .51rem; letter-spacing: .055em; text-transform: uppercase; }
 .moving-photo-caption b { font-weight: 400; }
 @keyframes collage-marquee-left { from { transform: translateX(0); } to { transform: translateX(-50%); } }
@@ -122,8 +122,8 @@
 .dashboard-action { display: inline-flex; align-items: center; gap: .7rem; padding: .75rem .9rem; border: 1px solid rgba(255,255,255,.55); background: var(--white); color: var(--black); font-family: "Montserrat", sans-serif; font-size: .54rem; letter-spacing: .08em; text-transform: uppercase; transition: transform .18s var(--ease-out), background .18s ease; }
 .dashboard-action:hover, .dashboard-action:focus-visible { background: #d8d8d8; transform: translateY(-2px); outline: none; }
 .dashboard-preview { min-width: 0; position: relative; overflow: hidden; border: .55rem solid var(--white); padding: 0; background: var(--white); text-align: left; }
-.dashboard-preview img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform .5s var(--ease-out), filter .35s ease; }
-.dashboard-preview:hover img, .dashboard-preview:focus-visible img { transform: scale(1.06); filter: saturate(1.08) contrast(1.04); }
+.dashboard-preview img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform .4s var(--ease-out); }
+.dashboard-preview:hover img, .dashboard-preview:focus-visible img { transform: scale(1.04); }
 .dashboard-preview:focus-visible { outline: 2px solid var(--white); outline-offset: 3px; }
 .dashboard-preview span { position: absolute; right: .5rem; bottom: .45rem; left: .5rem; display: flex; align-items: center; justify-content: space-between; gap: .45rem; color: var(--black); font-family: "Montserrat", sans-serif; font-size: .5rem; letter-spacing: .04em; text-transform: uppercase; }
 .dashboard-preview span b { font-weight: 400; }
@@ -145,8 +145,8 @@
 .dashboard-card { min-width: 0; }
 .dashboard-card-media { width: 100%; aspect-ratio: .78; position: relative; overflow: hidden; border: 0; border-radius: .7rem; padding: 0; background: #1c1c1c; text-align: left; box-shadow: 0 1.2rem 2.6rem rgba(0,0,0,.24); transition: transform .28s var(--ease-out), box-shadow .28s ease; }
 .dashboard-card-media:hover, .dashboard-card-media:focus-visible { transform: translateY(-7px); box-shadow: 0 1.8rem 3.2rem rgba(0,0,0,.38); outline: none; }
-.dashboard-card-media img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform .55s var(--ease-out), filter .3s ease; }
-.dashboard-card-media:hover img { transform: scale(1.06); filter: saturate(1.12) contrast(1.04); }
+.dashboard-card-media img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform .42s var(--ease-out); }
+.dashboard-card-media:hover img { transform: scale(1.04); }
 .dashboard-card-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.03) 35%, rgba(0,0,0,.8) 100%); }
 .dashboard-card-copy { position: absolute; right: 1.25rem; bottom: 1.2rem; left: 1.25rem; color: var(--white); }
 .dashboard-card-copy h3 { margin: 0 0 .3rem; font-family: "Montserrat", sans-serif; font-size: clamp(1.9rem, 3vw, 3rem); font-weight: 500; letter-spacing: -.04em; line-height: .9; }
@@ -167,9 +167,9 @@
 .dashboard-detail-intro p span { display: inline-block; margin-top: .8rem; color: #d56b35; font-family: "Montserrat", sans-serif; font-size: .53rem; letter-spacing: .08em; text-transform: uppercase; }
 .dashboard-board-grid { max-width: 88rem; margin: 0 auto; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .9rem; }
 .dashboard-board-tile, .dashboard-add-tile { min-width: 0; aspect-ratio: 1 / 1.04; position: relative; overflow: hidden; border: .55rem solid var(--white); padding: 0; background: #1b1b1b; text-align: left; }
-.dashboard-board-tile img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform .45s var(--ease-out), filter .25s ease; }
+.dashboard-board-tile img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform .38s var(--ease-out); }
 .dashboard-board-tile::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 48%, rgba(0,0,0,.74)); pointer-events: none; }
-.dashboard-board-tile:hover img, .dashboard-board-tile:focus-visible img { transform: scale(1.08); filter: saturate(1.12) contrast(1.05); }
+.dashboard-board-tile:hover img, .dashboard-board-tile:focus-visible img { transform: scale(1.045); }
 .dashboard-board-tile:focus-visible { outline: 2px solid var(--white); outline-offset: 3px; }
 .dashboard-board-index, .dashboard-board-title { position: absolute; z-index: 1; color: var(--white); font-family: "Montserrat", sans-serif; font-size: .52rem; letter-spacing: .05em; text-transform: uppercase; }
 .dashboard-board-index { top: .45rem; left: .5rem; }
@@ -211,8 +211,8 @@
 .collage-video-footer button:hover, .collage-video-footer button:focus-visible { background: var(--white); color: var(--black); transform: translateY(-2px); outline: none; }
 
 .collage-contact { min-height: 44rem; position: relative; overflow: hidden; background: #0b0b0b; color: var(--white); }
-.collage-contact-backdrop { position: absolute; inset: 0; background-image: linear-gradient(90deg, rgba(5,5,5,.98) 0%, rgba(5,5,5,.78) 40%, rgba(5,5,5,.3) 100%), linear-gradient(180deg, rgba(5,5,5,.25), rgba(5,5,5,.92)), url("/manus-storage/vehicle-12-motorcycle-desert_7aeb1be7.jpg"); background-position: center, center, center 38%; background-size: cover; filter: saturate(.72) contrast(1.08); transform: scale(1.04); animation: contact-drift 16s ease-in-out infinite alternate; }
-.collage-contact-backdrop::after { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(135deg, rgba(255,255,255,.03) 0 1px, transparent 1px 7px); mix-blend-mode: screen; opacity: .24; }
+.collage-contact-backdrop { position: absolute; inset: 0; background-image: linear-gradient(90deg, rgba(5,5,5,.98) 0%, rgba(5,5,5,.78) 40%, rgba(5,5,5,.3) 100%), linear-gradient(180deg, rgba(5,5,5,.25), rgba(5,5,5,.92)), url("/manus-storage/automobile-vehicle-12-motorcycle-desert_161af8f2.webp"); background-position: center, center, center 38%; background-size: cover; transform: scale(1.02); animation: contact-drift 22s ease-in-out infinite alternate; }
+.collage-contact-backdrop::after { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(135deg, rgba(255,255,255,.025) 0 1px, transparent 1px 7px); opacity: .16; }
 .collage-contact-inner { max-width: 88rem; min-height: 44rem; position: relative; z-index: 1; margin: 0 auto; padding: clamp(2.2rem, 5vw, 4.8rem) clamp(1.25rem, 8vw, 8rem) clamp(2.2rem, 5vw, 4rem); display: flex; flex-direction: column; justify-content: space-between; }
 .collage-contact-topline { display: flex; align-items: center; justify-content: space-between; gap: 1rem; color: rgba(255,255,255,.58); font-family: "Montserrat", sans-serif; font-size: .54rem; letter-spacing: .08em; text-transform: uppercase; }
 .collage-contact-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(18rem, .85fr); gap: clamp(3rem, 10vw, 10rem); align-items: end; padding: 6rem 0 4rem; }

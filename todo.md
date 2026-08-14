@@ -115,3 +115,6 @@
 - [x] Audit the current final “Let’s Create Together” contact details.
 - [x] Replace the final-slide contact information with the supplied SIDSHOTS MEDIA details.
 - [x] Verify the contact layout and links on desktop and mobile, then save a checkpoint.
+- [x] Audit image sizes, loading behavior, animation costs, and visual effects.
+- [x] Optimize image delivery and reduce unnecessary runtime visual work while preserving key motion.
+- [x] Validate the optimized portfolio on desktop and mobile, then save a checkpoint.
