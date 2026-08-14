@@ -91,3 +91,6 @@
 - [x] Increase the decorative mark beside the SIDSHOTS MEDIA wordmark.
 - [x] Verify mark-to-wordmark balance on desktop and mobile.
 - [x] Save the decorative-mark scale update.
+- [x] Remove the decorative mark beside the SIDSHOTS MEDIA wordmark.
+- [x] Verify wordmark alignment and responsive headers.
+- [x] Save the simplified wordmark update.
