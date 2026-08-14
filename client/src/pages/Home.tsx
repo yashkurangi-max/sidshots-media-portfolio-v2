@@ -52,13 +52,16 @@ const movedToSecondStripPhotos: Photo[] = [
 ];
 
 const lowerStripSuppliedPhotos: Photo[] = [
-  { id: "L01", title: "Coffee and cookies", category: "Product", image: "/manus-storage/lower-strip-01-coffee-cookies_b851c230.jpg", alt: "Overhead still life of coffee cups, chocolate chip cookies, and delicate flowers", tile: "tile-wide" },
-  { id: "L02", title: "Chocolate study", category: "Product", image: "/manus-storage/lower-strip-02-chocolate-still-life_76bb30d1.jpg", alt: "Chocolate pieces spilling from a glass jar beside soft white flowers and book pages", tile: "tile-tall" },
-  { id: "L03", title: "Coffee and pages", category: "Editorial", image: "/manus-storage/lower-strip-03-coffee-books_142d7ba5.jpg", alt: "Warm coffee still life with open books, flowers, and a ceramic cup", tile: "tile-square" },
   { id: "L04", title: "Graphic mascara", category: "Product", image: "/manus-storage/lower-strip-04-mascara_0918d297.webp", alt: "Minimal black mascara product framed against a high-contrast white and black backdrop", tile: "tile-wide" },
-  { id: "L05", title: "Tea and biscuits", category: "Product", image: "/manus-storage/lower-strip-05-cookies-tea_ea09844c.webp", alt: "Stacked cookies and tea service styled against a soft turquoise background", tile: "tile-tall" },
-  { id: "L06", title: "Tropical pour", category: "Product", image: "/manus-storage/lower-strip-06-cocktail-still-life_28a717a9.webp", alt: "Colorful tropical drink styled with citrus, pineapple, and roses against warm wood", tile: "tile-square" },
   { id: "L07", title: "Lavender wash", category: "Product", image: "/manus-storage/lower-strip-07-handwash_f48b01ad.webp", alt: "Lavender hand wash bottle staged with graphic color blocks and palm leaves", tile: "tile-wide" },
+];
+
+const suppliedVehicleStripPhotos: Photo[] = [
+  { id: "V13", title: "Quarry scooter", category: "Automobile", image: "/manus-storage/DSC_5690-2_25291e7d.webp", alt: "Scooter photographed against a rocky quarry landscape beneath a pale sky", tile: "tile-wide" },
+  { id: "V14", title: "Yellow motion", category: "Automobile", image: "/manus-storage/DSC_1985_aa3ac355.webp", alt: "Yellow SUV captured in motion on a palm-lined city road", tile: "tile-tall" },
+  { id: "V15", title: "Road rider", category: "Automobile", image: "/manus-storage/DSC_1746_75ddcfc2.webp", alt: "Motorcycle rider moving along a tree-lined road", tile: "tile-square" },
+  { id: "V16", title: "Mud crossing", category: "Automobile", image: "/manus-storage/CopyofDSC04747_9cc90f10.webp", alt: "Orange SUV powering through a muddy off-road crossing", tile: "tile-wide" },
+  { id: "V17", title: "Rubicon field study", category: "Automobile", image: "/manus-storage/CopyofDSC04628(1)_f18b9039.webp", alt: "Mud-covered Rubicon photographed in a green field after an off-road drive", tile: "tile-tall" },
 ];
 
 const secondStripPhotos: Photo[] = [
@@ -70,6 +73,7 @@ const secondStripPhotos: Photo[] = [
   { id: "S09", title: "Reception geometry", category: "Product", image: photos[10].image, alt: photos[10].alt, tile: "tile-square" },
   ...movedToSecondStripPhotos,
   ...lowerStripSuppliedPhotos,
+  ...suppliedVehicleStripPhotos,
 ];
 
 const vehiclePhotos: Photo[] = [
@@ -97,8 +101,8 @@ const productPhotos: Photo[] = [
   { id: "P07", title: "White leather", category: "Product", image: "/manus-storage/product-07-white-handbag_251427ba.jpg", alt: "White handbag styled against soft neutral fabric", tile: "tile-wide" },
   { id: "P08", title: "Orange silhouette", category: "Product", image: "/manus-storage/product-08-orange-handbag_3f54a641.jpg", alt: "Orange handbag photographed against bold color blocks", tile: "tile-tall" },
   { id: "P09", title: "Green sneaker", category: "Product", image: "/manus-storage/product-09-sneaker-green_1b5b7141.jpg", alt: "White sneaker floating against a deep green background", tile: "tile-square" },
-  { id: "P10", title: "Graphic mascara", category: "Product", image: lowerStripSuppliedPhotos[3].image, alt: lowerStripSuppliedPhotos[3].alt, tile: "tile-wide" },
-  { id: "P11", title: "Lavender wash", category: "Product", image: lowerStripSuppliedPhotos[6].image, alt: lowerStripSuppliedPhotos[6].alt, tile: "tile-tall" },
+  { id: "P10", title: "Graphic mascara", category: "Product", image: lowerStripSuppliedPhotos[0].image, alt: lowerStripSuppliedPhotos[0].alt, tile: "tile-wide" },
+  { id: "P11", title: "Lavender wash", category: "Product", image: lowerStripSuppliedPhotos[1].image, alt: lowerStripSuppliedPhotos[1].alt, tile: "tile-tall" },
   { id: "P12", title: "Watch detail", category: "Product", image: "/manus-storage/product-10-watch-still-life_b2af5168.jpg", alt: "Close product detail of a smartwatch styled with chess pieces", tile: "tile-square" },
 ];
 

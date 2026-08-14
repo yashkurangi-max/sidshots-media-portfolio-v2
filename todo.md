@@ -97,3 +97,6 @@
 - [x] Audit current font imports and typography rules.
 - [x] Apply Montserrat across the entire website while preserving the hierarchy.
 - [x] Verify desktop/mobile typography and save a checkpoint.
+- [x] Audit food-focused frames currently used in the moving strips.
+- [x] Replace the food frames with the supplied vehicle photographs without changing dashboard boards.
+- [x] Verify the revised moving strips on desktop and mobile, then save a checkpoint.
