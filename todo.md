@@ -168,3 +168,8 @@ Verification note: the moving photo strips now display subject-based titles such
 - [ ] Verify the corrected captions on desktop and mobile, then save a checkpoint.
 
 Verification note: the moving-strip audit corrected the silver sedan label to “Silver sedan on the road,” and updated the remaining strip titles and alt descriptions to match their actual subjects, including product bottles, sneakers, a watch flatlay, a smartwatch, off-road vehicles, and cars. Typecheck, production build, desktop full-page capture, and mobile full-page capture passed.
+- [x] Give Behind the frame and OUR TEAM distinct white-based editorial treatments.
+- [x] Preserve strong contrast and alignment with the black, white, and warm-orange portfolio system.
+- [ ] Verify the slide distinction on desktop and mobile, then save a checkpoint.
+
+Verification note: Behind the frame remains crisp white with quiet gray dividers, while OUR TEAM now uses a warm paper/ivory surface, terracotta top rule, subtle accent line, and warmer border tones. The distinction remains clear and readable in desktop and mobile full-page captures.
