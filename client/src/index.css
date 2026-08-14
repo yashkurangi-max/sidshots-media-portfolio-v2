@@ -92,7 +92,8 @@
 .moving-gallery { display: grid; gap: .55rem; overflow: hidden; padding: .55rem 0; background: var(--black); }
 .moving-strip { overflow: hidden; width: 100%; }
 .moving-strip-track { display: flex; width: max-content; gap: .55rem; animation: collage-marquee-left 38s linear infinite; }
-.moving-strip-reverse .moving-strip-track { animation-name: collage-marquee-right; animation-duration: 42s; }
+/* The lower strip carries more frames, so its longer cycle keeps the same physical marquee pace as the upper strip. */
+.moving-strip-reverse .moving-strip-track { animation-name: collage-marquee-right; animation-duration: 81s; }
 .moving-strip:hover .moving-strip-track, .moving-strip:focus-within .moving-strip-track { animation-play-state: paused; }
 .moving-photo { flex: 0 0 clamp(14rem, 24vw, 25rem); height: clamp(10rem, 16vw, 16rem); display: flex; flex-direction: column; position: relative; overflow: hidden; border: .55rem solid var(--white); border-bottom-width: 1.9rem; padding: 0; background: var(--white); color: var(--black); box-shadow: 0 .2rem 0 rgba(0,0,0,.3); text-align: left; transition: transform .22s var(--ease-out), box-shadow .22s ease; }
 .moving-photo:hover, .moving-photo:focus-visible { z-index: 2; transform: translateY(-5px) scale(1.015); box-shadow: 0 .75rem 1.1rem rgba(0,0,0,.48); outline: none; }

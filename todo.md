@@ -100,3 +100,6 @@
 - [x] Audit food-focused frames currently used in the moving strips.
 - [x] Replace the food frames with the supplied vehicle photographs without changing dashboard boards.
 - [x] Verify the revised moving strips on desktop and mobile, then save a checkpoint.
+- [x] Audit the existing moving-strip animation duration and direction settings.
+- [x] Preserve the established strip speed after the vehicle-photo replacement.
+- [x] Verify both strip rows on desktop and mobile, then save a checkpoint.
