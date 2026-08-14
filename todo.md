@@ -133,3 +133,9 @@ Verification note: the main and footer “Book a Shoot” actions now open the p
 Verification note: the Services control now scrolls to the section with id="reel", whose heading is “Frames in motion.” Typecheck, production build, desktop full-page capture, and mobile full-page capture passed.
 
 Verification note: the sixth Automobile image is now the card and detail cover image; the 12-image vehicle board remains unchanged. Typecheck, production build, desktop full-page capture, and mobile full-page capture passed.
+
+- [x] Verify the About paragraph now describes Siddharth Dadhe as a photographer only.
+- [x] Run checks and responsive verification for the updated About slide.
+- [x] Save a checkpoint for the verified About paragraph edit.
+
+Verification note: Home.tsx line 216 now identifies Siddharth Dadhe as a photographer with over 7 years of experience, removing “and cinematographer.” The paragraph remains readable in the desktop two-column About slide and the mobile single-column layout. Typecheck and production build passed.
