@@ -103,3 +103,6 @@
 - [x] Audit the existing moving-strip animation duration and direction settings.
 - [x] Preserve the established strip speed after the vehicle-photo replacement.
 - [x] Verify both strip rows on desktop and mobile, then save a checkpoint.
+- [x] Audit the hero “See the Work” CTA and the Three Disciplines destination section.
+- [x] Wire the CTA to scroll directly to the Three Disciplines section.
+- [x] Verify the CTA on desktop and mobile, then save a checkpoint.

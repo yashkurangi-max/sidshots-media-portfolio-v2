@@ -161,7 +161,7 @@ export default function Home() {
 
         <div className="collage-header-actions">
           <p>The work is in.<br /><em>Meet the frames.</em></p>
-          <button className="collage-cta" onClick={() => scrollTo("booking")}>See the work <ArrowUpRight size={15} /></button>
+          <button className="collage-cta" onClick={() => scrollTo("dashboards")}>See the work <ArrowUpRight size={15} /></button>
         </div>
         <button className="collage-menu" onClick={() => setMenuOpen((open) => !open)} aria-label={menuOpen ? "Close menu" : "Open menu"}>{menuOpen ? <X size={19} /> : <Menu size={19} />}</button>
         {menuOpen && <nav className="collage-mobile-nav" aria-label="Mobile navigation"><button onClick={() => scrollTo("top")}>Home</button><button onClick={() => scrollTo("dashboards")}>Dashboards</button><button onClick={() => scrollTo("booking")}>Bookings</button></nav>}
