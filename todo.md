@@ -173,3 +173,9 @@ Verification note: the moving-strip audit corrected the silver sedan label to â€
 - [ ] Verify the slide distinction on desktop and mobile, then save a checkpoint.
 
 Verification note: Behind the frame remains crisp white with quiet gray dividers, while OUR TEAM now uses a warm paper/ivory surface, terracotta top rule, subtle accent line, and warmer border tones. The distinction remains clear and readable in desktop and mobile full-page captures.
+- [x] Add next/previous photo navigation and a dedicated close action to the dashboard lightbox.
+- [x] Add a clear dashboard close button with smooth exit motion.
+- [x] Add a guarded mobile/tablet swipe-down gesture to close only the dashboard.
+- [x] Test keyboard, desktop, mobile, and touch interactions; then save a checkpoint.
+
+Verification note: dashboard photos open in a single-photo lightbox with previous/next arrows, horizontal photo swipe navigation, Escape and close controls. The board has Back to dashboards and Close actions plus a 280ms exit transition. A deliberate header swipe down over 92px closes the dashboard; a short/horizontal header gesture was verified to keep it open. Typecheck, production build, desktop interaction checks, desktop full-page capture, and mobile full-page capture passed.

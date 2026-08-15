@@ -1,6 +1,6 @@
 /* Screenshot-matched collage direction: black trophy-style chrome, centered wordmark, colorful photography, white print frames, and a dense gallery wall. */
-import { useEffect, useMemo, useState } from "react";
-import { ArrowLeft, ArrowUpRight, ChevronRight, Menu, X } from "lucide-react";
+import { useEffect, useMemo, useRef, useState, type TouchEvent } from "react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, ChevronRight, Menu, X } from "lucide-react";
 import { toast } from "sonner";
 
 type Category = "All" | "Automobile" | "Architecture" | "Product" | "Editorial" | "Portrait";
@@ -126,20 +126,95 @@ export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
   const [selectedDashboard, setSelectedDashboard] = useState<(typeof dashboardData)[number] | null>(null);
+  const [dashboardPhotoIndex, setDashboardPhotoIndex] = useState<number | null>(null);
+  const [isDashboardClosing, setIsDashboardClosing] = useState(false);
+  const dashboardTouchStart = useRef<{ x: number; y: number } | null>(null);
+  const lightboxTouchStart = useRef<{ x: number; y: number } | null>(null);
   const visiblePhotos = useMemo(() => activeCategory === "All" ? photos : photos.filter((photo) => photo.category === activeCategory), [activeCategory]);
   const visibleSecondStripPhotos = useMemo(() => activeCategory === "All" ? secondStripPhotos : secondStripPhotos.filter((photo) => photo.category === activeCategory), [activeCategory]);
   const stripOne = firstStripPhotos;
   const stripTwo = visibleSecondStripPhotos;
+  const dashboardPhotos = selectedDashboard ? dashboardPhotoMap[selectedDashboard.category] : [];
+
+  function closeLightbox() {
+    setSelectedPhoto(null);
+    setDashboardPhotoIndex(null);
+  }
+
+  function closeDashboard() {
+    if (!selectedDashboard || isDashboardClosing) return;
+    setIsDashboardClosing(true);
+    window.setTimeout(() => {
+      closeLightbox();
+      setSelectedDashboard(null);
+      setIsDashboardClosing(false);
+    }, 280);
+  }
+
+  function openDashboardPhoto(photo: Photo, index: number) {
+    setDashboardPhotoIndex(index);
+    setSelectedPhoto(photo);
+  }
+
+  function navigateDashboardPhoto(direction: number) {
+    if (!selectedDashboard || dashboardPhotoIndex === null || dashboardPhotos.length === 0) return;
+    const nextIndex = (dashboardPhotoIndex + direction + dashboardPhotos.length) % dashboardPhotos.length;
+    setDashboardPhotoIndex(nextIndex);
+    setSelectedPhoto(dashboardPhotos[nextIndex]);
+  }
+
+  function handleDashboardTouchStart(event: TouchEvent<HTMLDivElement>) {
+    const target = event.target as HTMLElement;
+    const isInteractive = target.closest("button, a, input, textarea, video, .dashboard-board-grid, [data-no-dashboard-swipe]");
+    if (event.currentTarget.scrollTop > 8 || isInteractive) {
+      dashboardTouchStart.current = null;
+      return;
+    }
+    const touch = event.touches[0];
+    dashboardTouchStart.current = { x: touch.clientX, y: touch.clientY };
+  }
+
+  function handleDashboardTouchEnd(event: TouchEvent<HTMLDivElement>) {
+    const start = dashboardTouchStart.current;
+    dashboardTouchStart.current = null;
+    if (!start) return;
+    const touch = event.changedTouches[0];
+    const deltaX = touch.clientX - start.x;
+    const deltaY = touch.clientY - start.y;
+    if (deltaY > 92 && Math.abs(deltaY) > Math.abs(deltaX) * 1.25) closeDashboard();
+  }
+
+  function handleLightboxTouchStart(event: TouchEvent<HTMLDivElement>) {
+    if ((event.target as HTMLElement).closest("button")) {
+      lightboxTouchStart.current = null;
+      return;
+    }
+    const touch = event.touches[0];
+    lightboxTouchStart.current = { x: touch.clientX, y: touch.clientY };
+  }
+
+  function handleLightboxTouchEnd(event: TouchEvent<HTMLDivElement>) {
+    const start = lightboxTouchStart.current;
+    lightboxTouchStart.current = null;
+    if (!start || dashboardPhotoIndex === null) return;
+    const touch = event.changedTouches[0];
+    const deltaX = touch.clientX - start.x;
+    const deltaY = touch.clientY - start.y;
+    if (Math.abs(deltaX) > 56 && Math.abs(deltaX) > Math.abs(deltaY) * 1.2) navigateDashboardPhoto(deltaX < 0 ? 1 : -1);
+  }
 
   useEffect(() => {
     const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key !== "Escape") return;
-      setSelectedPhoto(null);
-      setSelectedDashboard(null);
+      if (event.key === "Escape") {
+        if (selectedPhoto) closeLightbox();
+        else closeDashboard();
+      }
+      if (selectedPhoto && dashboardPhotoIndex !== null && event.key === "ArrowRight") navigateDashboardPhoto(1);
+      if (selectedPhoto && dashboardPhotoIndex !== null && event.key === "ArrowLeft") navigateDashboardPhoto(-1);
     };
     window.addEventListener("keydown", closeOnEscape);
     return () => window.removeEventListener("keydown", closeOnEscape);
-  }, []);
+  }, [selectedPhoto, selectedDashboard, dashboardPhotoIndex, dashboardPhotos.length, isDashboardClosing]);
 
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -148,7 +223,7 @@ export default function Home() {
 
   const handleCategorySelect = (category: FilterCategory) => {
     setActiveCategory(category);
-    setSelectedPhoto(null);
+    closeLightbox();
 
     if (category === "All") {
       setSelectedDashboard(null);
@@ -275,9 +350,35 @@ export default function Home() {
 
       <footer className="collage-footer"><div className="collage-footer-brand"><strong>SIDSHOTS MEDIA</strong><span>Photography · Cinematography</span></div><div className="collage-footer-links"><a href="mailto:info@sidshotsmedia.in">Email <ArrowUpRight size={13} /></a><a href="https://www.instagram.com/sidshots_media/" target="_blank" rel="noreferrer">Instagram <ArrowUpRight size={13} /></a><a href="https://wa.me/919699592029?text=Hello%20SIDSHOTS%20MEDIA%2C%20I%27d%20like%20to%20book%20a%20shoot." target="_blank" rel="noreferrer">Book a shoot <ArrowUpRight size={13} /></a></div><div className="collage-footer-meta"><span>© 2026 SIDSHOTS MEDIA</span><span>Pune, Maharashtra</span></div></footer>
 
-      {selectedDashboard && !selectedPhoto && <div className="dashboard-detail" role="dialog" aria-modal="true" aria-label={`${selectedDashboard.category} photography dashboard`}><div className="dashboard-detail-bar"><button className="dashboard-detail-back" onClick={() => setSelectedDashboard(null)}><ArrowLeft size={16} /> Back to dashboards</button><span>{selectedDashboard.index} / {selectedDashboard.category}</span><button className="dashboard-detail-close" onClick={() => setSelectedDashboard(null)} aria-label="Close dashboard"><X size={20} /></button></div><div className="dashboard-detail-intro"><div><span className="collage-kicker">SidshotsMedia / Photo board</span><span className="dashboard-detail-match" aria-live="polite">Correct dashboard selected · {selectedDashboard.category}</span><h2>{selectedDashboard.category}<br /><em>{selectedDashboard.title}</em></h2></div><p>{selectedDashboard.copy}<br /><span>{dashboardPhotoMap[selectedDashboard.category].length} image slots · final tile reserved for additions</span></p></div><div className="dashboard-board-grid">{dashboardPhotoMap[selectedDashboard.category].map((photo, index) => <button className="dashboard-board-tile" key={`${selectedDashboard.category}-${photo.id}-${index}`} onClick={() => setSelectedPhoto(photo)} aria-label={`Open ${photo.title}`}><img src={photo.image} alt={photo.alt} loading="lazy" decoding="async" /><span className="dashboard-board-index">{String(index + 1).padStart(2, "0")}</span><span className="dashboard-board-title">{photo.title}</span></button>)}<button className="dashboard-add-tile" onClick={() => toast.info(`New ${selectedDashboard.category.toLowerCase()} photo slot ready for a future image.`)}><strong>+</strong><span>Add photo</span><small>Future frame</small></button></div></div>}
+      {selectedDashboard && <div className={`dashboard-detail${isDashboardClosing ? " is-closing" : ""}`} role="dialog" aria-modal="true" aria-label={`${selectedDashboard.category} photography dashboard`} onTouchStart={handleDashboardTouchStart} onTouchEnd={handleDashboardTouchEnd}>
+        <div className="dashboard-detail-bar">
+          <button className="dashboard-detail-back" onClick={closeDashboard}><ArrowLeft size={16} /> Back to dashboards</button>
+          <span>{selectedDashboard.index} / {selectedDashboard.category}</span>
+          <button className="dashboard-detail-close" onClick={closeDashboard} aria-label="Close dashboard"><X size={17} /> <span>Close</span></button>
+        </div>
+        <div className="dashboard-detail-intro">
+          <div>
+            <span className="collage-kicker">SidshotsMedia / Photo board</span>
+            <span className="dashboard-detail-match" aria-live="polite">Correct dashboard selected · {selectedDashboard.category}</span>
+            <h2>{selectedDashboard.category}<br /><em>{selectedDashboard.title}</em></h2>
+          </div>
+          <p>{selectedDashboard.copy}<br /><span>{dashboardPhotos.length} image slots · final tile reserved for additions</span><small className="dashboard-swipe-hint">On touch devices, pull down from this header to close.</small></p>
+        </div>
+        <div className="dashboard-board-grid">
+          {dashboardPhotos.map((photo, index) => <button className="dashboard-board-tile" key={`${selectedDashboard.category}-${photo.id}-${index}`} onClick={() => openDashboardPhoto(photo, index)} aria-label={`Open ${photo.title}`}><img src={photo.image} alt={photo.alt} loading="lazy" decoding="async" /><span className="dashboard-board-index">{String(index + 1).padStart(2, "0")}</span><span className="dashboard-board-title">{photo.title}</span></button>)}
+          <button className="dashboard-add-tile" onClick={() => toast.info(`New ${selectedDashboard.category.toLowerCase()} photo slot ready for a future image.`)}><strong>+</strong><span>Add photo</span><small>Future frame</small></button>
+        </div>
+      </div>}
 
-      {selectedPhoto && <div className="collage-lightbox" role="dialog" aria-modal="true" aria-label={`${selectedPhoto.title} photograph`} onClick={() => setSelectedPhoto(null)}><button aria-label="Close photograph" onClick={() => setSelectedPhoto(null)}><X size={20} /></button><figure onClick={(event) => event.stopPropagation()}><img src={selectedPhoto.image} alt={selectedPhoto.alt} decoding="async" fetchPriority="high" /><figcaption><span>{selectedPhoto.category}</span><strong>{selectedPhoto.title}</strong></figcaption></figure></div>}
+      {selectedPhoto && <div className="collage-lightbox" role="dialog" aria-modal="true" aria-label={`${selectedPhoto.title} photograph`} onClick={closeLightbox} onTouchStart={handleLightboxTouchStart} onTouchEnd={handleLightboxTouchEnd}>
+        <button className="collage-lightbox-close" aria-label="Close photograph" onClick={closeLightbox}><X size={20} /> <span>Close</span></button>
+        <figure onClick={(event) => event.stopPropagation()}>
+          {dashboardPhotoIndex !== null && dashboardPhotos.length > 1 && <button className="collage-lightbox-arrow collage-lightbox-arrow-left" onClick={() => navigateDashboardPhoto(-1)} aria-label="Previous photo"><ArrowLeft size={22} /></button>}
+          <img className="collage-lightbox-image" key={selectedPhoto.id} src={selectedPhoto.image} alt={selectedPhoto.alt} decoding="async" fetchPriority="high" />
+          {dashboardPhotoIndex !== null && dashboardPhotos.length > 1 && <button className="collage-lightbox-arrow collage-lightbox-arrow-right" onClick={() => navigateDashboardPhoto(1)} aria-label="Next photo"><ArrowRight size={22} /></button>}
+          <figcaption><span>{dashboardPhotoIndex !== null ? `${String(dashboardPhotoIndex + 1).padStart(2, "0")} / ${String(dashboardPhotos.length).padStart(2, "0")} · ` : ""}{selectedPhoto.category}</span><strong>{selectedPhoto.title}</strong></figcaption>
+        </figure>
+      </div>}
     </div>
   );
 }
