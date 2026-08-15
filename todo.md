@@ -239,3 +239,6 @@ Verification note: the Architecture map now uses twelve distinct architecture/in
 
 - [x] Remove the fixed twelve-photo limit from dashboard galleries and support any number of photos per category.
 - [x] Verify the add tile, lightbox navigation, and responsive dashboard layout with the expanded gallery behavior before saving a checkpoint.
+
+- [x] Add the supplied 14.webp and 10.webp resort-interior photos to the Architecture dashboard.
+- [x] Preserve expandable gallery behavior and verify the updated dashboard before saving a checkpoint.
