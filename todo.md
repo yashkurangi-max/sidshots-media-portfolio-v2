@@ -222,3 +222,8 @@ Verification note: removed the short inset terracotta rule from the OUR TEAM sli
 - [x] Save a checkpoint for the verified OUR TEAM role-label update.
 
 Verification note: Chaithra Paadi’s role is now SOCIAL MEDIA MANAGER. The longer uppercase label remains on one line without clipping in the desktop two-column roster and readable in the mobile single-column stack. Typecheck, production build, desktop full-page capture, and mobile full-page capture passed.
+
+- [ ] Remove repeated photos from the Architecture dashboard while keeping twelve distinct gallery entries.
+- [ ] Verify the Architecture dashboard lightbox and responsive layout, then save a checkpoint.
+
+Verification note: the current Architecture map repeats the same six entries twice; the cleanup will use twelve distinct architecture/interior images already present in the portfolio data.
