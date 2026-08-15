@@ -202,3 +202,8 @@ Verification note: a real Chromium mobile/touch test dispatched touch events dir
 - [x] Verify desktop/mobile control visibility, touch behavior, and build quality before saving a checkpoint.
 
 Verification note: previous and next controls were restored as labeled, accessible buttons on either side of the dashboard photo viewport. A browser check confirmed both arrows render, Next advances from “Rubicon trail” to “Chrome and red,” and Previous returns to “Rubicon trail.” Direct pointer dragging remains bound to the photo viewport. Typecheck, production build, desktop full-page capture, and mobile full-page capture passed.
+- [x] Increase final contact values for team, email, phone/WhatsApp, Instagram, and location.
+- [x] Preserve concise labels, visual hierarchy, and responsive wrapping.
+- [x] Verify the final contact panel on desktop and mobile, then save a checkpoint.
+
+Verification note: the final contact values now use a responsive 1.02–1.17rem scale, medium emphasis, a slightly roomier line height, and increased row spacing. Labels remain compact and muted. The email, both phone numbers, WhatsApp link, Instagram handle, and location remain readable without overflow in desktop and mobile captures. Typecheck and production build passed.
