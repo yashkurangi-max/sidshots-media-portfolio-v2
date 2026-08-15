@@ -1,6 +1,6 @@
 /* Screenshot-matched collage direction: black trophy-style chrome, centered wordmark, colorful photography, white print frames, and a dense gallery wall. */
 // Design note: Preserve the black editorial archive while giving touch users a direct, native-feeling pointer carousel on photographs.
-import { useEffect, useMemo, useRef, useState, type PointerEvent as ReactPointerEvent, type TouchEvent } from "react";
+import { useEffect, useMemo, useRef, useState, type PointerEvent as ReactPointerEvent, type TouchEvent, type TransitionEvent } from "react";
 import { ArrowLeft, ArrowUpRight, ChevronRight, Menu, X } from "lucide-react";
 import { toast } from "sonner";
 
@@ -138,6 +138,9 @@ export default function Home() {
   const [isCarouselResetting, setIsCarouselResetting] = useState(false);
   const dashboardTouchStart = useRef<{ x: number; y: number } | null>(null);
   const lightboxPointerStart = useRef<{ x: number; y: number; pointerId: number; axis: "none" | "horizontal" | "vertical" } | null>(null);
+  const carouselCommitRef = useRef(false);
+  const carouselTargetIndexRef = useRef<number | null>(null);
+  const carouselCompletionTimerRef = useRef<number | null>(null);
   const visiblePhotos = useMemo(() => activeCategory === "All" ? photos : photos.filter((photo) => photo.category === activeCategory), [activeCategory]);
   const visibleSecondStripPhotos = useMemo(() => activeCategory === "All" ? secondStripPhotos : secondStripPhotos.filter((photo) => photo.category === activeCategory), [activeCategory]);
   const stripOne = firstStripPhotos;
@@ -147,6 +150,9 @@ export default function Home() {
   const nextDashboardPhoto = dashboardPhotoIndex !== null && dashboardPhotos.length > 1 ? dashboardPhotos[(dashboardPhotoIndex + 1) % dashboardPhotos.length] : null;
 
   function closeLightbox() {
+    if (carouselCompletionTimerRef.current !== null) window.clearTimeout(carouselCompletionTimerRef.current);
+    carouselCompletionTimerRef.current = null;
+    carouselTargetIndexRef.current = null;
     setSelectedPhoto(null);
     setDashboardPhotoIndex(null);
     setLightboxDrag({ x: 0, y: 0 });
@@ -154,6 +160,7 @@ export default function Home() {
     setIsLightboxClosing(false);
     setCarouselExitDirection(0);
     setIsCarouselResetting(false);
+    carouselCommitRef.current = false;
   }
 
   function dismissLightbox() {
@@ -186,18 +193,35 @@ export default function Home() {
   }
 
   function completeLightboxSwipe(direction: -1 | 1) {
-    if (!selectedDashboard || dashboardPhotoIndex === null || dashboardPhotos.length < 2 || carouselExitDirection !== 0) return;
+    if (!selectedDashboard || dashboardPhotoIndex === null || dashboardPhotos.length < 2 || carouselCommitRef.current) return;
+    carouselCommitRef.current = true;
+    const nextIndex = (dashboardPhotoIndex + direction + dashboardPhotos.length) % dashboardPhotos.length;
+    carouselTargetIndexRef.current = nextIndex;
     setIsLightboxDragging(false);
     setCarouselExitDirection(direction);
-    window.setTimeout(() => {
-      const nextIndex = (dashboardPhotoIndex + direction + dashboardPhotos.length) % dashboardPhotos.length;
-      setIsCarouselResetting(true);
-      setLightboxDrag({ x: 0, y: 0 });
-      setDashboardPhotoIndex(nextIndex);
-      setSelectedPhoto(dashboardPhotos[nextIndex]);
-      setCarouselExitDirection(0);
-      window.requestAnimationFrame(() => window.requestAnimationFrame(() => setIsCarouselResetting(false)));
-    }, 300);
+    carouselCompletionTimerRef.current = window.setTimeout(settleCompletedCarouselSwipe, 320);
+  }
+
+  function settleCompletedCarouselSwipe() {
+    const nextIndex = carouselTargetIndexRef.current;
+    if (nextIndex === null || !selectedDashboard) return;
+    if (carouselCompletionTimerRef.current !== null) window.clearTimeout(carouselCompletionTimerRef.current);
+    carouselCompletionTimerRef.current = null;
+    carouselTargetIndexRef.current = null;
+    setIsCarouselResetting(true);
+    setLightboxDrag({ x: 0, y: 0 });
+    setDashboardPhotoIndex(nextIndex);
+    setSelectedPhoto(dashboardPhotos[nextIndex]);
+    setCarouselExitDirection(0);
+    window.requestAnimationFrame(() => window.requestAnimationFrame(() => {
+      setIsCarouselResetting(false);
+      carouselCommitRef.current = false;
+    }));
+  }
+
+  function handleCarouselTransitionEnd(event: TransitionEvent<HTMLDivElement>) {
+    if (event.target !== event.currentTarget || event.propertyName !== "transform" || !carouselCommitRef.current) return;
+    settleCompletedCarouselSwipe();
   }
 
   function handleDashboardTouchStart(event: TouchEvent<HTMLDivElement>) {
@@ -239,7 +263,7 @@ export default function Home() {
   }
 
   function handleLightboxPointerDown(event: ReactPointerEvent<HTMLDivElement>) {
-    if (!event.isPrimary || event.button !== 0 || carouselExitDirection !== 0) return;
+    if (!event.isPrimary || event.button !== 0 || carouselCommitRef.current) return;
     event.currentTarget.setPointerCapture(event.pointerId);
     lightboxPointerStart.current = { x: event.clientX, y: event.clientY, pointerId: event.pointerId, axis: "none" };
   }
@@ -461,7 +485,7 @@ export default function Home() {
         <button className="collage-lightbox-close" aria-label="Close photograph" onClick={dismissLightbox}><X size={20} /> <span>Close</span></button>
         <figure style={isLightboxDragging && lightboxDrag.y > 0 ? { transform: `translate3d(0, ${lightboxDrag.y}px, 0)` } : undefined}>
           <div className="collage-lightbox-viewport" aria-live="polite" onPointerDown={handleLightboxPointerDown} onPointerMove={handleLightboxPointerMove} onPointerUp={finishLightboxPointerDrag} onPointerCancel={cancelLightboxPointerDrag}>
-            <div className={`collage-lightbox-track${isCarouselResetting ? " is-resetting" : ""}`} style={{ transform: carouselExitDirection === 1 ? "translate3d(-66.666666%, 0, 0)" : carouselExitDirection === -1 ? "translate3d(0%, 0, 0)" : `translate3d(calc(-33.333333% + ${lightboxDrag.x}px), 0, 0)` }}>
+            <div className={`collage-lightbox-track${isCarouselResetting ? " is-resetting" : ""}`} onTransitionEnd={handleCarouselTransitionEnd} style={{ transform: carouselExitDirection === 1 ? "translate3d(-66.666666%, 0, 0)" : carouselExitDirection === -1 ? "translate3d(0%, 0, 0)" : `translate3d(calc(-33.333333% + ${lightboxDrag.x}px), 0, 0)` }}>
               {previousDashboardPhoto && <div className="collage-lightbox-slide" aria-hidden="true"><img src={previousDashboardPhoto.image} alt="" decoding="async" /></div>}
               <div className="collage-lightbox-slide collage-lightbox-slide-current"><img className="collage-lightbox-image" src={selectedPhoto.image} alt={selectedPhoto.alt} decoding="async" fetchPriority="high" /></div>
               {nextDashboardPhoto && <div className="collage-lightbox-slide" aria-hidden="true"><img src={nextDashboardPhoto.image} alt="" decoding="async" /></div>}
