@@ -276,18 +276,14 @@
 .collage-lightbox figure { position: relative; width: min(84vw, 68rem); max-height: 88vh; margin: 0; padding: .7rem .7rem 1.3rem; background: var(--white); color: var(--black); animation: collage-lightbox-figure-in .3s var(--ease-out) both; transition: transform .2s var(--ease-out); will-change: transform; }
 @keyframes collage-lightbox-figure-in { from { opacity: 0; transform: translateY(.7rem) scale(.985); } to { opacity: 1; transform: translateY(0) scale(1); } }
 .collage-lightbox.is-dragging figure { animation: none; transition: none; }
-.collage-lightbox-viewport { overflow: hidden; width: 100%; }
+.collage-lightbox-viewport { overflow: hidden; width: 100%; touch-action: none; overscroll-behavior: contain; cursor: grab; }
+.collage-lightbox.is-dragging .collage-lightbox-viewport { cursor: grabbing; }
 .collage-lightbox-track { display: flex; width: 300%; will-change: transform; transition: transform .34s cubic-bezier(.22, 1, .36, 1); }
 .collage-lightbox.is-dragging .collage-lightbox-track { transition: none; }
 .collage-lightbox-track.is-resetting { transition: none; }
 .collage-lightbox-slide { display: grid; flex: 0 0 33.333333%; min-width: 0; place-items: center; }
 .collage-lightbox img { width: 100%; max-height: 76vh; display: block; object-fit: contain; user-select: none; -webkit-user-drag: none; }
 .collage-lightbox-slide-current { pointer-events: none; }
-.collage-lightbox-arrow { position: absolute; top: calc(50% - 1.25rem); z-index: 1; display: grid; width: 2.5rem; height: 2.5rem; place-items: center; border: 1px solid rgba(255,255,255,.78); background: rgba(0,0,0,.62); color: var(--white); transition: background .18s ease, transform .18s var(--ease-out); }
-.collage-lightbox-arrow:hover, .collage-lightbox-arrow:focus-visible { background: #d56b35; outline: none; }
-.collage-lightbox-arrow:active { transform: scale(.95); }
-.collage-lightbox-arrow-left { left: 1rem; }
-.collage-lightbox-arrow-right { right: 1rem; }
 .collage-lightbox figcaption { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-top: .75rem; font-family: "Montserrat", sans-serif; font-size: .58rem; letter-spacing: .05em; text-transform: uppercase; }
 .collage-lightbox figcaption strong { font-family: "Montserrat", sans-serif; font-size: 1.15rem; font-weight: 500; letter-spacing: -.015em; text-transform: none; }
 
@@ -395,14 +391,10 @@
   .collage-lightbox { padding: 1rem; }
   .collage-lightbox-close { top: .8rem; right: .8rem; padding: .5rem .6rem; font-size: .5rem; }
   .collage-lightbox figure { width: 94vw; }
-  .collage-lightbox-arrow { top: calc(50% - 1rem); width: 2.1rem; height: 2.1rem; }
-  .collage-lightbox-arrow-left { left: .65rem; }
-  .collage-lightbox-arrow-right { right: .65rem; }
   .collage-lightbox figcaption { display: block; }
   .collage-lightbox figcaption strong { display: block; margin-top: .35rem; }
 }
 @media (hover: none) and (pointer: coarse) {
-  .collage-lightbox-arrow { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {

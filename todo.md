@@ -191,3 +191,9 @@ Verification note: a live horizontal lightbox drag visibly followed the finger b
 - [x] Verify successful and cancelled swipes on desktop/mobile, then save a checkpoint.
 
 Verification note: the lightbox now renders previous, current, and next images in a three-panel track. A live drag offsets the track from its centered position; an above-threshold swipe animates fully to the neighbor before resetting the new selected photo back to center; and a short drag returns via the track transition. Typecheck and production build passed, while desktop and mobile full-page captures confirmed stable responsive layout.
+- [x] Attach pointer drag events directly to the lightbox photo viewport.
+- [x] Remove arrow-button photo navigation and ensure photo content receives pointer movement.
+- [x] Prevent browser scrolling during horizontal drag while preserving vertical viewer dismissal.
+- [x] Test direct touchscreen drag, completed slides, and short-drag snap-back; then save a checkpoint.
+
+Verification note: a real Chromium mobile/touch test dispatched touch events directly to the photo viewport. During a live 88px leftward move, the carousel track rendered `translate3d(calc(-33.3333% - 88px), 0px, 0px)`, confirming the displayed photo followed the finger. Releasing the drag changed “Rubicon trail” to “Chrome and red,” while a short 28px drag kept the current photo, confirming snap-back. Arrow-button rendering and styles were removed. Final typecheck, production build, desktop capture, and mobile capture passed.

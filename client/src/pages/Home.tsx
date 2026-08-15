@@ -1,7 +1,7 @@
 /* Screenshot-matched collage direction: black trophy-style chrome, centered wordmark, colorful photography, white print frames, and a dense gallery wall. */
-// Design note: Preserve the black editorial archive while giving touch users direct, deliberate gesture control over photographs.
-import { useEffect, useMemo, useRef, useState, type TouchEvent } from "react";
-import { ArrowLeft, ArrowRight, ArrowUpRight, ChevronRight, Menu, X } from "lucide-react";
+// Design note: Preserve the black editorial archive while giving touch users a direct, native-feeling pointer carousel on photographs.
+import { useEffect, useMemo, useRef, useState, type PointerEvent as ReactPointerEvent, type TouchEvent } from "react";
+import { ArrowLeft, ArrowUpRight, ChevronRight, Menu, X } from "lucide-react";
 import { toast } from "sonner";
 
 type Category = "All" | "Automobile" | "Architecture" | "Product" | "Editorial" | "Portrait";
@@ -137,7 +137,7 @@ export default function Home() {
   const [carouselExitDirection, setCarouselExitDirection] = useState<-1 | 0 | 1>(0);
   const [isCarouselResetting, setIsCarouselResetting] = useState(false);
   const dashboardTouchStart = useRef<{ x: number; y: number } | null>(null);
-  const lightboxTouchStart = useRef<{ x: number; y: number } | null>(null);
+  const lightboxPointerStart = useRef<{ x: number; y: number; pointerId: number; axis: "none" | "horizontal" | "vertical" } | null>(null);
   const visiblePhotos = useMemo(() => activeCategory === "All" ? photos : photos.filter((photo) => photo.category === activeCategory), [activeCategory]);
   const visibleSecondStripPhotos = useMemo(() => activeCategory === "All" ? secondStripPhotos : secondStripPhotos.filter((photo) => photo.category === activeCategory), [activeCategory]);
   const stripOne = firstStripPhotos;
@@ -238,46 +238,55 @@ export default function Home() {
     if (deltaY > 92 && Math.abs(deltaY) > Math.abs(deltaX) * 1.25) closeDashboard();
   }
 
-  function handleLightboxTouchStart(event: TouchEvent<HTMLDivElement>) {
-    if ((event.target as HTMLElement).closest("button")) {
-      lightboxTouchStart.current = null;
-      return;
-    }
-    const touch = event.touches[0];
-    lightboxTouchStart.current = { x: touch.clientX, y: touch.clientY };
+  function handleLightboxPointerDown(event: ReactPointerEvent<HTMLDivElement>) {
+    if (!event.isPrimary || event.button !== 0 || carouselExitDirection !== 0) return;
+    event.currentTarget.setPointerCapture(event.pointerId);
+    lightboxPointerStart.current = { x: event.clientX, y: event.clientY, pointerId: event.pointerId, axis: "none" };
   }
 
-  function handleLightboxTouchMove(event: TouchEvent<HTMLDivElement>) {
-    const start = lightboxTouchStart.current;
-    if (!start) return;
-    const touch = event.touches[0];
-    const deltaX = touch.clientX - start.x;
-    const deltaY = touch.clientY - start.y;
-    if (Math.abs(deltaX) > Math.abs(deltaY) * 0.85) {
+  function handleLightboxPointerMove(event: ReactPointerEvent<HTMLDivElement>) {
+    const start = lightboxPointerStart.current;
+    if (!start || start.pointerId !== event.pointerId) return;
+    const deltaX = event.clientX - start.x;
+    const deltaY = event.clientY - start.y;
+    if (start.axis === "none") {
+      if (Math.hypot(deltaX, deltaY) < 7) return;
+      start.axis = Math.abs(deltaX) >= Math.abs(deltaY) ? "horizontal" : deltaY > 0 ? "vertical" : "none";
+    }
+    if (start.axis === "horizontal") {
+      event.preventDefault();
       const maxDrag = Math.max(window.innerWidth * 0.82, 260);
       setLightboxDrag({ x: Math.max(-maxDrag, Math.min(maxDrag, deltaX)), y: 0 });
-    } else if (deltaY > 0) {
-      setLightboxDrag({ x: 0, y: Math.min(180, deltaY * 0.78) });
+      setIsLightboxDragging(true);
+    } else if (start.axis === "vertical") {
+      event.preventDefault();
+      setLightboxDrag({ x: 0, y: Math.min(180, Math.max(0, deltaY) * 0.78) });
+      setIsLightboxDragging(true);
     }
-    setIsLightboxDragging(true);
   }
 
-  function handleLightboxTouchEnd(event: TouchEvent<HTMLDivElement>) {
-    const start = lightboxTouchStart.current;
-    lightboxTouchStart.current = null;
-    if (!start || dashboardPhotoIndex === null) return;
-    const touch = event.changedTouches[0];
-    const deltaX = touch.clientX - start.x;
-    const deltaY = touch.clientY - start.y;
+  function finishLightboxPointerDrag(event: ReactPointerEvent<HTMLDivElement>) {
+    const start = lightboxPointerStart.current;
+    lightboxPointerStart.current = null;
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) event.currentTarget.releasePointerCapture(event.pointerId);
+    if (!start || start.pointerId !== event.pointerId || dashboardPhotoIndex === null) return;
+    const deltaX = event.clientX - start.x;
+    const deltaY = event.clientY - start.y;
     setIsLightboxDragging(false);
-    if (deltaY > 94 && Math.abs(deltaY) > Math.abs(deltaX) * 1.2) {
+    if (start.axis === "vertical" && deltaY > 94 && Math.abs(deltaY) > Math.abs(deltaX) * 1.2) {
       dismissLightbox();
       return;
     }
-    if (Math.abs(deltaX) > 62 && Math.abs(deltaX) > Math.abs(deltaY) * 1.2) {
+    if (start.axis === "horizontal" && Math.abs(deltaX) > 62 && Math.abs(deltaX) > Math.abs(deltaY) * 1.2) {
       completeLightboxSwipe(deltaX < 0 ? 1 : -1);
       return;
     }
+    setLightboxDrag({ x: 0, y: 0 });
+  }
+
+  function cancelLightboxPointerDrag() {
+    lightboxPointerStart.current = null;
+    setIsLightboxDragging(false);
     setLightboxDrag({ x: 0, y: 0 });
   }
 
@@ -448,18 +457,16 @@ export default function Home() {
         </div>
       </div>}
 
-      {selectedPhoto && <div className={`collage-lightbox${isLightboxDragging ? " is-dragging" : ""}${isLightboxClosing ? " is-closing" : ""}`} role="dialog" aria-modal="true" aria-label={`${selectedPhoto.title} photograph`} onTouchStart={handleLightboxTouchStart} onTouchMove={handleLightboxTouchMove} onTouchEnd={handleLightboxTouchEnd} style={isLightboxDragging ? { background: `rgba(0,0,0,${Math.max(0.68, 0.93 - lightboxDrag.y / 620)})` } : undefined}>
+      {selectedPhoto && <div className={`collage-lightbox${isLightboxDragging ? " is-dragging" : ""}${isLightboxClosing ? " is-closing" : ""}`} role="dialog" aria-modal="true" aria-label={`${selectedPhoto.title} photograph`} style={isLightboxDragging ? { background: `rgba(0,0,0,${Math.max(0.68, 0.93 - lightboxDrag.y / 620)})` } : undefined}>
         <button className="collage-lightbox-close" aria-label="Close photograph" onClick={dismissLightbox}><X size={20} /> <span>Close</span></button>
         <figure style={isLightboxDragging && lightboxDrag.y > 0 ? { transform: `translate3d(0, ${lightboxDrag.y}px, 0)` } : undefined}>
-          {dashboardPhotoIndex !== null && dashboardPhotos.length > 1 && <button className="collage-lightbox-arrow collage-lightbox-arrow-left" onClick={() => navigateDashboardPhoto(-1)} aria-label="Previous photo"><ArrowLeft size={22} /></button>}
-          <div className="collage-lightbox-viewport" aria-live="polite">
+          <div className="collage-lightbox-viewport" aria-live="polite" onPointerDown={handleLightboxPointerDown} onPointerMove={handleLightboxPointerMove} onPointerUp={finishLightboxPointerDrag} onPointerCancel={cancelLightboxPointerDrag}>
             <div className={`collage-lightbox-track${isCarouselResetting ? " is-resetting" : ""}`} style={{ transform: carouselExitDirection === 1 ? "translate3d(-66.666666%, 0, 0)" : carouselExitDirection === -1 ? "translate3d(0%, 0, 0)" : `translate3d(calc(-33.333333% + ${lightboxDrag.x}px), 0, 0)` }}>
               {previousDashboardPhoto && <div className="collage-lightbox-slide" aria-hidden="true"><img src={previousDashboardPhoto.image} alt="" decoding="async" /></div>}
               <div className="collage-lightbox-slide collage-lightbox-slide-current"><img className="collage-lightbox-image" src={selectedPhoto.image} alt={selectedPhoto.alt} decoding="async" fetchPriority="high" /></div>
               {nextDashboardPhoto && <div className="collage-lightbox-slide" aria-hidden="true"><img src={nextDashboardPhoto.image} alt="" decoding="async" /></div>}
             </div>
           </div>
-          {dashboardPhotoIndex !== null && dashboardPhotos.length > 1 && <button className="collage-lightbox-arrow collage-lightbox-arrow-right" onClick={() => navigateDashboardPhoto(1)} aria-label="Next photo"><ArrowRight size={22} /></button>}
           <figcaption><span>{dashboardPhotoIndex !== null ? `${String(dashboardPhotoIndex + 1).padStart(2, "0")} / ${String(dashboardPhotos.length).padStart(2, "0")} · ` : ""}{selectedPhoto.category}</span><strong>{selectedPhoto.title}</strong></figcaption>
         </figure>
       </div>}
