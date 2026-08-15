@@ -197,3 +197,8 @@ Verification note: the lightbox now renders previous, current, and next images i
 - [x] Test direct touchscreen drag, completed slides, and short-drag snap-back; then save a checkpoint.
 
 Verification note: a real Chromium mobile/touch test dispatched touch events directly to the photo viewport. During a live 88px leftward move, the carousel track rendered `translate3d(calc(-33.3333% - 88px), 0px, 0px)`, confirming the displayed photo followed the finger. Releasing the drag changed “Rubicon trail” to “Chrome and red,” while a short 28px drag kept the current photo, confirming snap-back. Arrow-button rendering and styles were removed. Final typecheck, production build, desktop capture, and mobile capture passed.
+- [x] Restore visible previous and next controls in the dashboard photo viewer.
+- [x] Preserve direct-touch swipe navigation alongside arrow controls.
+- [x] Verify desktop/mobile control visibility, touch behavior, and build quality before saving a checkpoint.
+
+Verification note: previous and next controls were restored as labeled, accessible buttons on either side of the dashboard photo viewport. A browser check confirmed both arrows render, Next advances from “Rubicon trail” to “Chrome and red,” and Previous returns to “Rubicon trail.” Direct pointer dragging remains bound to the photo viewport. Typecheck, production build, desktop full-page capture, and mobile full-page capture passed.

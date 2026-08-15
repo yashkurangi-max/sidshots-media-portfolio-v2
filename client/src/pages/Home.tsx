@@ -1,7 +1,7 @@
 /* Screenshot-matched collage direction: black trophy-style chrome, centered wordmark, colorful photography, white print frames, and a dense gallery wall. */
 // Design note: Preserve the black editorial archive while giving touch users a direct, native-feeling pointer carousel on photographs.
 import { useEffect, useMemo, useRef, useState, type PointerEvent as ReactPointerEvent, type TouchEvent } from "react";
-import { ArrowLeft, ArrowUpRight, ChevronRight, Menu, X } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, ChevronLeft, ChevronRight, Menu, X } from "lucide-react";
 import { toast } from "sonner";
 
 type Category = "All" | "Automobile" | "Architecture" | "Product" | "Editorial" | "Portrait";
@@ -460,6 +460,7 @@ export default function Home() {
       {selectedPhoto && <div className={`collage-lightbox${isLightboxDragging ? " is-dragging" : ""}${isLightboxClosing ? " is-closing" : ""}`} role="dialog" aria-modal="true" aria-label={`${selectedPhoto.title} photograph`} style={isLightboxDragging ? { background: `rgba(0,0,0,${Math.max(0.68, 0.93 - lightboxDrag.y / 620)})` } : undefined}>
         <button className="collage-lightbox-close" aria-label="Close photograph" onClick={dismissLightbox}><X size={20} /> <span>Close</span></button>
         <figure style={isLightboxDragging && lightboxDrag.y > 0 ? { transform: `translate3d(0, ${lightboxDrag.y}px, 0)` } : undefined}>
+          {dashboardPhotoIndex !== null && <button type="button" className="collage-lightbox-arrow collage-lightbox-arrow-prev" aria-label="Previous photograph" onClick={() => navigateDashboardPhoto(-1)}><ChevronLeft size={24} strokeWidth={1.8} /></button>}
           <div className="collage-lightbox-viewport" aria-live="polite" onPointerDown={handleLightboxPointerDown} onPointerMove={handleLightboxPointerMove} onPointerUp={finishLightboxPointerDrag} onPointerCancel={cancelLightboxPointerDrag}>
             <div className={`collage-lightbox-track${isCarouselResetting ? " is-resetting" : ""}`} style={{ transform: carouselExitDirection === 1 ? "translate3d(-66.666666%, 0, 0)" : carouselExitDirection === -1 ? "translate3d(0%, 0, 0)" : `translate3d(calc(-33.333333% + ${lightboxDrag.x}px), 0, 0)` }}>
               {previousDashboardPhoto && <div className="collage-lightbox-slide" aria-hidden="true"><img src={previousDashboardPhoto.image} alt="" decoding="async" /></div>}
@@ -467,6 +468,7 @@ export default function Home() {
               {nextDashboardPhoto && <div className="collage-lightbox-slide" aria-hidden="true"><img src={nextDashboardPhoto.image} alt="" decoding="async" /></div>}
             </div>
           </div>
+          {dashboardPhotoIndex !== null && <button type="button" className="collage-lightbox-arrow collage-lightbox-arrow-next" aria-label="Next photograph" onClick={() => navigateDashboardPhoto(1)}><ChevronRight size={24} strokeWidth={1.8} /></button>}
           <figcaption><span>{dashboardPhotoIndex !== null ? `${String(dashboardPhotoIndex + 1).padStart(2, "0")} / ${String(dashboardPhotos.length).padStart(2, "0")} · ` : ""}{selectedPhoto.category}</span><strong>{selectedPhoto.title}</strong></figcaption>
         </figure>
       </div>}
