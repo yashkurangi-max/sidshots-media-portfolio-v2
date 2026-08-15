@@ -202,7 +202,6 @@
 .collage-about-content p { max-width: 43rem; margin: .25rem 0 0; color: #3f3f3f; font-size: clamp(.95rem, 1.25vw, 1.16rem); line-height: 1.85; }
 
 .collage-team { position: relative; overflow: hidden; padding: clamp(5rem, 9vw, 8.5rem) clamp(1.25rem, 8vw, 8rem); background: #f1eadf; color: var(--black); border-top: 2px solid #d56b35; border-bottom: 1px solid rgba(125,83,48,.32); }
-.collage-team::before { content: ""; position: absolute; top: 1.2rem; right: clamp(1.25rem, 8vw, 8rem); width: clamp(4rem, 12vw, 11rem); height: 1px; background: rgba(213,107,53,.55); }
 .collage-team-label { display: flex; align-items: center; justify-content: space-between; gap: 1rem; max-width: 72rem; margin: 0 auto clamp(2.8rem, 6vw, 5rem); color: #827568; font-family: "Montserrat", sans-serif; font-size: .55rem; letter-spacing: .08em; text-transform: uppercase; }
 .collage-team-heading { max-width: 72rem; margin: 0 auto clamp(2.8rem, 6vw, 5rem); text-align: center; }
 .collage-team-heading h2 { margin: 0; font-family: "Montserrat", sans-serif; font-size: clamp(4rem, 9vw, 9rem); font-weight: 600; letter-spacing: -.07em; line-height: .78; }

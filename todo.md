@@ -212,3 +212,8 @@ Verification note: the final contact values now use a responsive 1.02–1.17rem 
 - [x] Verify the targeted contact-label treatment on desktop and mobile, then save a checkpoint.
 
 Verification note: final contact values were restored to the prior compact .8rem, 500-weight treatment with original row spacing. Only the muted, uppercase left-side labels were enlarged to .76rem. Typecheck and production build passed; desktop and mobile full-page captures confirm the revised hierarchy remains responsive.
+
+- [x] Remove the thin terracotta divider line from the OUR TEAM slide.
+- [x] Verify the refined OUR TEAM slide and save a checkpoint.
+
+Verification note: removed the short inset terracotta rule from the OUR TEAM slide while retaining the section’s full-width top boundary and warm editorial treatment. Typecheck, production build, and desktop full-page visual verification passed.
