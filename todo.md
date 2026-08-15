@@ -179,3 +179,9 @@ Verification note: Behind the frame remains crisp white with quiet gray dividers
 - [x] Test keyboard, desktop, mobile, and touch interactions; then save a checkpoint.
 
 Verification note: dashboard photos open in a single-photo lightbox with previous/next arrows, horizontal photo swipe navigation, Escape and close controls. The board has Back to dashboards and Close actions plus a 280ms exit transition. A deliberate header swipe down over 92px closes the dashboard; a short/horizontal header gesture was verified to keep it open. Typecheck, production build, desktop interaction checks, desktop full-page capture, and mobile full-page capture passed.
+- [x] Add drag-follow feedback and gesture thresholds to the dashboard lightbox on touch devices.
+- [x] Make horizontal lightbox swipes navigate, and downward swipes return to the dashboard board.
+- [x] Refine the dashboard downward gesture for smooth touch dismissal without accidental closes.
+- [x] Verify touch gestures, keyboard fallbacks, desktop behavior, and responsive rendering; then save a checkpoint.
+
+Verification note: a live horizontal lightbox drag visibly followed the finger before advancing to the next image; a downward drag visibly followed the finger before returning to the dashboard board; and a deliberate dashboard pull-down visibly followed the finger before closing to the main portfolio. A no-movement tap remained on the same photo, while keyboard ArrowRight navigation continued to work. Typecheck, production build, desktop capture, and mobile capture passed.

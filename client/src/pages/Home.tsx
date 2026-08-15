@@ -1,4 +1,5 @@
 /* Screenshot-matched collage direction: black trophy-style chrome, centered wordmark, colorful photography, white print frames, and a dense gallery wall. */
+// Design note: Preserve the black editorial archive while giving touch users direct, deliberate gesture control over photographs.
 import { useEffect, useMemo, useRef, useState, type TouchEvent } from "react";
 import { ArrowLeft, ArrowRight, ArrowUpRight, ChevronRight, Menu, X } from "lucide-react";
 import { toast } from "sonner";
@@ -128,6 +129,11 @@ export default function Home() {
   const [selectedDashboard, setSelectedDashboard] = useState<(typeof dashboardData)[number] | null>(null);
   const [dashboardPhotoIndex, setDashboardPhotoIndex] = useState<number | null>(null);
   const [isDashboardClosing, setIsDashboardClosing] = useState(false);
+  const [dashboardDragY, setDashboardDragY] = useState(0);
+  const [isDashboardDragging, setIsDashboardDragging] = useState(false);
+  const [lightboxDrag, setLightboxDrag] = useState({ x: 0, y: 0 });
+  const [isLightboxDragging, setIsLightboxDragging] = useState(false);
+  const [isLightboxClosing, setIsLightboxClosing] = useState(false);
   const dashboardTouchStart = useRef<{ x: number; y: number } | null>(null);
   const lightboxTouchStart = useRef<{ x: number; y: number } | null>(null);
   const visiblePhotos = useMemo(() => activeCategory === "All" ? photos : photos.filter((photo) => photo.category === activeCategory), [activeCategory]);
@@ -139,6 +145,15 @@ export default function Home() {
   function closeLightbox() {
     setSelectedPhoto(null);
     setDashboardPhotoIndex(null);
+    setLightboxDrag({ x: 0, y: 0 });
+    setIsLightboxDragging(false);
+    setIsLightboxClosing(false);
+  }
+
+  function dismissLightbox() {
+    if (!selectedPhoto || isLightboxClosing) return;
+    setIsLightboxClosing(true);
+    window.setTimeout(closeLightbox, 220);
   }
 
   function closeDashboard() {
@@ -159,6 +174,7 @@ export default function Home() {
   function navigateDashboardPhoto(direction: number) {
     if (!selectedDashboard || dashboardPhotoIndex === null || dashboardPhotos.length === 0) return;
     const nextIndex = (dashboardPhotoIndex + direction + dashboardPhotos.length) % dashboardPhotos.length;
+    setLightboxDrag({ x: 0, y: 0 });
     setDashboardPhotoIndex(nextIndex);
     setSelectedPhoto(dashboardPhotos[nextIndex]);
   }
@@ -174,6 +190,21 @@ export default function Home() {
     dashboardTouchStart.current = { x: touch.clientX, y: touch.clientY };
   }
 
+  function handleDashboardTouchMove(event: TouchEvent<HTMLDivElement>) {
+    const start = dashboardTouchStart.current;
+    if (!start) return;
+    const touch = event.touches[0];
+    const deltaX = touch.clientX - start.x;
+    const deltaY = touch.clientY - start.y;
+    if (deltaY <= 0 || Math.abs(deltaY) <= Math.abs(deltaX)) {
+      setDashboardDragY(0);
+      setIsDashboardDragging(false);
+      return;
+    }
+    setIsDashboardDragging(true);
+    setDashboardDragY(Math.min(deltaY * 0.72, 190));
+  }
+
   function handleDashboardTouchEnd(event: TouchEvent<HTMLDivElement>) {
     const start = dashboardTouchStart.current;
     dashboardTouchStart.current = null;
@@ -181,6 +212,8 @@ export default function Home() {
     const touch = event.changedTouches[0];
     const deltaX = touch.clientX - start.x;
     const deltaY = touch.clientY - start.y;
+    setDashboardDragY(0);
+    setIsDashboardDragging(false);
     if (deltaY > 92 && Math.abs(deltaY) > Math.abs(deltaX) * 1.25) closeDashboard();
   }
 
@@ -193,6 +226,20 @@ export default function Home() {
     lightboxTouchStart.current = { x: touch.clientX, y: touch.clientY };
   }
 
+  function handleLightboxTouchMove(event: TouchEvent<HTMLDivElement>) {
+    const start = lightboxTouchStart.current;
+    if (!start) return;
+    const touch = event.touches[0];
+    const deltaX = touch.clientX - start.x;
+    const deltaY = touch.clientY - start.y;
+    if (Math.abs(deltaX) > Math.abs(deltaY) * 0.85) {
+      setLightboxDrag({ x: Math.max(-170, Math.min(170, deltaX)), y: 0 });
+    } else if (deltaY > 0) {
+      setLightboxDrag({ x: 0, y: Math.min(180, deltaY * 0.78) });
+    }
+    setIsLightboxDragging(true);
+  }
+
   function handleLightboxTouchEnd(event: TouchEvent<HTMLDivElement>) {
     const start = lightboxTouchStart.current;
     lightboxTouchStart.current = null;
@@ -200,13 +247,22 @@ export default function Home() {
     const touch = event.changedTouches[0];
     const deltaX = touch.clientX - start.x;
     const deltaY = touch.clientY - start.y;
-    if (Math.abs(deltaX) > 56 && Math.abs(deltaX) > Math.abs(deltaY) * 1.2) navigateDashboardPhoto(deltaX < 0 ? 1 : -1);
+    setIsLightboxDragging(false);
+    if (deltaY > 94 && Math.abs(deltaY) > Math.abs(deltaX) * 1.2) {
+      dismissLightbox();
+      return;
+    }
+    if (Math.abs(deltaX) > 62 && Math.abs(deltaX) > Math.abs(deltaY) * 1.2) {
+      navigateDashboardPhoto(deltaX < 0 ? 1 : -1);
+      return;
+    }
+    setLightboxDrag({ x: 0, y: 0 });
   }
 
   useEffect(() => {
     const closeOnEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
-        if (selectedPhoto) closeLightbox();
+        if (selectedPhoto) dismissLightbox();
         else closeDashboard();
       }
       if (selectedPhoto && dashboardPhotoIndex !== null && event.key === "ArrowRight") navigateDashboardPhoto(1);
@@ -350,7 +406,7 @@ export default function Home() {
 
       <footer className="collage-footer"><div className="collage-footer-brand"><strong>SIDSHOTS MEDIA</strong><span>Photography · Cinematography</span></div><div className="collage-footer-links"><a href="mailto:info@sidshotsmedia.in">Email <ArrowUpRight size={13} /></a><a href="https://www.instagram.com/sidshots_media/" target="_blank" rel="noreferrer">Instagram <ArrowUpRight size={13} /></a><a href="https://wa.me/919699592029?text=Hello%20SIDSHOTS%20MEDIA%2C%20I%27d%20like%20to%20book%20a%20shoot." target="_blank" rel="noreferrer">Book a shoot <ArrowUpRight size={13} /></a></div><div className="collage-footer-meta"><span>© 2026 SIDSHOTS MEDIA</span><span>Pune, Maharashtra</span></div></footer>
 
-      {selectedDashboard && <div className={`dashboard-detail${isDashboardClosing ? " is-closing" : ""}`} role="dialog" aria-modal="true" aria-label={`${selectedDashboard.category} photography dashboard`} onTouchStart={handleDashboardTouchStart} onTouchEnd={handleDashboardTouchEnd}>
+      {selectedDashboard && <div className={`dashboard-detail${isDashboardClosing ? " is-closing" : ""}${isDashboardDragging ? " is-dragging" : ""}`} role="dialog" aria-modal="true" aria-label={`${selectedDashboard.category} photography dashboard`} onTouchStart={handleDashboardTouchStart} onTouchMove={handleDashboardTouchMove} onTouchEnd={handleDashboardTouchEnd} style={dashboardDragY > 0 ? { transform: `translate3d(0, ${dashboardDragY}px, 0)` } : undefined}>
         <div className="dashboard-detail-bar">
           <button className="dashboard-detail-back" onClick={closeDashboard}><ArrowLeft size={16} /> Back to dashboards</button>
           <span>{selectedDashboard.index} / {selectedDashboard.category}</span>
@@ -370,9 +426,9 @@ export default function Home() {
         </div>
       </div>}
 
-      {selectedPhoto && <div className="collage-lightbox" role="dialog" aria-modal="true" aria-label={`${selectedPhoto.title} photograph`} onClick={closeLightbox} onTouchStart={handleLightboxTouchStart} onTouchEnd={handleLightboxTouchEnd}>
-        <button className="collage-lightbox-close" aria-label="Close photograph" onClick={closeLightbox}><X size={20} /> <span>Close</span></button>
-        <figure onClick={(event) => event.stopPropagation()}>
+      {selectedPhoto && <div className={`collage-lightbox${isLightboxDragging ? " is-dragging" : ""}${isLightboxClosing ? " is-closing" : ""}`} role="dialog" aria-modal="true" aria-label={`${selectedPhoto.title} photograph`} onTouchStart={handleLightboxTouchStart} onTouchMove={handleLightboxTouchMove} onTouchEnd={handleLightboxTouchEnd} style={isLightboxDragging ? { background: `rgba(0,0,0,${Math.max(0.68, 0.93 - lightboxDrag.y / 620)})` } : undefined}>
+        <button className="collage-lightbox-close" aria-label="Close photograph" onClick={dismissLightbox}><X size={20} /> <span>Close</span></button>
+        <figure style={isLightboxDragging ? { transform: `translate3d(${lightboxDrag.x}px, ${lightboxDrag.y}px, 0) rotate(${lightboxDrag.x * 0.012}deg)` } : undefined}>
           {dashboardPhotoIndex !== null && dashboardPhotos.length > 1 && <button className="collage-lightbox-arrow collage-lightbox-arrow-left" onClick={() => navigateDashboardPhoto(-1)} aria-label="Previous photo"><ArrowLeft size={22} /></button>}
           <img className="collage-lightbox-image" key={selectedPhoto.id} src={selectedPhoto.image} alt={selectedPhoto.alt} decoding="async" fetchPriority="high" />
           {dashboardPhotoIndex !== null && dashboardPhotos.length > 1 && <button className="collage-lightbox-arrow collage-lightbox-arrow-right" onClick={() => navigateDashboardPhoto(1)} aria-label="Next photo"><ArrowRight size={22} /></button>}

@@ -1,4 +1,5 @@
 /* Screenshot-matched collage direction: black trophy-style chrome, centered wordmark, colorful photography, white print frames, and a dense gallery wall. */
+/* Design note: the black editorial archive uses tactile drag motion on touch, while keeping controls accessible elsewhere. */
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -152,9 +153,10 @@
 .dashboard-card-copy h3 { margin: 0 0 .3rem; font-family: "Montserrat", sans-serif; font-size: clamp(1.9rem, 3vw, 3rem); font-weight: 500; letter-spacing: -.04em; line-height: .9; }
 .dashboard-card-copy p { margin: 0; color: rgba(255,255,255,.82); font-size: .72rem; }
 .dashboard-card-action { display: inline-flex; align-items: center; gap: .4rem; margin-top: 1.3rem; color: #d56b35; font-family: "Montserrat", sans-serif; font-size: .52rem; letter-spacing: .06em; text-transform: uppercase; }
-.dashboard-detail { position: fixed; inset: 0; z-index: 80; overflow: auto; background: #101010; color: var(--white); padding: 1.1rem clamp(1rem, 4vw, 4rem) 4rem; animation: dashboard-detail-in .3s var(--ease-out) both; touch-action: pan-y; }
+.dashboard-detail { position: fixed; inset: 0; z-index: 80; overflow: auto; background: #101010; color: var(--white); padding: 1.1rem clamp(1rem, 4vw, 4rem) 4rem; animation: dashboard-detail-in .3s var(--ease-out) both; touch-action: pan-y; will-change: transform; }
 @keyframes dashboard-detail-in { from { opacity: 0; transform: translateY(1rem); } to { opacity: 1; transform: translateY(0); } }
 .dashboard-detail.is-closing { pointer-events: none; animation: dashboard-detail-out .28s var(--ease-out) both; }
+.dashboard-detail.is-dragging { animation: none; transition: none; }
 @keyframes dashboard-detail-out { from { opacity: 1; transform: translateY(0); } to { opacity: 0; transform: translateY(1.4rem); } }
 .dashboard-detail-bar { max-width: 88rem; margin: 0 auto; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 1rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,.18); color: rgba(255,255,255,.65); font-family: "Montserrat", sans-serif; font-size: .56rem; letter-spacing: .08em; text-transform: uppercase; }
 .dashboard-detail-bar > span { color: var(--white); text-align: center; }
@@ -263,13 +265,17 @@
 @keyframes contact-drift { from { transform: scale(1.04) translate3d(-.5%, 0, 0); } to { transform: scale(1.08) translate3d(.5%, -1%, 0); } }
 @keyframes contact-pulse { 0%, 100% { opacity: .72; transform: scale(1); } 50% { opacity: 1; transform: scale(1.2); } }
 
-.collage-lightbox { position: fixed; inset: 0; z-index: 120; display: grid; place-items: center; padding: 2rem; background: rgba(0,0,0,.93); animation: collage-lightbox-in .24s var(--ease-out) both; touch-action: pan-y; }
+.collage-lightbox { position: fixed; inset: 0; z-index: 120; display: grid; place-items: center; padding: 2rem; background: rgba(0,0,0,.93); animation: collage-lightbox-in .24s var(--ease-out) both; touch-action: none; will-change: background; }
 @keyframes collage-lightbox-in { from { opacity: 0; } to { opacity: 1; } }
+.collage-lightbox.is-dragging { animation: none; }
+.collage-lightbox.is-closing { pointer-events: none; animation: collage-lightbox-out .22s var(--ease-out) both; }
+@keyframes collage-lightbox-out { from { opacity: 1; } to { opacity: 0; } }
 .collage-lightbox-close { position: absolute; top: 1.3rem; right: 1.3rem; z-index: 2; display: inline-flex; align-items: center; gap: .45rem; border: 1px solid rgba(255,255,255,.55); background: rgba(0,0,0,.26); color: var(--white); padding: .55rem .7rem; font-family: "Montserrat", sans-serif; font-size: .58rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; transition: background .18s ease, border-color .18s ease, transform .18s var(--ease-out); }
 .collage-lightbox-close:hover, .collage-lightbox-close:focus-visible { border-color: var(--white); background: rgba(255,255,255,.12); outline: none; }
 .collage-lightbox-close:active { transform: scale(.97); }
-.collage-lightbox figure { position: relative; width: min(84vw, 68rem); max-height: 88vh; margin: 0; padding: .7rem .7rem 1.3rem; background: var(--white); color: var(--black); animation: collage-lightbox-figure-in .3s var(--ease-out) both; }
+.collage-lightbox figure { position: relative; width: min(84vw, 68rem); max-height: 88vh; margin: 0; padding: .7rem .7rem 1.3rem; background: var(--white); color: var(--black); animation: collage-lightbox-figure-in .3s var(--ease-out) both; transition: transform .2s var(--ease-out); will-change: transform; }
 @keyframes collage-lightbox-figure-in { from { opacity: 0; transform: translateY(.7rem) scale(.985); } to { opacity: 1; transform: translateY(0) scale(1); } }
+.collage-lightbox.is-dragging figure { animation: none; transition: none; }
 .collage-lightbox img { width: 100%; max-height: 76vh; display: block; object-fit: contain; }
 .collage-lightbox-image { animation: collage-lightbox-image-in .22s var(--ease-out) both; }
 @keyframes collage-lightbox-image-in { from { opacity: 0; transform: translateX(.75rem); } to { opacity: 1; transform: translateX(0); } }
@@ -390,6 +396,9 @@
   .collage-lightbox-arrow-right { right: .65rem; }
   .collage-lightbox figcaption { display: block; }
   .collage-lightbox figcaption strong { display: block; margin-top: .35rem; }
+}
+@media (hover: none) and (pointer: coarse) {
+  .collage-lightbox-arrow { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
