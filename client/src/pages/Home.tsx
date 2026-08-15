@@ -119,10 +119,11 @@ const dashboardData = [
 const architectureSuppliedPhotos: Photo[] = [
   { id: "A13", title: "Warm timber lounge", category: "Architecture", image: "/manus-storage/15(1)_b226e7e6.webp", alt: "Warm interior lounge with timber ceiling, white walls, and blue and yellow seating", tile: "tile-wide" },
   { id: "A14", title: "Quiet reading corner", category: "Architecture", image: "/manus-storage/12(1)_38e84d7f.webp", alt: "Bright interior corner with a woven lounge chair, wood table, and framed artwork", tile: "tile-tall" },
+  { id: "A15", title: "Chandelier dining room", category: "Architecture", image: "/manus-storage/5(1)_6ea4d1dd.jpg", alt: "Bright restaurant interior with blue seating, tall windows, and sculptural chandeliers", tile: "tile-wide" },
 ];
 
 const dashboardPhotoMap: Record<(typeof dashboardData)[number]["category"], Photo[]> = {
-  Architecture: [photos[0], photos[2], photos[3], photos[5], photos[7], photos[9], architectureSuppliedPhotos[0], architectureSuppliedPhotos[1], photos[6], photos[8], photos[10], secondStripPhotos[0]],
+  Architecture: [photos[0], photos[2], photos[3], photos[5], photos[7], photos[9], architectureSuppliedPhotos[0], architectureSuppliedPhotos[1], photos[6], photos[8], photos[10], architectureSuppliedPhotos[2]],
   Automobile: vehiclePhotos,
   Product: productPhotos,
 };

@@ -233,3 +233,6 @@ Verification note: the Architecture map now uses twelve distinct architecture/in
 
 - [x] Add the supplied 15(1).webp and 12(1).webp interior photos to the Architecture dashboard.
 - [x] Keep twelve distinct Architecture dashboard entries and verify the updated lightbox and responsive layout before saving a checkpoint.
+
+- [x] Add the supplied 5(1).jpg restaurant-interior photo to the Architecture dashboard.
+- [x] Keep twelve distinct Architecture dashboard entries and verify the updated gallery before saving a checkpoint.
