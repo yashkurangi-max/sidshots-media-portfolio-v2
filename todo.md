@@ -185,3 +185,9 @@ Verification note: dashboard photos open in a single-photo lightbox with previou
 - [x] Verify touch gestures, keyboard fallbacks, desktop behavior, and responsive rendering; then save a checkpoint.
 
 Verification note: a live horizontal lightbox drag visibly followed the finger before advancing to the next image; a downward drag visibly followed the finger before returning to the dashboard board; and a deliberate dashboard pull-down visibly followed the finger before closing to the main portfolio. A no-movement tap remained on the same photo, while keyboard ArrowRight navigation continued to work. Typecheck, production build, desktop capture, and mobile capture passed.
+- [x] Render the adjacent dashboard photo during a horizontal lightbox drag.
+- [x] Complete directional carousel slides past the threshold and spring back short drags.
+- [x] Preserve centered, responsive image scaling and touch-only navigation behavior.
+- [x] Verify successful and cancelled swipes on desktop/mobile, then save a checkpoint.
+
+Verification note: the lightbox now renders previous, current, and next images in a three-panel track. A live drag offsets the track from its centered position; an above-threshold swipe animates fully to the neighbor before resetting the new selected photo back to center; and a short drag returns via the track transition. Typecheck and production build passed, while desktop and mobile full-page captures confirmed stable responsive layout.

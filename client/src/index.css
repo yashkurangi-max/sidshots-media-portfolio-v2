@@ -1,5 +1,5 @@
 /* Screenshot-matched collage direction: black trophy-style chrome, centered wordmark, colorful photography, white print frames, and a dense gallery wall. */
-/* Design note: the black editorial archive uses tactile drag motion on touch, while keeping controls accessible elsewhere. */
+/* Design note: the black editorial archive uses a native-feeling, adjacent-photo touch carousel while keeping controls accessible elsewhere. */
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -276,9 +276,13 @@
 .collage-lightbox figure { position: relative; width: min(84vw, 68rem); max-height: 88vh; margin: 0; padding: .7rem .7rem 1.3rem; background: var(--white); color: var(--black); animation: collage-lightbox-figure-in .3s var(--ease-out) both; transition: transform .2s var(--ease-out); will-change: transform; }
 @keyframes collage-lightbox-figure-in { from { opacity: 0; transform: translateY(.7rem) scale(.985); } to { opacity: 1; transform: translateY(0) scale(1); } }
 .collage-lightbox.is-dragging figure { animation: none; transition: none; }
-.collage-lightbox img { width: 100%; max-height: 76vh; display: block; object-fit: contain; }
-.collage-lightbox-image { animation: collage-lightbox-image-in .22s var(--ease-out) both; }
-@keyframes collage-lightbox-image-in { from { opacity: 0; transform: translateX(.75rem); } to { opacity: 1; transform: translateX(0); } }
+.collage-lightbox-viewport { overflow: hidden; width: 100%; }
+.collage-lightbox-track { display: flex; width: 300%; will-change: transform; transition: transform .34s cubic-bezier(.22, 1, .36, 1); }
+.collage-lightbox.is-dragging .collage-lightbox-track { transition: none; }
+.collage-lightbox-track.is-resetting { transition: none; }
+.collage-lightbox-slide { display: grid; flex: 0 0 33.333333%; min-width: 0; place-items: center; }
+.collage-lightbox img { width: 100%; max-height: 76vh; display: block; object-fit: contain; user-select: none; -webkit-user-drag: none; }
+.collage-lightbox-slide-current { pointer-events: none; }
 .collage-lightbox-arrow { position: absolute; top: calc(50% - 1.25rem); z-index: 1; display: grid; width: 2.5rem; height: 2.5rem; place-items: center; border: 1px solid rgba(255,255,255,.78); background: rgba(0,0,0,.62); color: var(--white); transition: background .18s ease, transform .18s var(--ease-out); }
 .collage-lightbox-arrow:hover, .collage-lightbox-arrow:focus-visible { background: #d56b35; outline: none; }
 .collage-lightbox-arrow:active { transform: scale(.95); }

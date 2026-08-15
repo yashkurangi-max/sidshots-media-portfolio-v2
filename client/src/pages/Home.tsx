@@ -134,6 +134,8 @@ export default function Home() {
   const [lightboxDrag, setLightboxDrag] = useState({ x: 0, y: 0 });
   const [isLightboxDragging, setIsLightboxDragging] = useState(false);
   const [isLightboxClosing, setIsLightboxClosing] = useState(false);
+  const [carouselExitDirection, setCarouselExitDirection] = useState<-1 | 0 | 1>(0);
+  const [isCarouselResetting, setIsCarouselResetting] = useState(false);
   const dashboardTouchStart = useRef<{ x: number; y: number } | null>(null);
   const lightboxTouchStart = useRef<{ x: number; y: number } | null>(null);
   const visiblePhotos = useMemo(() => activeCategory === "All" ? photos : photos.filter((photo) => photo.category === activeCategory), [activeCategory]);
@@ -141,6 +143,8 @@ export default function Home() {
   const stripOne = firstStripPhotos;
   const stripTwo = visibleSecondStripPhotos;
   const dashboardPhotos = selectedDashboard ? dashboardPhotoMap[selectedDashboard.category] : [];
+  const previousDashboardPhoto = dashboardPhotoIndex !== null && dashboardPhotos.length > 1 ? dashboardPhotos[(dashboardPhotoIndex - 1 + dashboardPhotos.length) % dashboardPhotos.length] : null;
+  const nextDashboardPhoto = dashboardPhotoIndex !== null && dashboardPhotos.length > 1 ? dashboardPhotos[(dashboardPhotoIndex + 1) % dashboardPhotos.length] : null;
 
   function closeLightbox() {
     setSelectedPhoto(null);
@@ -148,6 +152,8 @@ export default function Home() {
     setLightboxDrag({ x: 0, y: 0 });
     setIsLightboxDragging(false);
     setIsLightboxClosing(false);
+    setCarouselExitDirection(0);
+    setIsCarouselResetting(false);
   }
 
   function dismissLightbox() {
@@ -177,6 +183,21 @@ export default function Home() {
     setLightboxDrag({ x: 0, y: 0 });
     setDashboardPhotoIndex(nextIndex);
     setSelectedPhoto(dashboardPhotos[nextIndex]);
+  }
+
+  function completeLightboxSwipe(direction: -1 | 1) {
+    if (!selectedDashboard || dashboardPhotoIndex === null || dashboardPhotos.length < 2 || carouselExitDirection !== 0) return;
+    setIsLightboxDragging(false);
+    setCarouselExitDirection(direction);
+    window.setTimeout(() => {
+      const nextIndex = (dashboardPhotoIndex + direction + dashboardPhotos.length) % dashboardPhotos.length;
+      setIsCarouselResetting(true);
+      setLightboxDrag({ x: 0, y: 0 });
+      setDashboardPhotoIndex(nextIndex);
+      setSelectedPhoto(dashboardPhotos[nextIndex]);
+      setCarouselExitDirection(0);
+      window.requestAnimationFrame(() => window.requestAnimationFrame(() => setIsCarouselResetting(false)));
+    }, 300);
   }
 
   function handleDashboardTouchStart(event: TouchEvent<HTMLDivElement>) {
@@ -233,7 +254,8 @@ export default function Home() {
     const deltaX = touch.clientX - start.x;
     const deltaY = touch.clientY - start.y;
     if (Math.abs(deltaX) > Math.abs(deltaY) * 0.85) {
-      setLightboxDrag({ x: Math.max(-170, Math.min(170, deltaX)), y: 0 });
+      const maxDrag = Math.max(window.innerWidth * 0.82, 260);
+      setLightboxDrag({ x: Math.max(-maxDrag, Math.min(maxDrag, deltaX)), y: 0 });
     } else if (deltaY > 0) {
       setLightboxDrag({ x: 0, y: Math.min(180, deltaY * 0.78) });
     }
@@ -253,7 +275,7 @@ export default function Home() {
       return;
     }
     if (Math.abs(deltaX) > 62 && Math.abs(deltaX) > Math.abs(deltaY) * 1.2) {
-      navigateDashboardPhoto(deltaX < 0 ? 1 : -1);
+      completeLightboxSwipe(deltaX < 0 ? 1 : -1);
       return;
     }
     setLightboxDrag({ x: 0, y: 0 });
@@ -428,9 +450,15 @@ export default function Home() {
 
       {selectedPhoto && <div className={`collage-lightbox${isLightboxDragging ? " is-dragging" : ""}${isLightboxClosing ? " is-closing" : ""}`} role="dialog" aria-modal="true" aria-label={`${selectedPhoto.title} photograph`} onTouchStart={handleLightboxTouchStart} onTouchMove={handleLightboxTouchMove} onTouchEnd={handleLightboxTouchEnd} style={isLightboxDragging ? { background: `rgba(0,0,0,${Math.max(0.68, 0.93 - lightboxDrag.y / 620)})` } : undefined}>
         <button className="collage-lightbox-close" aria-label="Close photograph" onClick={dismissLightbox}><X size={20} /> <span>Close</span></button>
-        <figure style={isLightboxDragging ? { transform: `translate3d(${lightboxDrag.x}px, ${lightboxDrag.y}px, 0) rotate(${lightboxDrag.x * 0.012}deg)` } : undefined}>
+        <figure style={isLightboxDragging && lightboxDrag.y > 0 ? { transform: `translate3d(0, ${lightboxDrag.y}px, 0)` } : undefined}>
           {dashboardPhotoIndex !== null && dashboardPhotos.length > 1 && <button className="collage-lightbox-arrow collage-lightbox-arrow-left" onClick={() => navigateDashboardPhoto(-1)} aria-label="Previous photo"><ArrowLeft size={22} /></button>}
-          <img className="collage-lightbox-image" key={selectedPhoto.id} src={selectedPhoto.image} alt={selectedPhoto.alt} decoding="async" fetchPriority="high" />
+          <div className="collage-lightbox-viewport" aria-live="polite">
+            <div className={`collage-lightbox-track${isCarouselResetting ? " is-resetting" : ""}`} style={{ transform: carouselExitDirection === 1 ? "translate3d(-66.666666%, 0, 0)" : carouselExitDirection === -1 ? "translate3d(0%, 0, 0)" : `translate3d(calc(-33.333333% + ${lightboxDrag.x}px), 0, 0)` }}>
+              {previousDashboardPhoto && <div className="collage-lightbox-slide" aria-hidden="true"><img src={previousDashboardPhoto.image} alt="" decoding="async" /></div>}
+              <div className="collage-lightbox-slide collage-lightbox-slide-current"><img className="collage-lightbox-image" src={selectedPhoto.image} alt={selectedPhoto.alt} decoding="async" fetchPriority="high" /></div>
+              {nextDashboardPhoto && <div className="collage-lightbox-slide" aria-hidden="true"><img src={nextDashboardPhoto.image} alt="" decoding="async" /></div>}
+            </div>
+          </div>
           {dashboardPhotoIndex !== null && dashboardPhotos.length > 1 && <button className="collage-lightbox-arrow collage-lightbox-arrow-right" onClick={() => navigateDashboardPhoto(1)} aria-label="Next photo"><ArrowRight size={22} /></button>}
           <figcaption><span>{dashboardPhotoIndex !== null ? `${String(dashboardPhotoIndex + 1).padStart(2, "0")} / ${String(dashboardPhotos.length).padStart(2, "0")} · ` : ""}{selectedPhoto.category}</span><strong>{selectedPhoto.title}</strong></figcaption>
         </figure>
