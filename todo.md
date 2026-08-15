@@ -236,3 +236,6 @@ Verification note: the Architecture map now uses twelve distinct architecture/in
 
 - [x] Add the supplied 5(1).jpg restaurant-interior photo to the Architecture dashboard.
 - [x] Keep twelve distinct Architecture dashboard entries and verify the updated gallery before saving a checkpoint.
+
+- [x] Remove the fixed twelve-photo limit from dashboard galleries and support any number of photos per category.
+- [x] Verify the add tile, lightbox navigation, and responsive dashboard layout with the expanded gallery behavior before saving a checkpoint.
