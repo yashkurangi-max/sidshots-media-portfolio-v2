@@ -390,7 +390,7 @@ export default function Home() {
             <article className="collage-team-member"><span>SENIOR CINEMATOGRAPHER</span><strong>Dilan Pemmaiah</strong></article>
             <article className="collage-team-member"><span>WEB DEVELOPER</span><strong>Apurwa Kurangi</strong></article>
             <article className="collage-team-member"><span>CONTENT WRITER</span><strong>Aastha Dadhe</strong></article>
-            <article className="collage-team-member"><span>HR</span><strong>Chaithra Paadi</strong></article>
+            <article className="collage-team-member"><span>SOCIAL MEDIA MANAGER</span><strong>Chaithra Paadi</strong></article>
             <article className="collage-team-member"><span>MANAGER</span><strong>Akash Brahmane</strong></article>
           </div>
           <p className="collage-team-note">A multidisciplinary team bringing photography, cinematography, content, technology and project management together to create impactful visual experiences.</p>

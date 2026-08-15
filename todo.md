@@ -217,3 +217,8 @@ Verification note: final contact values were restored to the prior compact .8rem
 - [x] Verify the refined OUR TEAM slide and save a checkpoint.
 
 Verification note: removed the short inset terracotta rule from the OUR TEAM slide while retaining the section’s full-width top boundary and warm editorial treatment. Typecheck, production build, and desktop full-page visual verification passed.
+
+- [x] Verify the revised SOCIAL MEDIA MANAGER role label for Chaithra Paadi on desktop and mobile.
+- [x] Save a checkpoint for the verified OUR TEAM role-label update.
+
+Verification note: Chaithra Paadi’s role is now SOCIAL MEDIA MANAGER. The longer uppercase label remains on one line without clipping in the desktop two-column roster and readable in the mobile single-column stack. Typecheck, production build, desktop full-page capture, and mobile full-page capture passed.
