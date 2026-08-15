@@ -227,3 +227,6 @@ Verification note: Chaithra Paadi’s role is now SOCIAL MEDIA MANAGER. The long
 - [x] Verify the Architecture dashboard lightbox and responsive layout, then save a checkpoint.
 
 Verification note: the Architecture map now uses twelve distinct architecture/interior images already present in the portfolio data; no image URL is repeated within the dashboard gallery. Typecheck, production build, and desktop visual verification passed.
+
+- [x] Verify the OUR TEAM roster order: SOCIAL MEDIA MANAGER / Chaithra Paadi before CONTENT WRITER / Aastha Dadhe.
+- [x] Validate the reordered slide on desktop and mobile, then save a checkpoint.
