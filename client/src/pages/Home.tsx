@@ -117,7 +117,7 @@ const dashboardData = [
 ];
 
 const dashboardPhotoMap: Record<(typeof dashboardData)[number]["category"], Photo[]> = {
-  Architecture: [photos[0], photos[2], photos[3], photos[5], photos[7], photos[9], photos[0], photos[2], photos[3], photos[5], photos[7], photos[9]],
+  Architecture: [photos[0], photos[2], photos[3], photos[5], photos[7], photos[9], photos[1], photos[4], photos[6], photos[8], photos[10], secondStripPhotos[0]],
   Automobile: vehiclePhotos,
   Product: productPhotos,
 };

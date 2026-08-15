@@ -155,22 +155,22 @@ Mobile verification note: the OUR TEAM heading remains prominent, the six roster
 Verification note: Home.tsx shows “Apurwa Kurangi” in the Web Developer roster entry. The OUR TEAM slide remains balanced in the desktop full-page capture and stacks cleanly on mobile. Typecheck and production build passed; the build retains the existing runtime-only storage-path warning and the pre-existing bundle-size warning.
 - [x] Enlarge and uppercase all six OUR TEAM role labels, with stronger contrast and tracking than the member names.
 - [x] Verify the updated role-label hierarchy on desktop and mobile, then run typecheck and production build.
-- [ ] Save a checkpoint for the OUR TEAM role-label visibility refinement.
+- [x] Save a checkpoint for the OUR TEAM role-label visibility refinement.
 
 Verification note: the six OUR TEAM roles are rendered in uppercase with a larger Montserrat scale, heavier weight, wider tracking, and the warm orange accent for clearer hierarchy. Typecheck, production build, desktop full-page capture, and mobile full-page capture passed.
 - [x] Audit all visible photo captions for generic file or camera names.
 - [x] Replace generic captions with concise labels describing the subject or scene.
-- [ ] Verify caption readability on desktop and mobile, then save a checkpoint.
+- [x] Verify caption readability on desktop and mobile, then save a checkpoint.
 
 Verification note: the moving photo strips now display subject-based titles such as “Pink bottle study,” “Green sneaker,” “White handbag,” “Wet road motion,” and “Window-lit dining” instead of file IDs or camera names. Typecheck, production build, desktop full-page capture, and mobile full-page capture passed.
 - [x] Audit every moving-strip title against the actual photo subject.
 - [x] Correct mismatched subject labels and matching alt descriptions.
-- [ ] Verify the corrected captions on desktop and mobile, then save a checkpoint.
+- [x] Verify the corrected captions on desktop and mobile, then save a checkpoint.
 
 Verification note: the moving-strip audit corrected the silver sedan label to “Silver sedan on the road,” and updated the remaining strip titles and alt descriptions to match their actual subjects, including product bottles, sneakers, a watch flatlay, a smartwatch, off-road vehicles, and cars. Typecheck, production build, desktop full-page capture, and mobile full-page capture passed.
 - [x] Give Behind the frame and OUR TEAM distinct white-based editorial treatments.
 - [x] Preserve strong contrast and alignment with the black, white, and warm-orange portfolio system.
-- [ ] Verify the slide distinction on desktop and mobile, then save a checkpoint.
+- [x] Verify the slide distinction on desktop and mobile, then save a checkpoint.
 
 Verification note: Behind the frame remains crisp white with quiet gray dividers, while OUR TEAM now uses a warm paper/ivory surface, terracotta top rule, subtle accent line, and warmer border tones. The distinction remains clear and readable in desktop and mobile full-page captures.
 - [x] Add next/previous photo navigation and a dedicated close action to the dashboard lightbox.
@@ -223,7 +223,7 @@ Verification note: removed the short inset terracotta rule from the OUR TEAM sli
 
 Verification note: Chaithra Paadi’s role is now SOCIAL MEDIA MANAGER. The longer uppercase label remains on one line without clipping in the desktop two-column roster and readable in the mobile single-column stack. Typecheck, production build, desktop full-page capture, and mobile full-page capture passed.
 
-- [ ] Remove repeated photos from the Architecture dashboard while keeping twelve distinct gallery entries.
-- [ ] Verify the Architecture dashboard lightbox and responsive layout, then save a checkpoint.
+- [x] Remove repeated photos from the Architecture dashboard while keeping twelve distinct gallery entries.
+- [x] Verify the Architecture dashboard lightbox and responsive layout, then save a checkpoint.
 
-Verification note: the current Architecture map repeats the same six entries twice; the cleanup will use twelve distinct architecture/interior images already present in the portfolio data.
+Verification note: the Architecture map now uses twelve distinct architecture/interior images already present in the portfolio data; no image URL is repeated within the dashboard gallery. Typecheck, production build, and desktop visual verification passed.
