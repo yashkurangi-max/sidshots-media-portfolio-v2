@@ -207,3 +207,8 @@ Verification note: previous and next controls were restored as labeled, accessib
 - [x] Verify the final contact panel on desktop and mobile, then save a checkpoint.
 
 Verification note: the final contact values now use a responsive 1.02–1.17rem scale, medium emphasis, a slightly roomier line height, and increased row spacing. Labels remain compact and muted. The email, both phone numbers, WhatsApp link, Instagram handle, and location remain readable without overflow in desktop and mobile captures. Typecheck and production build passed.
+- [x] Restore the prior contact-value sizing and spacing in the final panel.
+- [x] Increase only the TEAM, EMAIL, PHONE / WHATSAPP, INSTAGRAM, and LOCATION labels.
+- [x] Verify the targeted contact-label treatment on desktop and mobile, then save a checkpoint.
+
+Verification note: final contact values were restored to the prior compact .8rem, 500-weight treatment with original row spacing. Only the muted, uppercase left-side labels were enlarged to .76rem. Typecheck and production build passed; desktop and mobile full-page captures confirm the revised hierarchy remains responsive.
