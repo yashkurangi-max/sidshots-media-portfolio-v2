@@ -230,3 +230,6 @@ Verification note: the Architecture map now uses twelve distinct architecture/in
 
 - [x] Verify the OUR TEAM roster order: SOCIAL MEDIA MANAGER / Chaithra Paadi before CONTENT WRITER / Aastha Dadhe.
 - [x] Validate the reordered slide on desktop and mobile, then save a checkpoint.
+
+- [x] Add the supplied 15(1).webp and 12(1).webp interior photos to the Architecture dashboard.
+- [x] Keep twelve distinct Architecture dashboard entries and verify the updated lightbox and responsive layout before saving a checkpoint.

@@ -116,8 +116,13 @@ const dashboardData = [
   { index: "03", category: "Product" as const, title: "Objects with a pulse.", service: "Objects · Beauty · Fashion", copy: "Tactile product stories built from the supplied archive, making useful things feel considered, desirable, and alive.", stats: ["12 supplied frames", "08 set-ups", "32 final frames"], primary: productPhotos[0], secondary: productPhotos[7] },
 ];
 
+const architectureSuppliedPhotos: Photo[] = [
+  { id: "A13", title: "Warm timber lounge", category: "Architecture", image: "/manus-storage/15(1)_b226e7e6.webp", alt: "Warm interior lounge with timber ceiling, white walls, and blue and yellow seating", tile: "tile-wide" },
+  { id: "A14", title: "Quiet reading corner", category: "Architecture", image: "/manus-storage/12(1)_38e84d7f.webp", alt: "Bright interior corner with a woven lounge chair, wood table, and framed artwork", tile: "tile-tall" },
+];
+
 const dashboardPhotoMap: Record<(typeof dashboardData)[number]["category"], Photo[]> = {
-  Architecture: [photos[0], photos[2], photos[3], photos[5], photos[7], photos[9], photos[1], photos[4], photos[6], photos[8], photos[10], secondStripPhotos[0]],
+  Architecture: [photos[0], photos[2], photos[3], photos[5], photos[7], photos[9], architectureSuppliedPhotos[0], architectureSuppliedPhotos[1], photos[6], photos[8], photos[10], secondStripPhotos[0]],
   Automobile: vehiclePhotos,
   Product: productPhotos,
 };
