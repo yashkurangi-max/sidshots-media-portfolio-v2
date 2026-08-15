@@ -278,7 +278,7 @@
 .collage-lightbox.is-dragging figure { animation: none; transition: none; }
 .collage-lightbox-viewport { overflow: hidden; width: 100%; touch-action: none; overscroll-behavior: contain; cursor: grab; }
 .collage-lightbox.is-dragging .collage-lightbox-viewport { cursor: grabbing; }
-.collage-lightbox-track { display: flex; width: 300%; will-change: transform; transition: transform .28s cubic-bezier(.22, 1, .36, 1); }
+.collage-lightbox-track { display: flex; width: 300%; will-change: transform; transition: transform .34s cubic-bezier(.22, 1, .36, 1); }
 .collage-lightbox.is-dragging .collage-lightbox-track { transition: none; }
 .collage-lightbox-track.is-resetting { transition: none; }
 .collage-lightbox-slide { display: grid; flex: 0 0 33.333333%; min-width: 0; place-items: center; }

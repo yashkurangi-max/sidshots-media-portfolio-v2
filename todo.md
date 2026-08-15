@@ -197,9 +197,3 @@ Verification note: the lightbox now renders previous, current, and next images i
 - [x] Test direct touchscreen drag, completed slides, and short-drag snap-back; then save a checkpoint.
 
 Verification note: a real Chromium mobile/touch test dispatched touch events directly to the photo viewport. During a live 88px leftward move, the carousel track rendered `translate3d(calc(-33.3333% - 88px), 0px, 0px)`, confirming the displayed photo followed the finger. Releasing the drag changed “Rubicon trail” to “Chrome and red,” while a short 28px drag kept the current photo, confirming snap-back. Arrow-button rendering and styles were removed. Final typecheck, production build, desktop capture, and mobile capture passed.
-- [x] Trace and correct repeated direct-swipe state updates across all dashboard photos.
-- [x] Confirm the carousel track recenters after every committed photo change.
-- [x] Run a direct-touch sequence through multiple consecutive photos and verify wraparound.
-- [x] Validate responsive layout and save a checkpoint for the all-photo swipe fix.
-
-Verification note: the carousel now synchronizes its 280ms slide motion with a transition-end reset and a 320ms fallback. A real mobile-touch test swiped through all twelve Automobile photos in order—Rubicon trail, Chrome and red, City motorcycle, Green through rain, Trail machine, Front profile, Red on the road, The lineup, Station stop, Yellow motion, Water crossing, Desert rider—then returned to Rubicon trail. Typecheck, production build, desktop capture, and mobile capture passed.
