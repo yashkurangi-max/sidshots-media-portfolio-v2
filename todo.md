@@ -257,3 +257,6 @@ Verification note: the Architecture map now uses twelve distinct architecture/in
 
 - [x] Move both dashboard lightbox arrows slightly farther from the white photo frame.
 - [x] Verify the revised arrow spacing on desktop and mobile before saving a checkpoint.
+
+- [x] Center both dashboard lightbox arrows within the full side gaps between the white photo frame and overlay edge.
+- [x] Verify centered arrow placement on desktop and mobile before saving a checkpoint.
