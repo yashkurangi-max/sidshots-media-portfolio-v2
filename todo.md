@@ -266,3 +266,6 @@ Verification note: the Architecture map now uses twelve distinct architecture/in
 
 - [x] Recalculate lightbox arrow positions from the actual rendered white frame bounds so both controls are mathematically centered in the black side gutters.
 - [x] Verify the corrected arrows on desktop and mobile, run typecheck and production build, and save a checkpoint.
+
+- [x] Add the seven supplied product photographs to the Product dashboard with accurate subject labels and alt text.
+- [x] Verify the expanded Product dashboard, lightbox navigation, responsive layouts, typecheck, and production build, then save a checkpoint.

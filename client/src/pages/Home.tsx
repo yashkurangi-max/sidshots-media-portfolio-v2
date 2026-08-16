@@ -124,6 +124,12 @@ const productPhotos: Photo[] = [
   { id: "P10", title: "Graphic mascara", category: "Product", image: lowerStripSuppliedPhotos[0].image, alt: lowerStripSuppliedPhotos[0].alt, tile: "tile-wide" },
   { id: "P11", title: "Lavender wash", category: "Product", image: lowerStripSuppliedPhotos[1].image, alt: lowerStripSuppliedPhotos[1].alt, tile: "tile-tall" },
   { id: "P12", title: "Watch detail", category: "Product", image: "/manus-storage/product-product-10-watch-still-life_465a1303.webp", alt: "Close product detail of a smartwatch styled with chess pieces", tile: "tile-square" },
+  { id: "P13", title: "Pink nail lacquer", category: "Product", image: "/manus-storage/14_be3253c0.webp", alt: "Pink nail lacquer bottles arranged against a soft pink studio background", tile: "tile-wide" },
+  { id: "P14", title: "Bold lipliner study", category: "Product", image: "/manus-storage/15(2)_65ea85e3.webp", alt: "Red and brown lipliner pencils arranged as a graphic beauty still life", tile: "tile-tall" },
+  { id: "P15", title: "Monochrome mascara", category: "Product", image: "/manus-storage/20_4072ab79.webp", alt: "Silver mascara tube and wand photographed on a monochrome grey set", tile: "tile-square" },
+  { id: "P16", title: "Graphic mascara", category: "Product", image: "/manus-storage/19_f392a556.webp", alt: "Black mascara tube and wand arranged against pink and coral color blocks", tile: "tile-wide" },
+  { id: "P17", title: "Blue hour watch", category: "Product", image: "/manus-storage/13_f9f4899a.webp", alt: "Metal chronograph watch styled on deep blue satin fabric", tile: "tile-tall" },
+  { id: "P18", title: "Floral lip gloss", category: "Product", image: "/manus-storage/17_181d5520.webp", alt: "Small lip gloss bottle framed by tropical leaves and flowers on a pink set", tile: "tile-square" },
 ];
 
 const categories: FilterCategory[] = ["All", "Automobile", "Architecture", "Product"];
