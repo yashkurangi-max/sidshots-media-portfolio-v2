@@ -245,3 +245,6 @@ Verification note: the Architecture map now uses twelve distinct architecture/in
 
 - [x] Make every dashboard “+ ADD PHOTO” tile open the native image file picker on click.
 - [x] Verify picker interaction, dashboard behavior, and responsive layout before saving a checkpoint.
+
+- [x] Move both dashboard lightbox arrows outside the white photo frame.
+- [x] Verify arrow placement and responsive lightbox behavior before saving a checkpoint.
