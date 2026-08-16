@@ -170,6 +170,7 @@
 .dashboard-detail-intro p { max-width: 22rem; margin: 0 0 .35rem; color: rgba(255,255,255,.7); font-size: .82rem; line-height: 1.7; }
 .dashboard-detail-intro p span { display: inline-block; margin-top: .8rem; color: #d56b35; font-family: "Montserrat", sans-serif; font-size: .53rem; letter-spacing: .08em; text-transform: uppercase; }
 .dashboard-swipe-hint { display: none; color: rgba(255,255,255,.48); font-family: "Montserrat", sans-serif; font-size: .51rem; letter-spacing: .04em; line-height: 1.45; }
+.dashboard-file-input { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 .dashboard-board-grid { max-width: 88rem; margin: 0 auto; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .9rem; }
 .dashboard-board-tile, .dashboard-add-tile { min-width: 0; aspect-ratio: 1 / 1.04; position: relative; overflow: hidden; border: .55rem solid var(--white); padding: 0; background: #1b1b1b; text-align: left; }
 .dashboard-board-tile img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform .38s var(--ease-out); }

@@ -242,3 +242,6 @@ Verification note: the Architecture map now uses twelve distinct architecture/in
 
 - [x] Add the supplied 14.webp and 10.webp resort-interior photos to the Architecture dashboard.
 - [x] Preserve expandable gallery behavior and verify the updated dashboard before saving a checkpoint.
+
+- [x] Make every dashboard “+ ADD PHOTO” tile open the native image file picker on click.
+- [x] Verify picker interaction, dashboard behavior, and responsive layout before saving a checkpoint.
