@@ -248,3 +248,6 @@ Verification note: the Architecture map now uses twelve distinct architecture/in
 
 - [x] Move both dashboard lightbox arrows outside the white photo frame.
 - [x] Verify arrow placement and responsive lightbox behavior before saving a checkpoint.
+
+- [x] Add all sixteen supplied vehicle photographs to the Automobile dashboard.
+- [x] Preserve expandable gallery behavior and verify the updated Automobile dashboard before saving a checkpoint.

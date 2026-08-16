@@ -93,6 +93,25 @@ const vehiclePhotos: Photo[] = [
   { id: "V12", title: "Desert rider", category: "Automobile", image: "/manus-storage/automobile-vehicle-12-motorcycle-desert_161af8f2.webp", alt: "Motorcycle rider photographed in a bright sandy landscape", tile: "tile-square" },
 ];
 
+const suppliedAutomobilePhotos: Photo[] = [
+  { id: "AV13", title: "Rubicon study", category: "Automobile", image: "/manus-storage/rubicon-Copy_c812f755.jpg", alt: "Jeep Rubicon photographed in an outdoor landscape", tile: "tile-wide" },
+  { id: "AV14", title: "Trail profile", category: "Automobile", image: "/manus-storage/DSC03120-Copy-Copy_7ff4f30a.webp", alt: "Vehicle photographed in a rugged outdoor setting", tile: "tile-tall" },
+  { id: "AV15", title: "Wet-road motion", category: "Automobile", image: "/manus-storage/DSC03172(1)-Copy-Copy_b27ea87c.webp", alt: "Vehicle captured in motion on a wet road", tile: "tile-square" },
+  { id: "AV16", title: "Roadside portrait", category: "Automobile", image: "/manus-storage/DSC05847V2-Copy_d4f69e2e.webp", alt: "Automobile photographed in a roadside setting", tile: "tile-wide" },
+  { id: "AV17", title: "Off-road detail", category: "Automobile", image: "/manus-storage/DSC03104-2-Copy-Copy_97612511.webp", alt: "Rugged vehicle detail photographed outdoors", tile: "tile-tall" },
+  { id: "AV18", title: "Open-road drive", category: "Automobile", image: "/manus-storage/DSC00080_1-Copy_6bb974d2.webp", alt: "Vehicle photographed during an open-road drive", tile: "tile-square" },
+  { id: "AV19", title: "Field vehicle", category: "Automobile", image: "/manus-storage/DSC05316-Recovered-Copy-Copy_f587fbd1.webp", alt: "Vehicle photographed in a green field", tile: "tile-wide" },
+  { id: "AV20", title: "Performance angle", category: "Automobile", image: "/manus-storage/DSC_5700-2-Copy_42f465bb.webp", alt: "Performance vehicle photographed from a dynamic angle", tile: "tile-tall" },
+  { id: "AV21", title: "Roadside machine", category: "Automobile", image: "/manus-storage/DSC02416-Copy_47018409.webp", alt: "Vehicle photographed beside an open road", tile: "tile-square" },
+  { id: "AV22", title: "Rugged trail", category: "Automobile", image: "/manus-storage/DSC03186(1)-Copy-Copy_cd52f5da.webp", alt: "Off-road vehicle photographed on a rugged trail", tile: "tile-wide" },
+  { id: "AV23", title: "Adventure frame", category: "Automobile", image: "/manus-storage/DSC00453-Copy_116355b4.webp", alt: "Vehicle photographed as part of an outdoor adventure story", tile: "tile-tall" },
+  { id: "AV24", title: "Trail crossing", category: "Automobile", image: "/manus-storage/DSC03032-2-Copy-Copy_58efcf8c.webp", alt: "Vehicle photographed crossing an outdoor trail", tile: "tile-square" },
+  { id: "AV25", title: "Green-road study", category: "Automobile", image: "/manus-storage/DSC09640-Copy-Copy_76778b91.webp", alt: "Vehicle photographed against a green landscape", tile: "tile-wide" },
+  { id: "AV26", title: "Motion study", category: "Automobile", image: "/manus-storage/DSC_2290_88429434.webp", alt: "Automobile photographed in a dynamic motion study", tile: "tile-tall" },
+  { id: "AV27", title: "Rubicon field frame", category: "Automobile", image: "/manus-storage/CopyofDSC04751_43369f2c.webp", alt: "Rubicon photographed during an off-road field session", tile: "tile-square" },
+  { id: "AV28", title: "Mud and metal", category: "Automobile", image: "/manus-storage/DSC04687-Copy-Copy_1167dd8f.webp", alt: "Mud-covered off-road vehicle photographed outdoors", tile: "tile-wide" },
+];
+
 const productPhotos: Photo[] = [
   { id: "P01", title: "Perfume object", category: "Product", image: "/manus-storage/product-product-01-perfume_64e4bd7a.webp", alt: "Minimal perfume bottle photographed on a clean white set", tile: "tile-wide" },
   { id: "P02", title: "Graphic package", category: "Product", image: "/manus-storage/product-product-02-packaging_d6f13ffb.webp", alt: "Black and white cosmetic package arranged as a graphic still life", tile: "tile-tall" },
@@ -126,7 +145,7 @@ const architectureSuppliedPhotos: Photo[] = [
 
 const dashboardPhotoMap: Record<(typeof dashboardData)[number]["category"], Photo[]> = {
   Architecture: [photos[0], photos[2], photos[3], photos[5], photos[7], photos[9], architectureSuppliedPhotos[0], architectureSuppliedPhotos[1], photos[6], photos[8], photos[10], architectureSuppliedPhotos[2], architectureSuppliedPhotos[3], architectureSuppliedPhotos[4]],
-  Automobile: vehiclePhotos,
+  Automobile: [...vehiclePhotos, ...suppliedAutomobilePhotos],
   Product: productPhotos,
 };
 
