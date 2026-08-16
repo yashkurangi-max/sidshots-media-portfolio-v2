@@ -1,6 +1,6 @@
 /* Screenshot-matched collage direction: black trophy-style chrome, centered wordmark, colorful photography, white print frames, and a dense gallery wall. */
 // Design note: Preserve the black editorial archive while giving touch users a direct, native-feeling pointer carousel on photographs.
-import { useEffect, useMemo, useRef, useState, type PointerEvent as ReactPointerEvent, type TouchEvent } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState, type PointerEvent as ReactPointerEvent, type TouchEvent } from "react";
 import { ArrowLeft, ArrowUpRight, ChevronLeft, ChevronRight, Menu, X } from "lucide-react";
 import { toast } from "sonner";
 
@@ -165,6 +165,8 @@ export default function Home() {
   const dashboardTouchStart = useRef<{ x: number; y: number } | null>(null);
   const lightboxPointerStart = useRef<{ x: number; y: number; pointerId: number; axis: "none" | "horizontal" | "vertical" } | null>(null);
   const dashboardFileInputRef = useRef<HTMLInputElement>(null);
+  const lightboxFigureRef = useRef<HTMLElement>(null);
+  const [lightboxGutters, setLightboxGutters] = useState({ left: 0, right: 0 });
   const visiblePhotos = useMemo(() => activeCategory === "All" ? photos : photos.filter((photo) => photo.category === activeCategory), [activeCategory]);
   const visibleSecondStripPhotos = useMemo(() => activeCategory === "All" ? secondStripPhotos : secondStripPhotos.filter((photo) => photo.category === activeCategory), [activeCategory]);
   const stripOne = firstStripPhotos;
@@ -172,6 +174,32 @@ export default function Home() {
   const dashboardPhotos = selectedDashboard ? dashboardPhotoMap[selectedDashboard.category] : [];
   const previousDashboardPhoto = dashboardPhotoIndex !== null && dashboardPhotos.length > 1 ? dashboardPhotos[(dashboardPhotoIndex - 1 + dashboardPhotos.length) % dashboardPhotos.length] : null;
   const nextDashboardPhoto = dashboardPhotoIndex !== null && dashboardPhotos.length > 1 ? dashboardPhotos[(dashboardPhotoIndex + 1) % dashboardPhotos.length] : null;
+
+  useLayoutEffect(() => {
+    if (!selectedPhoto) {
+      setLightboxGutters({ left: 0, right: 0 });
+      return;
+    }
+
+    const measure = () => {
+      const frame = lightboxFigureRef.current;
+      if (!frame) return;
+      const bounds = frame.getBoundingClientRect();
+      setLightboxGutters({
+        left: Math.max(0, bounds.left) / 2,
+        right: Math.max(0, window.innerWidth - bounds.right) / 2,
+      });
+    };
+
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(document.documentElement);
+    window.addEventListener("resize", measure);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", measure);
+    };
+  }, [selectedPhoto]);
 
   function closeLightbox() {
     setSelectedPhoto(null);
@@ -498,9 +526,9 @@ export default function Home() {
         </div>
       </div>}
 
-      {selectedPhoto && <div className={`collage-lightbox${isLightboxDragging ? " is-dragging" : ""}${isLightboxClosing ? " is-closing" : ""}`} role="dialog" aria-modal="true" aria-label={`${selectedPhoto.title} photograph`} style={isLightboxDragging ? { background: `rgba(0,0,0,${Math.max(0.68, 0.93 - lightboxDrag.y / 620)})` } : undefined}>
+      {selectedPhoto && <div className={`collage-lightbox${isLightboxDragging ? " is-dragging" : ""}${isLightboxClosing ? " is-closing" : ""}`} role="dialog" aria-modal="true" aria-label={`${selectedPhoto.title} photograph`} style={{ ...(isLightboxDragging ? { background: `rgba(0,0,0,${Math.max(0.68, 0.93 - lightboxDrag.y / 620)})` } : {}), "--lightbox-left-gutter": `${lightboxGutters.left}px`, "--lightbox-right-gutter": `${lightboxGutters.right}px` } as React.CSSProperties}>
         <button className="collage-lightbox-close" aria-label="Close photograph" onClick={dismissLightbox}><X size={20} /> <span>Close</span></button>
-        <figure style={isLightboxDragging && lightboxDrag.y > 0 ? { transform: `translate3d(0, ${lightboxDrag.y}px, 0)` } : undefined}>
+        <figure ref={lightboxFigureRef} style={isLightboxDragging && lightboxDrag.y > 0 ? { transform: `translate3d(0, ${lightboxDrag.y}px, 0)` } : undefined}>
           {dashboardPhotoIndex !== null && <button type="button" className="collage-lightbox-arrow collage-lightbox-arrow-prev" aria-label="Previous photograph" onClick={() => navigateDashboardPhoto(-1)}><ChevronLeft size={24} strokeWidth={1.8} /></button>}
           <div className="collage-lightbox-viewport" aria-live="polite" onPointerDown={handleLightboxPointerDown} onPointerMove={handleLightboxPointerMove} onPointerUp={finishLightboxPointerDrag} onPointerCancel={cancelLightboxPointerDrag}>
             <div className={`collage-lightbox-track${isCarouselResetting ? " is-resetting" : ""}`} style={{ transform: carouselExitDirection === 1 ? "translate3d(-66.666666%, 0, 0)" : carouselExitDirection === -1 ? "translate3d(0%, 0, 0)" : `translate3d(calc(-33.333333% + ${lightboxDrag.x}px), 0, 0)` }}>

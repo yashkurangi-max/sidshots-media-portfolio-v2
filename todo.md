@@ -260,3 +260,9 @@ Verification note: the Architecture map now uses twelve distinct architecture/in
 
 - [x] Center both dashboard lightbox arrows within the full side gaps between the white photo frame and overlay edge.
 - [x] Verify centered arrow placement on desktop and mobile before saving a checkpoint.
+
+- [x] Center each lightbox arrow exactly within the black side gutter using the actual photo-frame bounds.
+- [x] Verify exact gutter centering on desktop and mobile before saving a checkpoint.
+
+- [x] Recalculate lightbox arrow positions from the actual rendered white frame bounds so both controls are mathematically centered in the black side gutters.
+- [x] Verify the corrected arrows on desktop and mobile, run typecheck and production build, and save a checkpoint.
