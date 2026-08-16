@@ -251,3 +251,6 @@ Verification note: the Architecture map now uses twelve distinct architecture/in
 
 - [x] Add all sixteen supplied vehicle photographs to the Automobile dashboard.
 - [x] Preserve expandable gallery behavior and verify the updated Automobile dashboard before saving a checkpoint.
+
+- [x] Remove the duplicate Automobile dashboard photo shown in the user reference, keeping one copy only.
+- [x] Verify the cleaned Automobile gallery and responsive layout before saving a checkpoint.

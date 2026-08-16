@@ -109,7 +109,6 @@ const suppliedAutomobilePhotos: Photo[] = [
   { id: "AV25", title: "Green-road study", category: "Automobile", image: "/manus-storage/DSC09640-Copy-Copy_76778b91.webp", alt: "Vehicle photographed against a green landscape", tile: "tile-wide" },
   { id: "AV26", title: "Motion study", category: "Automobile", image: "/manus-storage/DSC_2290_88429434.webp", alt: "Automobile photographed in a dynamic motion study", tile: "tile-tall" },
   { id: "AV27", title: "Rubicon field frame", category: "Automobile", image: "/manus-storage/CopyofDSC04751_43369f2c.webp", alt: "Rubicon photographed during an off-road field session", tile: "tile-square" },
-  { id: "AV28", title: "Mud and metal", category: "Automobile", image: "/manus-storage/DSC04687-Copy-Copy_1167dd8f.webp", alt: "Mud-covered off-road vehicle photographed outdoors", tile: "tile-wide" },
 ];
 
 const productPhotos: Photo[] = [
