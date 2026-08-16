@@ -254,3 +254,6 @@ Verification note: the Architecture map now uses twelve distinct architecture/in
 
 - [x] Remove the duplicate Automobile dashboard photo shown in the user reference, keeping one copy only.
 - [x] Verify the cleaned Automobile gallery and responsive layout before saving a checkpoint.
+
+- [x] Move both dashboard lightbox arrows slightly farther from the white photo frame.
+- [x] Verify the revised arrow spacing on desktop and mobile before saving a checkpoint.
