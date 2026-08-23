@@ -287,3 +287,13 @@ Verification note: the Architecture map now uses twelve distinct architecture/in
 
 - [x] Enlarge the SM logo inside the existing white header border without changing the surrounding layout or design.
 - [x] Verify the enlarged logo on desktop and mobile, run checks, and publish a checkpoint.
+
+- [x] Confirm and expose the project asset folder containing the portfolio photos, logo, and video for file-explorer access.
+
+- [x] Inspect the target GitHub repository and apurwa branch before synchronization.
+- [x] Push the current portfolio code to the apurwa branch without overwriting unrelated remote changes.
+- [x] Verify the remote branch commit and report the result.
+
+- [x] Audit every broken portfolio image reference in the current branch and map it to a supplied asset.
+- [x] Repair the broken image paths without changing design, layout, colors, fonts, animations, or functionality.
+- [x] Test all repaired image links and push the fix to the GitHub apurwa branch.

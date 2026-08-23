@@ -36,9 +36,9 @@ const photos: Photo[] = [
 ];
 
 const firstStripPhotos: Photo[] = [
-  { id: "F01", title: "Pink product bottles", category: "Editorial", image: "/manus-storage/strip-01-copy-of-15_833f02df.webp", alt: "Pink product bottles arranged as a clean studio still life", tile: "tile-wide" },
-  { id: "F02", title: "Green and white sneakers", category: "Editorial", image: "/manus-storage/strip-02-11_e95473e0.webp", alt: "Pair of white and green sneakers photographed against a graphic dark backdrop", tile: "tile-tall" },
-  { id: "F03", title: "White handbag", category: "Editorial", image: "/manus-storage/strip-03-7-2_bc009acb.webp", alt: "White handbag styled against folded blush fabric", tile: "tile-square" },
+  { id: "F01", title: "Pink product bottles", category: "Editorial", image: "/assets/strip-01-pink-product-bottles.webp", alt: "Pink product bottles arranged as a clean studio still life", tile: "tile-wide" },
+  { id: "F02", title: "Green and white sneakers", category: "Editorial", image: "/manus-storage/strip-02-green-white-sneakers_cfdbe427.jpg", alt: "Pair of white and green sneakers photographed against a graphic dark backdrop", tile: "tile-tall" },
+  { id: "F03", title: "White handbag", category: "Editorial", image: "/manus-storage/strip-03-white-handbag_af9b4128.jpg", alt: "White handbag styled against folded blush fabric", tile: "tile-square" },
   { id: "F04", title: "Car through water", category: "Editorial", image: "/assets/strip-04-dsc03172.webp", alt: "Car driving through a wet road with water splashing around it", tile: "tile-wide" },
   { id: "F06", title: "Silver sedan on the road", category: "Editorial", image: "/assets/strip-06-dsc05298-recovered.webp", alt: "Silver sedan parked on an open road beneath a softly lit sky", tile: "tile-square" },
   { id: "F07", title: "Watch and phone flatlay", category: "Editorial", image: "/assets/strip-07-12-copy.webp", alt: "Wristwatch, smartphone, pen, and coffee arranged on a wooden desk", tile: "tile-wide" },
@@ -47,15 +47,15 @@ const firstStripPhotos: Photo[] = [
 ];
 
 const movedToSecondStripPhotos: Photo[] = [
-  { id: "F05", title: "Detoxifying face mask", category: "Editorial", image: "/manus-storage/strip-05-copy-of-22_0abf5d0c.webp", alt: "Black detoxifying peel-off face mask tube styled on a warm wood surface", tile: "tile-tall" },
-  { id: "F08", title: "Smartwatch on blue textile", category: "Editorial", image: "/manus-storage/strip-08-dsc04009_d00b7bec.webp", alt: "Smartwatch photographed against a textured blue textile background", tile: "tile-tall" },
+  { id: "F05", title: "Detoxifying face mask", category: "Editorial", image: "/assets/strip-05-detoxifying-face-mask.webp", alt: "Black detoxifying peel-off face mask tube styled on a warm wood surface", tile: "tile-tall" },
+  { id: "F08", title: "Smartwatch on blue textile", category: "Editorial", image: "/manus-storage/DSC04009_efb7c04a.webp", alt: "Smartwatch photographed against a textured blue textile background", tile: "tile-tall" },
   { id: "F11", title: "Muddy 4x4 detail", category: "Editorial", image: "/assets/strip-11-dsc04088.webp", alt: "Close detail of a mud-covered four-wheel-drive vehicle", tile: "tile-tall" },
   { id: "F12", title: "White car on a winding road", category: "Editorial", image: "/assets/strip-12-dsc09874.webp", alt: "White car driving along a winding road lined with trees", tile: "tile-square" },
 ];
 
 const lowerStripSuppliedPhotos: Photo[] = [
-  { id: "L04", title: "Graphic mascara", category: "Product", image: "/manus-storage/lower-strip-04-mascara_2df69bab.webp", alt: "Minimal black mascara product framed against a high-contrast white and black backdrop", tile: "tile-wide" },
-  { id: "L07", title: "Lavender wash", category: "Product", image: "/manus-storage/lower-strip-07-handwash_9890906c.webp", alt: "Lavender hand wash bottle staged with graphic color blocks and palm leaves", tile: "tile-wide" },
+  { id: "L04", title: "Graphic mascara", category: "Product", image: "/assets/20.webp", alt: "Minimal black mascara product framed against a high-contrast white and black backdrop", tile: "tile-wide" },
+  { id: "L07", title: "Lavender wash", category: "Product", image: "/manus-storage/lower-strip-07-earthyboon-aloe-product_64101a8d.jpg", alt: "Lavender hand wash bottle staged with graphic color blocks and palm leaves", tile: "tile-wide" },
 ];
 
 const suppliedVehicleStripPhotos: Photo[] = [
@@ -143,7 +143,7 @@ const dashboardData = [
 const architectureSuppliedPhotos: Photo[] = [
   { id: "A13", title: "Warm timber lounge", category: "Architecture", image: "/assets/15(1).webp", alt: "Warm interior lounge with timber ceiling, white walls, and blue and yellow seating", tile: "tile-wide" },
   { id: "A14", title: "Quiet reading corner", category: "Architecture", image: "/assets/12(1).webp", alt: "Bright interior corner with a woven lounge chair, wood table, and framed artwork", tile: "tile-tall" },
-  { id: "A15", title: "Chandelier dining room", category: "Architecture", image: "/manus-storage/5(1)_e0130aaf.jpg", alt: "Bright restaurant interior with blue seating, tall windows, and sculptural chandeliers", tile: "tile-wide" },
+  { id: "A15", title: "Chandelier dining room", category: "Architecture", image: "/manus-storage/architecture-12-chandelier-dining-room_315747c7.jpg", alt: "Bright restaurant interior with blue seating, tall windows, and sculptural chandeliers", tile: "tile-wide" },
   { id: "A16", title: "Poolside dining terrace", category: "Architecture", image: "/assets/14.webp", alt: "Open-air dining terrace beside a resort pool with tropical landscaping", tile: "tile-wide" },
   { id: "A17", title: "Resort cabana terrace", category: "Architecture", image: "/assets/10.webp", alt: "Resort terrace with umbrellas, daybeds, tropical foliage, and a timber-roofed building", tile: "tile-tall" },
 ];
@@ -475,7 +475,7 @@ export default function Home() {
             <span className="collage-video-count">05 / 06 · Editorial reel</span>
           </div>
           <div className="collage-video-stage">
-            <video controls autoPlay loop muted playsInline preload="metadata" src="/manus-storage/final-slide_aeb9aec9.mp4" aria-label="SidshotsMedia FinalSlide motion reel" />
+            <video controls autoPlay loop muted playsInline preload="metadata" src="/manus-storage/final-slide_43a9af3e.mp4" aria-label="SidshotsMedia FinalSlide motion reel" />
             <div className="collage-video-overlay" aria-hidden="true"><span>SidshotsMedia / Moving image</span><span>Play the reel ↗</span></div>
           </div>
           <div className="collage-video-footer">
