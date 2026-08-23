@@ -309,3 +309,6 @@ Verification note: the Architecture map now uses twelve distinct architecture/in
 
 - [x] Repair the broken Frames in motion video reference using the supplied video asset.
 - [x] Verify video playback, asset paths, build, responsive layout, and sync the fix to the GitHub apurwa branch.
+
+- [x] Diagnose why the deployed Frames in motion video is still unavailable to the user.
+- [x] Repair the deployed video packaging or reference and verify it from the public site and GitHub apurwa branch.
