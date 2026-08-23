@@ -315,3 +315,6 @@ Verification note: the Architecture map now uses twelve distinct architecture/in
 
 - [x] Fix the blank selected-photo lightbox opened from the moving photo strips.
 - [x] Verify moving-strip lightbox rendering and responsive behavior, then sync the repair to the GitHub apurwa branch.
+
+- [x] Enlarge the SM logo mark inside the existing white header box without changing the surrounding header layout.
+- [x] Verify the enlarged logo at desktop and mobile sizes, then save the logo update.
