@@ -198,12 +198,16 @@ export default function Home() {
     };
 
     measure();
+    const frame = lightboxFigureRef.current;
+    if (!frame) return;
     const observer = new ResizeObserver(measure);
-    observer.observe(document.documentElement);
+    observer.observe(frame);
     window.addEventListener("resize", measure);
+    window.visualViewport?.addEventListener("resize", measure);
     return () => {
       observer.disconnect();
       window.removeEventListener("resize", measure);
+      window.visualViewport?.removeEventListener("resize", measure);
     };
   }, [selectedPhoto]);
 
@@ -428,8 +432,8 @@ export default function Home() {
         </section>
 
         <section className="moving-gallery" id="archive" aria-label="SidshotsMedia moving photography archive">
-          <div className="moving-strip moving-strip-forward"><div className="moving-strip-track">{[...stripOne, ...stripOne].map((photo, index) => <button className="moving-photo" key={`${photo.id}-forward-${index}`} onClick={() => setSelectedPhoto(photo)} aria-label={`View ${photo.title}, ${photo.category}`}><span className="moving-photo-image"><img src={photo.image} alt={photo.alt} loading="eager" decoding="async" /></span><span className="moving-photo-caption"><b>{photo.title}</b><ChevronRight size={13} /></span></button>)}</div></div>
-          <div className="moving-strip moving-strip-reverse"><div className="moving-strip-track">{[...stripTwo, ...stripTwo].map((photo, index) => <button className="moving-photo" key={`${photo.id}-reverse-${index}`} onClick={() => setSelectedPhoto(photo)} aria-label={`View ${photo.title}, ${photo.category}`}><span className="moving-photo-image"><img src={photo.image} alt={photo.alt} loading="eager" decoding="async" /></span><span className="moving-photo-caption"><b>{photo.title}</b><ChevronRight size={13} /></span></button>)}</div></div>
+          <div className="moving-strip moving-strip-forward"><div className="moving-strip-track">{[...stripOne, ...stripOne].map((photo, index) => <button className="moving-photo" key={`${photo.id}-forward-${index}`} onClick={() => setSelectedPhoto(photo)} aria-label={`View ${photo.title}, ${photo.category}`}><span className="moving-photo-image"><img src={photo.image} alt={photo.alt} loading={index < 4 ? "eager" : "lazy"} decoding="async" fetchPriority={index < 2 ? "high" : "low"} draggable={false} /></span><span className="moving-photo-caption"><b>{photo.title}</b><ChevronRight size={13} /></span></button>)}</div></div>
+          <div className="moving-strip moving-strip-reverse"><div className="moving-strip-track">{[...stripTwo, ...stripTwo].map((photo, index) => <button className="moving-photo" key={`${photo.id}-reverse-${index}`} onClick={() => setSelectedPhoto(photo)} aria-label={`View ${photo.title}, ${photo.category}`}><span className="moving-photo-image"><img src={photo.image} alt={photo.alt} loading={index < 4 ? "eager" : "lazy"} decoding="async" fetchPriority={index < 2 ? "high" : "low"} draggable={false} /></span><span className="moving-photo-caption"><b>{photo.title}</b><ChevronRight size={13} /></span></button>)}</div></div>
         </section>
 
         <section className="dashboard-suite dashboard-reference" id="dashboards" aria-label="Photography dashboards">

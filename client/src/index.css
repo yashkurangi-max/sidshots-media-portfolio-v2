@@ -43,8 +43,8 @@
 
 @layer base {
   * { @apply border-border outline-ring/50; }
-  html { background: var(--black); scroll-behavior: smooth; }
-  body { @apply bg-background text-foreground; margin: 0; background: var(--black); color: var(--white); font-family: "Montserrat", sans-serif; }
+  html { background: var(--black); scroll-behavior: smooth; -webkit-text-size-adjust: 100%; overscroll-behavior-x: none; }
+  body { @apply bg-background text-foreground; margin: 0; background: var(--black); color: var(--white); font-family: "Montserrat", sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
   button, a, input, textarea { font: inherit; }
   button, a { -webkit-tap-highlight-color: transparent; }
   button:not(:disabled), a[href] { cursor: pointer; }
@@ -91,12 +91,12 @@
 .tile-tall { grid-row: span 2; }
 .tile-square { grid-row: span 2; }
 .moving-gallery { display: grid; gap: .55rem; overflow: hidden; padding: .55rem 0; background: var(--black); }
-.moving-strip { overflow: hidden; width: 100%; }
-.moving-strip-track { display: flex; width: max-content; gap: .55rem; animation: collage-marquee-left 38s linear infinite; }
+.moving-strip { overflow: hidden; width: 100%; contain: layout paint; touch-action: pan-y; }
+.moving-strip-track { display: flex; width: max-content; gap: .55rem; animation: collage-marquee-left 38s linear infinite; transform: translate3d(0, 0, 0); -webkit-transform: translate3d(0, 0, 0); backface-visibility: hidden; -webkit-backface-visibility: hidden; contain: layout paint; }
 /* The lower strip carries more frames, so its longer cycle keeps the same physical marquee pace as the upper strip. */
 .moving-strip-reverse .moving-strip-track { animation-name: collage-marquee-right; animation-duration: 81s; }
 .moving-strip:hover .moving-strip-track, .moving-strip:focus-within .moving-strip-track { animation-play-state: paused; }
-.moving-photo { flex: 0 0 clamp(14rem, 24vw, 25rem); height: clamp(10rem, 16vw, 16rem); display: flex; flex-direction: column; position: relative; overflow: hidden; border: .55rem solid var(--white); border-bottom-width: 1.9rem; padding: 0; background: var(--white); color: var(--black); box-shadow: 0 .2rem 0 rgba(0,0,0,.3); text-align: left; transition: transform .22s var(--ease-out), box-shadow .22s ease; }
+.moving-photo { flex: 0 0 clamp(14rem, 24vw, 25rem); height: clamp(10rem, 16vw, 16rem); display: flex; flex-direction: column; position: relative; overflow: hidden; border: .55rem solid var(--white); border-bottom-width: 1.9rem; padding: 0; background: var(--white); color: var(--black); box-shadow: 0 .2rem 0 rgba(0,0,0,.3); text-align: left; touch-action: manipulation; user-select: none; -webkit-user-select: none; transition: transform .22s var(--ease-out), box-shadow .22s ease; }
 .moving-photo:hover, .moving-photo:focus-visible { z-index: 2; transform: translateY(-5px) scale(1.015); box-shadow: 0 .75rem 1.1rem rgba(0,0,0,.48); outline: none; }
 .moving-photo-image { flex: 1; min-height: 0; overflow: hidden; }
 .moving-photo img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform .38s var(--ease-out); }
@@ -407,6 +407,16 @@
   .collage-lightbox figcaption strong { display: block; margin-top: .35rem; }
 }
 @media (hover: none) and (pointer: coarse) {
+  .collage-site::before { opacity: .025; mix-blend-mode: normal; }
+  .moving-strip-track { animation-duration: 40s; }
+  .moving-strip-reverse .moving-strip-track { animation-duration: 58s; }
+  .moving-photo:hover, .moving-photo:focus-visible,
+  .dashboard-card-media:hover, .dashboard-card-media:focus-visible,
+  .dashboard-preview:hover, .dashboard-preview:focus-visible { transform: none; }
+  .moving-photo:hover, .dashboard-card-media:hover { box-shadow: none; }
+  .moving-photo:hover img, .dashboard-card-media:hover img, .dashboard-preview:hover img { transform: none; }
+  .collage-contact-backdrop { animation: none; transform: scale(1.04) translate3d(0, 0, 0); }
+  .collage-contact-availability::before { animation: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {

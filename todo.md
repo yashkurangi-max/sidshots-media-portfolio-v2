@@ -324,3 +324,7 @@ Verification note: the Architecture map now uses twelve distinct architecture/in
 
 - [x] Fix the portfolio moving photo strips so their images are visible on iPhone mobile widths without changing desktop behavior.
 - [x] Verify both moving strips at iPhone and desktop viewports, then save the mobile visibility repair.
+
+- [x] Audit the portfolio for iPhone scrolling, animation, image-loading, touch, overflow, and runtime glitches.
+- [x] Apply targeted mobile smoothness fixes without changing the visual design or desktop behavior.
+- [x] Verify the portfolio at iPhone and desktop sizes, run checks, and save the mobile smoothness update.

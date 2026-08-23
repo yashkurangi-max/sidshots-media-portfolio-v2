@@ -21,9 +21,19 @@ describe("Frames in motion video asset", () => {
     expect(stylesSource).toContain('transform: scale(2.1)');
   });
 
-  it("eagerly loads both moving photo strips for iPhone browsers", () => {
+  it("prioritizes the first moving-strip frames without loading every duplicate at once", () => {
     expect(homeSource).toContain('moving-strip-forward');
     expect(homeSource).toContain('moving-strip-reverse');
-    expect(homeSource.match(/<img src=\{photo\.image\} alt=\{photo\.alt\} loading="eager" decoding="async" \/>/g)?.length).toBe(2);
+    expect(homeSource.match(/loading=\{index < 4 \? "eager" : "lazy"\}/g)?.length).toBe(2);
+    expect(homeSource.match(/fetchPriority=\{index < 2 \? "high" : "low"\}/g)?.length).toBe(2);
+    expect(homeSource).toContain('draggable={false}');
+  });
+
+  it("keeps mobile marquee compositing and touch safeguards enabled", () => {
+    expect(stylesSource).toContain("transform: translate3d(0, 0, 0)");
+    expect(stylesSource).toContain("contain: layout paint");
+    expect(stylesSource).toContain("touch-action: pan-y");
+    expect(stylesSource).toContain("-webkit-text-size-adjust: 100%");
+    expect(stylesSource).toContain("@media (hover: none) and (pointer: coarse)");
   });
 });
