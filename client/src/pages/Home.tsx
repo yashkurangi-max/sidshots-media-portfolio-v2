@@ -475,7 +475,7 @@ export default function Home() {
             <span className="collage-video-count">05 / 06 · Editorial reel</span>
           </div>
           <div className="collage-video-stage">
-            <video controls autoPlay loop muted playsInline preload="metadata" src="/manus-storage/final-slide_43a9af3e.mp4" aria-label="SidshotsMedia FinalSlide motion reel" />
+            <video controls autoPlay loop muted playsInline preload="metadata" src="/manus-storage/FinalSlide_3cc02987.mp4" aria-label="SidshotsMedia FinalSlide motion reel" />
             <div className="collage-video-overlay" aria-hidden="true"><span>SidshotsMedia / Moving image</span><span>Play the reel ↗</span></div>
           </div>
           <div className="collage-video-footer">

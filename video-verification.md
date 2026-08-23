@@ -1,0 +1,1 @@
+Video verification (2026-08-23): The rendered preview at #reel visibly shows the supplied FinalSlide.mp4 inside the white-framed Frames in motion player. The player has loaded the Sidshots Media title frame and displays its native controls. The media URL responds with HTTP 200, content type video/mp4, and 1,416,488 bytes. The source is /manus-storage/FinalSlide_3cc02987.mp4.

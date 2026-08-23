@@ -306,3 +306,6 @@ Verification note: the Architecture map now uses twelve distinct architecture/in
 
 - [x] Repair the remaining broken smartwatch-on-blue-textile moving-strip image reference.
 - [x] Verify the repaired smartwatch card and push the fix to the GitHub apurwa branch.
+
+- [x] Repair the broken Frames in motion video reference using the supplied video asset.
+- [x] Verify video playback, asset paths, build, responsive layout, and sync the fix to the GitHub apurwa branch.
