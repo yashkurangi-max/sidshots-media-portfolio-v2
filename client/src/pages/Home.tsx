@@ -37,8 +37,8 @@ const photos: Photo[] = [
 
 const firstStripPhotos: Photo[] = [
   { id: "F01", title: "Pink product bottles", category: "Editorial", image: "/assets/strip-01-pink-product-bottles.webp", alt: "Pink product bottles arranged as a clean studio still life", tile: "tile-wide" },
-  { id: "F02", title: "Green and white sneakers", category: "Editorial", image: "/manus-storage/strip-02-green-white-sneakers_cfdbe427.jpg", alt: "Pair of white and green sneakers photographed against a graphic dark backdrop", tile: "tile-tall" },
-  { id: "F03", title: "White handbag", category: "Editorial", image: "/manus-storage/strip-03-white-handbag_af9b4128.jpg", alt: "White handbag styled against folded blush fabric", tile: "tile-square" },
+  { id: "F02", title: "Green and white sneakers", category: "Editorial", image: "/assets/product-product-09-sneaker-green.webp", alt: "Pair of white and green sneakers photographed against a graphic dark backdrop", tile: "tile-tall" },
+  { id: "F03", title: "White handbag", category: "Editorial", image: "/assets/product-product-07-white-handbag.webp", alt: "White handbag styled against folded blush fabric", tile: "tile-square" },
   { id: "F04", title: "Car through water", category: "Editorial", image: "/assets/strip-04-dsc03172.webp", alt: "Car driving through a wet road with water splashing around it", tile: "tile-wide" },
   { id: "F06", title: "Silver sedan on the road", category: "Editorial", image: "/assets/strip-06-dsc05298-recovered.webp", alt: "Silver sedan parked on an open road beneath a softly lit sky", tile: "tile-square" },
   { id: "F07", title: "Watch and phone flatlay", category: "Editorial", image: "/assets/strip-07-12-copy.webp", alt: "Wristwatch, smartphone, pen, and coffee arranged on a wooden desk", tile: "tile-wide" },
@@ -55,7 +55,7 @@ const movedToSecondStripPhotos: Photo[] = [
 
 const lowerStripSuppliedPhotos: Photo[] = [
   { id: "L04", title: "Graphic mascara", category: "Product", image: "/assets/20.webp", alt: "Minimal black mascara product framed against a high-contrast white and black backdrop", tile: "tile-wide" },
-  { id: "L07", title: "Lavender wash", category: "Product", image: "/manus-storage/lower-strip-07-earthyboon-aloe-product_64101a8d.jpg", alt: "Lavender hand wash bottle staged with graphic color blocks and palm leaves", tile: "tile-wide" },
+  { id: "L07", title: "Lavender wash", category: "Product", image: "/assets/product-lavender-wash.webp", alt: "Lavender hand wash bottle staged with graphic color blocks and palm leaves", tile: "tile-wide" },
 ];
 
 const suppliedVehicleStripPhotos: Photo[] = [

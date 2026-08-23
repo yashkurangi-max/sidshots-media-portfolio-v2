@@ -297,3 +297,6 @@ Verification note: the Architecture map now uses twelve distinct architecture/in
 - [x] Audit every broken portfolio image reference in the current branch and map it to a supplied asset.
 - [x] Repair the broken image paths without changing design, layout, colors, fonts, animations, or functionality.
 - [x] Test all repaired image links and push the fix to the GitHub apurwa branch.
+
+- [x] Repair the newly reported broken sneaker, handbag, and lavender-wash moving-strip image references.
+- [x] Verify the repaired strips and push the fix to the GitHub apurwa branch.
