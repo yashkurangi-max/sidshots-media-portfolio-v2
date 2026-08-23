@@ -300,3 +300,6 @@ Verification note: the Architecture map now uses twelve distinct architecture/in
 
 - [x] Repair the newly reported broken sneaker, handbag, and lavender-wash moving-strip image references.
 - [x] Verify the repaired strips and push the fix to the GitHub apurwa branch.
+
+- [x] Add the user-selected architecture interior photo to the Architecture dashboard without changing the existing design or gallery behavior.
+- [x] Verify the updated Architecture dashboard and push the change to the GitHub apurwa branch.

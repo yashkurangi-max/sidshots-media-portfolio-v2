@@ -143,7 +143,7 @@ const dashboardData = [
 const architectureSuppliedPhotos: Photo[] = [
   { id: "A13", title: "Warm timber lounge", category: "Architecture", image: "/assets/15(1).webp", alt: "Warm interior lounge with timber ceiling, white walls, and blue and yellow seating", tile: "tile-wide" },
   { id: "A14", title: "Quiet reading corner", category: "Architecture", image: "/assets/12(1).webp", alt: "Bright interior corner with a woven lounge chair, wood table, and framed artwork", tile: "tile-tall" },
-  { id: "A15", title: "Chandelier dining room", category: "Architecture", image: "/manus-storage/architecture-12-chandelier-dining-room_315747c7.jpg", alt: "Bright restaurant interior with blue seating, tall windows, and sculptural chandeliers", tile: "tile-wide" },
+  { id: "A15", title: "Chandelier dining room", category: "Architecture", image: "/assets/architecture-01-dining-room.webp", alt: "Bright restaurant interior with blue seating, tall windows, and sculptural chandeliers", tile: "tile-wide" },
   { id: "A16", title: "Poolside dining terrace", category: "Architecture", image: "/assets/14.webp", alt: "Open-air dining terrace beside a resort pool with tropical landscaping", tile: "tile-wide" },
   { id: "A17", title: "Resort cabana terrace", category: "Architecture", image: "/assets/10.webp", alt: "Resort terrace with umbrellas, daybeds, tropical foliage, and a timber-roofed building", tile: "tile-tall" },
 ];
