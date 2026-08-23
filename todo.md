@@ -269,3 +269,18 @@ Verification note: the Architecture map now uses twelve distinct architecture/in
 
 - [x] Add the seven supplied product photographs to the Product dashboard with accurate subject labels and alt text.
 - [x] Verify the expanded Product dashboard, lightbox navigation, responsive layouts, typecheck, and production build, then save a checkpoint.
+
+- [x] Inspect the project structure and inventory every portfolio photo and logo reference without changing the existing design.
+- [x] After the user supplies the originals, place assets in the correct GitHub/Vercel-compatible location and repair all broken image paths.
+- [x] Verify image and logo loading, typecheck, build, and deployment compatibility without changing existing functionality.
+
+- [x] Inspect the supplied sid-assests collection and map its photos, video, and logo to the portfolio references.
+- [x] Connect the supplied sid-assests files through stable GitHub/Vercel-compatible paths without changing design or functionality.
+- [x] Verify all connected photo, video, and logo paths and the unchanged build.
+
+- [x] Extract the SidshotsMedia logo from SMVisitingCard.pdf and use FinalSlide.mp4 as the supplied portfolio video.
+- [x] Connect the supplied photos, extracted logo, and video through stable GitHub/Vercel-compatible paths and verify every reference.
+
+- [x] Connect the supplied photos, extracted logo, and video through stable project asset paths and verify every reference.
+- [x] Externalize oversized referenced media to project storage, remove unreferenced source copies, and preserve the existing design and functionality.
+- [x] Run the final asset audit, typecheck, production build, representative URL probes, and responsive visual verification.
