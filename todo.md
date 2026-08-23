@@ -284,3 +284,6 @@ Verification note: the Architecture map now uses twelve distinct architecture/in
 - [x] Connect the supplied photos, extracted logo, and video through stable project asset paths and verify every reference.
 - [x] Externalize oversized referenced media to project storage, remove unreferenced source copies, and preserve the existing design and functionality.
 - [x] Run the final asset audit, typecheck, production build, representative URL probes, and responsive visual verification.
+
+- [x] Enlarge the SM logo inside the existing white header border without changing the surrounding layout or design.
+- [x] Verify the enlarged logo on desktop and mobile, run checks, and publish a checkpoint.
