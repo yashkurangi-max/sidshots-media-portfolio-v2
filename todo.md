@@ -321,3 +321,6 @@ Verification note: the Architecture map now uses twelve distinct architecture/in
 
 - [x] Make the SM logo mark larger again inside the existing white header box without changing the box dimensions.
 - [x] Verify the further-enlarged logo at desktop and mobile sizes, then save the update.
+
+- [x] Fix the portfolio moving photo strips so their images are visible on iPhone mobile widths without changing desktop behavior.
+- [x] Verify both moving strips at iPhone and desktop viewports, then save the mobile visibility repair.

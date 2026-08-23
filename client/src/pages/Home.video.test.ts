@@ -20,4 +20,10 @@ describe("Frames in motion video asset", () => {
     expect(stylesSource).toContain('.collage-header-logo img');
     expect(stylesSource).toContain('transform: scale(2.1)');
   });
+
+  it("eagerly loads both moving photo strips for iPhone browsers", () => {
+    expect(homeSource).toContain('moving-strip-forward');
+    expect(homeSource).toContain('moving-strip-reverse');
+    expect(homeSource.match(/<img src=\{photo\.image\} alt=\{photo\.alt\} loading="eager" decoding="async" \/>/g)?.length).toBe(2);
+  });
 });
