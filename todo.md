@@ -318,3 +318,6 @@ Verification note: the Architecture map now uses twelve distinct architecture/in
 
 - [x] Enlarge the SM logo mark inside the existing white header box without changing the surrounding header layout.
 - [x] Verify the enlarged logo at desktop and mobile sizes, then save the logo update.
+
+- [x] Make the SM logo mark larger again inside the existing white header box without changing the box dimensions.
+- [x] Verify the further-enlarged logo at desktop and mobile sizes, then save the update.

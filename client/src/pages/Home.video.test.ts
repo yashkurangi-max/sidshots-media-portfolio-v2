@@ -18,6 +18,6 @@ describe("Frames in motion video asset", () => {
 
   it("keeps the SM logo visibly enlarged inside its white header box", () => {
     expect(stylesSource).toContain('.collage-header-logo img');
-    expect(stylesSource).toContain('transform: scale(1.65)');
+    expect(stylesSource).toContain('transform: scale(2.1)');
   });
 });
