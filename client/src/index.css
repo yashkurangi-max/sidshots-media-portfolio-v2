@@ -286,9 +286,11 @@
 .collage-lightbox-viewport { overflow: hidden; width: 100%; touch-action: none; overscroll-behavior: contain; cursor: grab; }
 .collage-lightbox.is-dragging .collage-lightbox-viewport { cursor: grabbing; }
 .collage-lightbox-track { display: flex; width: 300%; will-change: transform; transition: transform .34s cubic-bezier(.22, 1, .36, 1); }
+.collage-lightbox-track.is-single { width: 100%; }
 .collage-lightbox.is-dragging .collage-lightbox-track { transition: none; }
 .collage-lightbox-track.is-resetting { transition: none; }
 .collage-lightbox-slide { display: grid; flex: 0 0 33.333333%; min-width: 0; place-items: center; }
+.collage-lightbox-track.is-single .collage-lightbox-slide { flex-basis: 100%; }
 .collage-lightbox img { width: 100%; max-height: 76vh; display: block; object-fit: contain; user-select: none; -webkit-user-drag: none; }
 .collage-lightbox-slide-current { pointer-events: none; }
 .collage-lightbox figcaption { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-top: .75rem; font-family: "Montserrat", sans-serif; font-size: .58rem; letter-spacing: .05em; text-transform: uppercase; }

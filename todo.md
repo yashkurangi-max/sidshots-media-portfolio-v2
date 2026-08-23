@@ -312,3 +312,6 @@ Verification note: the Architecture map now uses twelve distinct architecture/in
 
 - [x] Diagnose why the deployed Frames in motion video is still unavailable to the user.
 - [x] Repair the deployed video packaging or reference and verify it from the public site and GitHub apurwa branch.
+
+- [x] Fix the blank selected-photo lightbox opened from the moving photo strips.
+- [x] Verify moving-strip lightbox rendering and responsive behavior, then sync the repair to the GitHub apurwa branch.

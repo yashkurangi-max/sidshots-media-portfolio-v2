@@ -9,4 +9,9 @@ describe("Frames in motion video asset", () => {
     expect(homeSource).not.toContain('/manus-storage/FinalSlide_3cc02987.mp4');
     expect(homeSource).not.toContain('/manus-storage/final-slide_43a9af3e.mp4');
   });
+
+  it("keeps moving-strip selections in a centered single-slide lightbox track", () => {
+    expect(homeSource).toContain('dashboardPhotoIndex === null ? " is-single" : ""');
+    expect(homeSource).toContain('dashboardPhotoIndex === null ? "translate3d(0%, 0, 0)"');
+  });
 });
