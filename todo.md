@@ -303,3 +303,6 @@ Verification note: the Architecture map now uses twelve distinct architecture/in
 
 - [x] Add the user-selected architecture interior photo to the Architecture dashboard without changing the existing design or gallery behavior.
 - [x] Verify the updated Architecture dashboard and push the change to the GitHub apurwa branch.
+
+- [x] Repair the remaining broken smartwatch-on-blue-textile moving-strip image reference.
+- [x] Verify the repaired smartwatch card and push the fix to the GitHub apurwa branch.

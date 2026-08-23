@@ -48,7 +48,7 @@ const firstStripPhotos: Photo[] = [
 
 const movedToSecondStripPhotos: Photo[] = [
   { id: "F05", title: "Detoxifying face mask", category: "Editorial", image: "/assets/strip-05-detoxifying-face-mask.webp", alt: "Black detoxifying peel-off face mask tube styled on a warm wood surface", tile: "tile-tall" },
-  { id: "F08", title: "Smartwatch on blue textile", category: "Editorial", image: "/manus-storage/DSC04009_efb7c04a.webp", alt: "Smartwatch photographed against a textured blue textile background", tile: "tile-tall" },
+  { id: "F08", title: "Smartwatch on blue textile", category: "Editorial", image: "/assets/product-product-06-watch-textile.webp", alt: "Smartwatch photographed against a textured blue textile background", tile: "tile-tall" },
   { id: "F11", title: "Muddy 4x4 detail", category: "Editorial", image: "/assets/strip-11-dsc04088.webp", alt: "Close detail of a mud-covered four-wheel-drive vehicle", tile: "tile-tall" },
   { id: "F12", title: "White car on a winding road", category: "Editorial", image: "/assets/strip-12-dsc09874.webp", alt: "White car driving along a winding road lined with trees", tile: "tile-square" },
 ];
