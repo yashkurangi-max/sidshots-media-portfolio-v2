@@ -337,3 +337,7 @@ Verification note: the Architecture map now uses twelve distinct architecture/in
 
 - [x] Remove the “+ ADD PHOTO / ADD ANOTHER FRAME” tile from the Architecture, Automobile, and Product dashboards.
 - [x] Verify all three dashboards retain their photos and lightbox behavior, then save the cleanup update.
+
+- [x] Audit image payloads, loading strategy, and photo-grid rendering for full-collection visibility.
+- [x] Optimize photo delivery and rendering so all photo collections load reliably at once, especially on iPhone, without changing the design.
+- [x] Verify strips, all three dashboards, lightboxes, and iPhone behavior, then save the lightweight update.

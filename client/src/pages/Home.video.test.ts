@@ -21,12 +21,18 @@ describe("Frames in motion video asset", () => {
     expect(stylesSource).toContain('transform: scale(2.1)');
   });
 
-  it("prioritizes the first moving-strip frames without loading every duplicate at once", () => {
+  it("loads every unique moving-strip frame while keeping duplicate marquee copies low-priority", () => {
     expect(homeSource).toContain('moving-strip-forward');
     expect(homeSource).toContain('moving-strip-reverse');
-    expect(homeSource.match(/loading=\{index < 4 \? "eager" : "lazy"\}/g)?.length).toBe(2);
+    expect(homeSource).toContain('loading={index < stripOne.length ? "eager" : "lazy"}');
+    expect(homeSource).toContain('loading={index < stripTwo.length ? "eager" : "lazy"}');
     expect(homeSource.match(/fetchPriority=\{index < 2 \? "high" : "low"\}/g)?.length).toBe(2);
     expect(homeSource).toContain('draggable={false}');
+  });
+
+  it("eagerly loads photos when a dashboard is opened", () => {
+    expect(homeSource).toContain('loading="eager" decoding="async"');
+    expect(homeSource).toContain('dashboardPhotos.map');
   });
 
   it("keeps mobile marquee compositing and touch safeguards enabled", () => {
