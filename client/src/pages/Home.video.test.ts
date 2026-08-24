@@ -45,3 +45,13 @@ describe("Dashboard category assignments", () => {
     expect(homeSource).not.toContain('architectureSuppliedPhotos[3]');
   });
 });
+
+
+describe("Product dashboard duplicate prevention", () => {
+  it("keeps the monochrome mascara asset as a single Product entry", () => {
+    const mascaraAsset = '/assets/20.webp';
+    expect(homeSource.match(new RegExp(mascaraAsset.replace('.', '\\.'), 'g'))?.length).toBe(1);
+    expect(homeSource).toContain('id: "L04", title: "Graphic mascara"');
+    expect(homeSource).not.toContain('title: "Monochrome mascara"');
+  });
+});

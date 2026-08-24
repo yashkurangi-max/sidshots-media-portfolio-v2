@@ -331,3 +331,6 @@ Verification note: the Architecture map now uses twelve distinct architecture/in
 
 - [x] Remove the screenshot-matched lipstick product photo from the Architecture dashboard.
 - [x] Add the same lipstick product photo to the Product dashboard and verify both category assignments.
+
+- [x] Remove the duplicate monochrome mascara photo from the Product dashboard while preserving one copy.
+- [x] Verify the Product dashboard, asset references, lightbox, and responsive layout after the removal.

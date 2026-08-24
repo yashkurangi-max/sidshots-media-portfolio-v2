@@ -126,7 +126,6 @@ const productPhotos: Photo[] = [
   { id: "P12", title: "Watch detail", category: "Product", image: "/assets/product-product-10-watch-still-life.webp", alt: "Close product detail of a smartwatch styled with chess pieces", tile: "tile-square" },
   { id: "P13", title: "Bold lipliner study", category: "Product", image: "/assets/14.webp", alt: "Red and brown lipliner pencils arranged as a graphic beauty still life", tile: "tile-wide" },
   { id: "P14", title: "Pink nail lacquer", category: "Product", image: "/assets/15(2).webp", alt: "Pink nail lacquer bottles arranged against a soft pink studio background", tile: "tile-tall" },
-  { id: "P15", title: "Monochrome mascara", category: "Product", image: "/assets/20.webp", alt: "Silver mascara tube and wand photographed on a monochrome grey set", tile: "tile-square" },
   { id: "P16", title: "Graphic mascara", category: "Product", image: "/assets/19.webp", alt: "Black mascara tube and wand arranged against pink and coral color blocks", tile: "tile-wide" },
   { id: "P17", title: "Blue hour watch", category: "Product", image: "/assets/13.webp", alt: "Metal chronograph watch styled on deep blue satin fabric", tile: "tile-tall" },
   { id: "P18", title: "Floral lip gloss", category: "Product", image: "/assets/17.webp", alt: "Small lip gloss bottle framed by tropical leaves and flowers on a pink set", tile: "tile-square" },
