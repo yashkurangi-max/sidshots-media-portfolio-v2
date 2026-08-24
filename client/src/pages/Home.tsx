@@ -124,8 +124,8 @@ const productPhotos: Photo[] = [
   { id: "P10", title: "Graphic mascara", category: "Product", image: lowerStripSuppliedPhotos[0].image, alt: lowerStripSuppliedPhotos[0].alt, tile: "tile-wide" },
   { id: "P11", title: "Lavender wash", category: "Product", image: lowerStripSuppliedPhotos[1].image, alt: lowerStripSuppliedPhotos[1].alt, tile: "tile-tall" },
   { id: "P12", title: "Watch detail", category: "Product", image: "/assets/product-product-10-watch-still-life.webp", alt: "Close product detail of a smartwatch styled with chess pieces", tile: "tile-square" },
-  { id: "P13", title: "Pink nail lacquer", category: "Product", image: "/assets/14.webp", alt: "Pink nail lacquer bottles arranged against a soft pink studio background", tile: "tile-wide" },
-  { id: "P14", title: "Bold lipliner study", category: "Product", image: "/assets/15(2).webp", alt: "Red and brown lipliner pencils arranged as a graphic beauty still life", tile: "tile-tall" },
+  { id: "P13", title: "Bold lipliner study", category: "Product", image: "/assets/14.webp", alt: "Red and brown lipliner pencils arranged as a graphic beauty still life", tile: "tile-wide" },
+  { id: "P14", title: "Pink nail lacquer", category: "Product", image: "/assets/15(2).webp", alt: "Pink nail lacquer bottles arranged against a soft pink studio background", tile: "tile-tall" },
   { id: "P15", title: "Monochrome mascara", category: "Product", image: "/assets/20.webp", alt: "Silver mascara tube and wand photographed on a monochrome grey set", tile: "tile-square" },
   { id: "P16", title: "Graphic mascara", category: "Product", image: "/assets/19.webp", alt: "Black mascara tube and wand arranged against pink and coral color blocks", tile: "tile-wide" },
   { id: "P17", title: "Blue hour watch", category: "Product", image: "/assets/13.webp", alt: "Metal chronograph watch styled on deep blue satin fabric", tile: "tile-tall" },
@@ -149,7 +149,7 @@ const architectureSuppliedPhotos: Photo[] = [
 ];
 
 const dashboardPhotoMap: Record<(typeof dashboardData)[number]["category"], Photo[]> = {
-  Architecture: [photos[0], photos[2], photos[3], photos[5], photos[7], photos[9], architectureSuppliedPhotos[0], architectureSuppliedPhotos[1], photos[6], photos[8], photos[10], architectureSuppliedPhotos[2], architectureSuppliedPhotos[3], architectureSuppliedPhotos[4]],
+  Architecture: [photos[0], photos[2], photos[3], photos[5], photos[7], photos[9], architectureSuppliedPhotos[0], architectureSuppliedPhotos[1], photos[6], photos[8], photos[10], architectureSuppliedPhotos[2], architectureSuppliedPhotos[4]],
   Automobile: [...vehiclePhotos, ...suppliedAutomobilePhotos],
   Product: productPhotos,
 };

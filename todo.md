@@ -328,3 +328,6 @@ Verification note: the Architecture map now uses twelve distinct architecture/in
 - [x] Audit the portfolio for iPhone scrolling, animation, image-loading, touch, overflow, and runtime glitches.
 - [x] Apply targeted mobile smoothness fixes without changing the visual design or desktop behavior.
 - [x] Verify the portfolio at iPhone and desktop sizes, run checks, and save the mobile smoothness update.
+
+- [x] Remove the screenshot-matched lipstick product photo from the Architecture dashboard.
+- [x] Add the same lipstick product photo to the Product dashboard and verify both category assignments.

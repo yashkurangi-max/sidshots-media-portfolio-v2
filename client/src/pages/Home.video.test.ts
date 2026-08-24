@@ -37,3 +37,11 @@ describe("Frames in motion video asset", () => {
     expect(stylesSource).toContain("@media (hover: none) and (pointer: coarse)");
   });
 });
+
+describe("Dashboard category assignments", () => {
+  it("keeps the screenshot-matched lipliner photo in Product only", () => {
+    expect(homeSource).toContain('id: "P13", title: "Bold lipliner study", category: "Product", image: "/assets/14.webp"');
+    expect(homeSource).toContain('Architecture: [photos[0], photos[2], photos[3], photos[5], photos[7], photos[9], architectureSuppliedPhotos[0], architectureSuppliedPhotos[1], photos[6], photos[8], photos[10], architectureSuppliedPhotos[2], architectureSuppliedPhotos[4]]');
+    expect(homeSource).not.toContain('architectureSuppliedPhotos[3]');
+  });
+});
