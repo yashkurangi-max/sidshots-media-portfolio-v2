@@ -55,3 +55,14 @@ describe("Product dashboard duplicate prevention", () => {
     expect(homeSource).not.toContain('title: "Monochrome mascara"');
   });
 });
+
+
+describe("Dashboard add-photo tile removal", () => {
+  it("does not render the add-photo tile or hidden file picker", () => {
+    expect(homeSource).not.toContain("dashboard-add-tile");
+    expect(homeSource).not.toContain("dashboardFileInputRef");
+    expect(homeSource).not.toContain("openDashboardFilePicker");
+    expect(homeSource).not.toContain("handleDashboardFilesSelected");
+    expect(homeSource).toContain("{dashboardPhotos.map");
+  });
+});

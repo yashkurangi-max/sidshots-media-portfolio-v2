@@ -334,3 +334,6 @@ Verification note: the Architecture map now uses twelve distinct architecture/in
 
 - [x] Remove the duplicate monochrome mascara photo from the Product dashboard while preserving one copy.
 - [x] Verify the Product dashboard, asset references, lightbox, and responsive layout after the removal.
+
+- [x] Remove the “+ ADD PHOTO / ADD ANOTHER FRAME” tile from the Architecture, Automobile, and Product dashboards.
+- [x] Verify all three dashboards retain their photos and lightbox behavior, then save the cleanup update.

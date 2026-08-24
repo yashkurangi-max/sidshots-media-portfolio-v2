@@ -169,7 +169,6 @@ export default function Home() {
   const [isCarouselResetting, setIsCarouselResetting] = useState(false);
   const dashboardTouchStart = useRef<{ x: number; y: number } | null>(null);
   const lightboxPointerStart = useRef<{ x: number; y: number; pointerId: number; axis: "none" | "horizontal" | "vertical" } | null>(null);
-  const dashboardFileInputRef = useRef<HTMLInputElement>(null);
   const lightboxFigureRef = useRef<HTMLElement>(null);
   const [lightboxGutters, setLightboxGutters] = useState({ left: 0, right: 0 });
   const visiblePhotos = useMemo(() => activeCategory === "All" ? photos : photos.filter((photo) => photo.category === activeCategory), [activeCategory]);
@@ -239,18 +238,6 @@ export default function Home() {
   function openDashboardPhoto(photo: Photo, index: number) {
     setDashboardPhotoIndex(index);
     setSelectedPhoto(photo);
-  }
-
-  function openDashboardFilePicker() {
-    dashboardFileInputRef.current?.click();
-  }
-
-  function handleDashboardFilesSelected(event: React.ChangeEvent<HTMLInputElement>) {
-    const files = Array.from(event.target.files ?? []);
-    if (files.length > 0 && selectedDashboard) {
-      toast.success(`${files.length} photo${files.length === 1 ? "" : "s"} selected for the ${selectedDashboard.category} archive.`);
-    }
-    event.target.value = "";
   }
 
   function navigateDashboardPhoto(direction: number) {
@@ -519,7 +506,6 @@ export default function Home() {
           <span>{selectedDashboard.index} / {selectedDashboard.category}</span>
           <button className="dashboard-detail-close" onClick={closeDashboard} aria-label="Close dashboard"><X size={17} /> <span>Close</span></button>
         </div>
-                  <input ref={dashboardFileInputRef} className="dashboard-file-input" type="file" accept="image/*" multiple onChange={handleDashboardFilesSelected} aria-label={`Choose photos for the ${selectedDashboard.category} archive`} />
           <div className="dashboard-detail-intro">
 
           <div>
@@ -531,7 +517,6 @@ export default function Home() {
         </div>
         <div className="dashboard-board-grid">
           {dashboardPhotos.map((photo, index) => <button className="dashboard-board-tile" key={`${selectedDashboard.category}-${photo.id}-${index}`} onClick={() => openDashboardPhoto(photo, index)} aria-label={`Open ${photo.title}`}><img src={photo.image} alt={photo.alt} loading="lazy" decoding="async" /><span className="dashboard-board-index">{String(index + 1).padStart(2, "0")}</span><span className="dashboard-board-title">{photo.title}</span></button>)}
-          <button type="button" className="dashboard-add-tile" onClick={openDashboardFilePicker} aria-label={`Add photos to the ${selectedDashboard.category} archive`}><strong>+</strong><span>Add photo</span><small>Add another frame</small></button>
         </div>
       </div>}
 
